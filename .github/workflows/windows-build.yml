@@ -39,3 +39,17 @@ jobs:
 
       - name: Localization regression checks
         run: dotnet run --project tests/LocalizationChecks/LocalizationChecks.csproj --configuration Release
+
+      - name: Core page theme regression checks
+        run: dotnet run --project tests/ThemeCoverageChecks/ThemeCoverageChecks.csproj --configuration Release
+
+      - name: Publish Windows verification build
+        run: dotnet publish VioletToolBox/SmartTool.csproj --configuration Release --no-restore -p:GeneratePackageOnBuild=false --output "${{ runner.temp }}/VioletToolBox-modern-shell"
+
+      - name: Upload Windows verification build
+        uses: actions/upload-artifact@v4
+        with:
+          name: VioletToolBox-modern-shell-win-x64
+          path: ${{ runner.temp }}/VioletToolBox-modern-shell/
+          if-no-files-found: error
+          retention-days: 14
