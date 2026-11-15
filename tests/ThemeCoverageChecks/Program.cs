@@ -67,7 +67,7 @@ foreach (PageCheck check in pages)
     }
 
     string pageXaml = page.ToString(SaveOptions.DisableFormatting);
-    var uses = Regex.Matches(pageXaml, @"\\{DynamicResource (?<key>App[A-Za-z0-9]+)\\}");
+    var uses = Regex.Matches(pageXaml, Regex.Escape("{DynamicResource ") + @"(?<key>App[A-Za-z0-9]+)" + Regex.Escape("}"));
     Check(uses.Count >= 18,
         $"{check.RootName} still lacks page-level theme coverage: {uses.Count} tokens");
 
