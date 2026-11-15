@@ -24,6 +24,17 @@ namespace WpfApp1
             new Dictionary<string, string>(StringComparer.Ordinal)
             {
                 // Shell and navigation
+                // Theme controls
+                ["主题与强调色"] = "Theme & Accent",
+                ["主题"] = "Theme",
+                ["强调色"] = "Accent Color",
+                ["跟随 Windows 系统强调色"] = "Follow Windows Accent",
+                ["固定紫罗兰色"] = "Violet Default",
+                ["界面主题"] = "Appearance",
+                ["跟随系统"] = "Follow System",
+                ["浅色"] = "Light",
+                ["深色"] = "Dark",
+
                 ["紫罗兰工具箱"] = "Violet Toolbox",
                 ["主页"] = "Home",
                 ["投屏"] = "Screen",
@@ -478,6 +489,17 @@ namespace WpfApp1
             new Dictionary<string, string>(StringComparer.Ordinal)
             {
                 // Shell and navigation
+                // Theme controls
+                ["主题与强调色"] = "テーマとアクセントカラー",
+                ["主题"] = "テーマ",
+                ["强调色"] = "アクセントカラー",
+                ["跟随 Windows 系统强调色"] = "Windows のアクセントカラーに従う",
+                ["固定紫罗兰色"] = "バイオレットを固定",
+                ["界面主题"] = "外観テーマ",
+                ["跟随系统"] = "システムに従う",
+                ["浅色"] = "ライト",
+                ["深色"] = "ダーク",
+
                 ["紫罗兰工具箱"] = "紫羅蘭ツールボックス",
                 ["主页"] = "ホーム",
                 ["投屏"] = "画面ミラーリング",
@@ -1160,7 +1182,7 @@ namespace WpfApp1
         // Japanese reader, so the Japanese UI is switched to a Japanese face that still covers the
         // Chinese characters used for device names and other pass-through text.
         //
-        // Note: the sidebar column width deliberately stays at its authored 130px. Widening it
+        // Note: the sidebar column width is 168px after the modern shell update. Widening it
         // for longer translated labels shifts and narrows the whole content area (the right-hand
         // cards lose ~26px and the inner columns ~46px), which visibly unsettles the layout.
         private static string? UiFontFamilyFor(UiLanguage language) => language switch
