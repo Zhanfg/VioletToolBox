@@ -269,6 +269,16 @@ public static class ThemeManager
         SetBrush("AppWarningBrush", Color.FromRgb(0xD9, 0x77, 0x06));
         SetBrush("AppDangerBrush", Color.FromRgb(0xDC, 0x26, 0x26));
         SetBrush("AppInputBackgroundBrush", isDark ? surfaceAlt : Colors.White);
+        // Page-level palette shared by flashing, EDL, screen mirroring and recovery tools.
+        // Keep semantic danger/warning colors distinct from the selectable accent.
+        SetBrush("AppHoverSurfaceBrush", Blend(surfaceAlt, accent, isDark ? 0.12 : 0.055));
+        SetBrush("AppSelectedRowBrush", accentSubtle);
+        SetBrush("AppAccentBorderBrush", Blend(border, accent, isDark ? 0.40 : 0.26));
+        SetBrush("AppDisabledSurfaceBrush", isDark ? Color.FromRgb(0x30, 0x36, 0x40) : Color.FromRgb(0xE9, 0xEC, 0xF1));
+        SetBrush("AppDisabledTextBrush", isDark ? Color.FromRgb(0x87, 0x90, 0x9F) : Color.FromRgb(0x94, 0x9D, 0xAC));
+        SetBrush("AppDangerSurfaceBrush", Blend(surface, Color.FromRgb(0xDC, 0x26, 0x26), isDark ? 0.18 : 0.08));
+        SetBrush("AppOverlayBrush", isDark ? Color.FromArgb(0xDA, 0x11, 0x14, 0x1A) : Color.FromArgb(0xDD, 0xFF, 0xFF, 0xFF));
+        _palette["AppAccentSoftColor"] = Blend(accent, isDark ? Colors.Black : Colors.White, isDark ? 0.42 : 0.66);
         _palette["AppAccentColor"] = accent;
         _palette["AppIsDark"] = isDark;
     }
