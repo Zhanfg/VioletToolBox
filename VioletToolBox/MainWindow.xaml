@@ -12,6 +12,9 @@
 	Title="紫罗兰工具箱"
 	WindowStyle="None"
 	AllowsTransparency="True"
+    ResizeMode="CanResize"
+    MinWidth="760"
+    MinHeight="560"
 	Background="#00FFFFFF"
 	UseLayoutRounding="True"
 	SnapsToDevicePixels="True"
@@ -480,9 +483,10 @@
             </Style>
         </ResourceDictionary>
     </FrameworkElement.Resources>
-    <Viewbox Stretch="Uniform">
-        <Border
-            Width="1000" Height="800"
+    <!-- Native WPF layout: no whole-window Viewbox scaling. -->
+    <Border
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
             Background="{DynamicResource AppWindowBackgroundBrush}"
             TextElement.Foreground="{DynamicResource AppTextBrush}"
             CornerRadius="20"
@@ -495,10 +499,12 @@
                     <ColumnDefinition Width="390*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="103*"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="34"/>
                 </Grid.RowDefinitions>
                 <Border
+                    Grid.Row="0"
                     Height="36"
                     VerticalAlignment="Top"
                     Background="{DynamicResource AppTitleBarBackgroundBrush}"
@@ -589,8 +595,8 @@
                         </Button>
                     </Grid>
                 </Border>
-                <Grid
-				Margin="10,36,-13,34" Grid.RowSpan="2" Grid.ColumnSpan="2" Cursor="">
+                <Grid Grid.Row="1"
+                    Margin="8,0,8,0" Grid.ColumnSpan="2" Cursor="">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
 						Width="168" />
@@ -867,9 +873,19 @@
                             </hc:SideMenu>
                         </ScrollViewer>
                     </Border>
-                    <Grid
-					Column="1"
-					Margin="14,14,18,0">
+                    <!-- Shared scroll host keeps fixed-size legacy tools accessible. -->
+                    <ScrollViewer x:Name="PageViewport"
+                                  Grid.Column="1"
+                                  Margin="14,10,12,10"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  PanningMode="Both"
+                                  CanContentScroll="False">
+                        <Grid x:Name="ResponsivePageCanvas"
+                              MinWidth="900" MinHeight="750"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Width="{Binding ElementName=PageViewport,Path=ViewportWidth}">
                         <Grid
 				Name="HomeView"
 				Visibility="Collapsed">
@@ -10779,6 +10795,7 @@
 
                         </Grid>
                     </Grid>
+                    </ScrollViewer>
                 </Grid>
                 <Border
                     Height="34"
@@ -10788,9 +10805,14 @@
                     BorderThickness="0,1,0,0"
                     CornerRadius="0,0,20,20"
                     Margin="0"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Grid.ColumnSpan="2">
                     <Grid Cursor="">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
@@ -10898,7 +10920,7 @@
                         Orientation="Horizontal"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Margin="466,0,0,0">
+                        Grid.Column="1" Margin="8,0,8,0">
                             <Ellipse
                             Name="BottomConnectionStatusIndicator"
                             Width="8"
@@ -10926,7 +10948,7 @@
                         </StackPanel>
 
                         <!-- 右下角的设备管理器按钮 -->
-                        <StackPanel
+                        <StackPanel Grid.Column="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -11052,8 +11074,33 @@
 
 
 
-                <!-- 启动时的初始化遮罩层 -->
-                <Grid x:Name="LoadingOverlay" Panel.ZIndex="999" Visibility="Collapsed" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                                 <!-- Resize grip for the borderless transparent window -->
+                 <Thumb x:Name="WindowResizeThumb"
+                        Grid.Row="2" Grid.ColumnSpan="2"
+                        Panel.ZIndex="500"
+                        Width="18" Height="18"
+                        Margin="0,0,3,2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Cursor="SizeNWSE"
+                        Focusable="False"
+                        DragDelta="WindowResizeThumb_DragDelta"
+                        ToolTip="拖动调整窗口大小">
+                    <Thumb.Template>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Grid Background="Transparent">
+                                <Path Data="M 5,14 L 14,5 M 10,14 L 14,10"
+                                      Stroke="{DynamicResource AppMutedTextBrush}"
+                                      StrokeThickness="1.4"
+                                      StrokeStartLineCap="Round"
+                                      StrokeEndLineCap="Round"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Thumb.Template>
+                 </Thumb>
+
+<!-- 启动时的初始化遮罩层 -->
+                <Grid x:Name="LoadingOverlay" Panel.ZIndex="999" Visibility="Collapsed" Grid.RowSpan="3" Grid.ColumnSpan="2">
                     <Grid.Background>
                         <SolidColorBrush Color="#E5FFFFFF" />
                     </Grid.Background>
@@ -11063,7 +11110,7 @@
                     </Grid.Effect>
                 </Grid>
                 <!-- 前景内容层，为了防止前景也被模糊，单独放一个覆盖层显示文字和加载圈 -->
-                <Grid x:Name="LoadingContent" Panel.ZIndex="1000" Visibility="Collapsed" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+                <Grid x:Name="LoadingContent" Panel.ZIndex="1000" Visibility="Collapsed" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="Transparent">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Text="正在初始化程序环境..." FontSize="18" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,0,0,20"/>
                         <hc:LoadingCircle IsRunning="True" DotSpeed="3" DotDiameter="8" Foreground="#FFB876DD" Margin="0,0,0,0"/>
@@ -11072,5 +11119,4 @@
 
             </Grid>
         </Border>
-    </Viewbox>
 </Window>
