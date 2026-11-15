@@ -24,6 +24,14 @@ namespace WpfApp1
             new Dictionary<string, string>(StringComparer.Ordinal)
             {
                 // Shell and navigation
+                // P5 accessible page/action labels
+                ["隐藏环境"] = "Hidden Environment",
+                ["Payload"] = "Payload",
+                ["重启系统"] = "Reboot System",
+                ["执行自动 ROOT"] = "Start Auto Root",
+                ["执行 AVB 签名"] = "Sign AVB",
+                ["部署隐藏环境"] = "Deploy Environment",
+                ["选择 Payload 输入"] = "Choose Payload Input",
                 // Theme controls
                 ["最小化"] = "Minimize",
                 ["拖动调整窗口大小"] = "Drag to resize window",
@@ -493,6 +501,14 @@ namespace WpfApp1
             new Dictionary<string, string>(StringComparer.Ordinal)
             {
                 // Shell and navigation
+                // P5 accessible page/action labels
+                ["隐藏环境"] = "環境設定",
+                ["Payload"] = "Payload",
+                ["重启系统"] = "システムを再起動",
+                ["执行自动 ROOT"] = "自動 ROOT を実行",
+                ["执行 AVB 签名"] = "AVB 署名を実行",
+                ["部署隐藏环境"] = "環境を適用",
+                ["选择 Payload 输入"] = "Payload 入力を選択",
                 // Theme controls
                 ["最小化"] = "最小化",
                 ["拖动调整窗口大小"] = "ドラッグしてウィンドウサイズを変更",
