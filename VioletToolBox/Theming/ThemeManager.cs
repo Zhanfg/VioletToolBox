@@ -13,6 +13,7 @@ using Microsoft.Win32;
 using Color = System.Windows.Media.Color;
 using Application = System.Windows.Application;
 using ContextMenu = System.Windows.Controls.ContextMenu;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace WpfApp1.Theming;
 
