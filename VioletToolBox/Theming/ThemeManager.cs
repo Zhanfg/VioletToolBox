@@ -425,8 +425,10 @@ public static class ThemeManager
         }
     }
 
-    private sealed class Preferences
+    public sealed class Preferences
     {
+        public Preferences() { }
+
         public AccentMode AccentMode { get; set; } = AccentMode.Violet;
         public ThemeMode ThemeMode { get; set; } = ThemeMode.System;
     }
