@@ -247,6 +247,10 @@ public static class ThemeManager
         SetBrush("AppSurfaceBrush", surface);
         SetBrush("AppSurfaceAltBrush", surfaceAlt);
         SetBrush("AppSidebarBackgroundBrush", surfaceAlt);
+        SetBrush("AppTitleBarBackgroundBrush", surface);
+        SetBrush("AppTitleBarHoverBrush", accentSubtle);
+        SetBrush("AppNavSelectedBackgroundBrush", accentSubtle);
+        SetBrush("AppNavSelectedForegroundBrush", accent);
         SetBrush("AppStatusBarBackgroundBrush", surfaceAlt);
         SetBrush("AppTextBrush", primaryText);
         SetBrush("AppMutedTextBrush", secondaryText);
