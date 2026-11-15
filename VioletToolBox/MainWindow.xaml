@@ -882,10 +882,37 @@
                                   PanningMode="Both"
                                   CanContentScroll="False">
                         <Grid x:Name="ResponsivePageCanvas"
-                              MinWidth="900" MinHeight="750"
+                              MinHeight="750"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch"
                               Width="{Binding ElementName=PageViewport,Path=ViewportWidth}">
+                            <!-- Each page can lower its own minimum width while the
+                                 scroll host still protects fixed-width legacy tools. -->
+                            <Grid.Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Setter Property="MinWidth" Value="900"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=HomeView,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="820"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=BackupAssistantView,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="700"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=AppManagementView,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="840"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=VioletDownloadView,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="840"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=RomDownloadview,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="830"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ElementName=DownloadView,Path=Visibility}" Value="Visible">
+                                            <Setter Property="MinWidth" Value="870"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
                         <Grid
 				Name="HomeView"
 				Visibility="Collapsed">
