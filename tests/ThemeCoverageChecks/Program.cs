@@ -254,7 +254,7 @@ foreach (string pageName in p5Pages)
         el.Name.LocalName == "Grid" &&
         el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == pageName))
         ?? throw new InvalidOperationException($"Missing P5 page {pageName}");
-    Check(page.Attributes().Any(a => a.Name.LocalName == "TabNavigation" && a.Value == "Continue"),
+    Check(page.Attributes().Any(a => a.Name.LocalName == "KeyboardNavigation.TabNavigation" && a.Value == "Continue"),
         $"{pageName} must retain keyboard navigation");
     Check(page.Attributes().Any(a => a.Name.LocalName == "AutomationProperties.Name" &&
         !string.IsNullOrWhiteSpace(a.Value)),
