@@ -9,6 +9,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using Color = System.Windows.Media.Color;
 
 namespace WpfApp1.Theming;
 
