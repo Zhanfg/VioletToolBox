@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Globalization;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -447,9 +448,58 @@ public static class ThemeCommands
             {
                 menu.PlacementTarget = element;
                 menu.Placement = PlacementMode.Bottom;
+                TranslateMenuItems(menu);
                 menu.IsOpen = true;
             }
         });
+
+    private static void TranslateMenuItems(ItemsControl parent)
+    {
+        foreach (object item in parent.Items)
+        {
+            if (item is not MenuItem menuItem)
+            {
+                continue;
+            }
+
+            if (menuItem.Tag is string sourceText)
+            {
+                menuItem.Header = TranslateMenuText(sourceText);
+            }
+
+            TranslateMenuItems(menuItem);
+        }
+    }
+
+    private static string TranslateMenuText(string sourceText)
+    {
+        return CultureInfo.CurrentUICulture.TwoLetterISOLanguageName switch
+        {
+            "en" => sourceText switch
+            {
+                "强调色" => "Accent Color",
+                "跟随 Windows 系统强调色" => "Follow Windows accent",
+                "固定紫罗兰色" => "Use Violet",
+                "界面主题" => "Appearance",
+                "跟随系统" => "Follow system",
+                "浅色" => "Light",
+                "深色" => "Dark",
+                _ => sourceText
+            },
+            "ja" => sourceText switch
+            {
+                "强调色" => "アクセントカラー",
+                "跟随 Windows 系统强调色" => "Windows のアクセントカラーに従う",
+                "固定紫罗兰色" => "バイオレットを固定",
+                "界面主题" => "外観テーマ",
+                "跟随系统" => "システムに従う",
+                "浅色" => "ライト",
+                "深色" => "ダーク",
+                _ => sourceText
+            },
+            _ => sourceText
+        };
+    }
 
     public static ICommand UseWindowsAccentCommand { get; } =
         new DelegateCommand(_ => ThemeManager.SetAccentMode(AccentMode.Windows));
