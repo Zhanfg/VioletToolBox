@@ -4779,6 +4779,21 @@
                         Visibility="Collapsed"
                         Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+
                                 <Style x:Key="VioletCardStyle" TargetType="Border">
                                     <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
                                     <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
@@ -5459,6 +5474,22 @@
                         <Grid
                         Name="SystemZoneView" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed" Cursor="" Background="{DynamicResource AppWindowBackgroundBrush}">
+                            <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+                            </Grid.Resources>
                             <Border
                                     Background="{DynamicResource AppSurfaceAltBrush}"
                                     CornerRadius="10"
@@ -5851,8 +5882,25 @@
                         Name="DownloadView" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed"
                         d:Visibility="Collapsed" Cursor="" Background="{DynamicResource AppWindowBackgroundBrush}">
+                            <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+                            </Grid.Resources>
                             <ScrollViewer
-                            VerticalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalScrollBarVisibility="Auto"
                             PanningMode="None">
                                 <Grid>
                                     <Border
@@ -6385,6 +6433,21 @@
                         Visibility="Collapsed"
                         Margin="12" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+
                                 <Style x:Key="RomSectionStyle"
                                        TargetType="{x:Type GroupBox}"
                                        BasedOn="{StaticResource PayloadGroupBoxStyle}">
@@ -8321,6 +8384,22 @@
 
                         <!-- 备份助手视图 -->
                         <Grid Name="BackupAssistantView" TextElement.Foreground="{DynamicResource AppTextBrush}" Visibility="Collapsed" Margin="12,0,12,12" Background="{DynamicResource AppWindowBackgroundBrush}">
+                            <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+                            </Grid.Resources>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="10"/>
@@ -8845,6 +8924,22 @@
                         Visibility="Collapsed"
                         Background="{DynamicResource AppWindowBackgroundBrush}"
                         Margin="0,-4,0,0">
+                            <Grid.Resources>
+                                <!-- P4: shared runtime control palette; explicit page styles remain authoritative. -->
+                                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource CorePageTextBoxStyle}"/>
+                                <Style TargetType="{x:Type RichTextBox}" BasedOn="{StaticResource CorePageRichTextBoxStyle}"/>
+                                <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource CorePageComboBoxStyle}"/>
+                                <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource CorePageListBoxStyle}"/>
+                                <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource CorePageDataGridStyle}"/>
+                                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource CorePageDataGridHeaderStyle}"/>
+                                <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource CorePageGroupBoxStyle}"/>
+                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CorePageButtonStyle}"/>
+                                <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CorePageCheckBoxStyle}"/>
+                                <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource CorePageRadioButtonStyle}"/>
+                                <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CorePageLabelStyle}"/>
+                                <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource CorePageProgressBarStyle}"/>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CorePageTextBlockStyle}"/>
+                            </Grid.Resources>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="12"/>
