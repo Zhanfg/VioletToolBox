@@ -1,0 +1,38 @@
+name: Windows Build
+
+on:
+  push:
+    branches:
+      - main
+      - "ui/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build WPF application
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore VioletToolBox.sln
+
+      - name: Build
+        run: dotnet build VioletToolBox.sln --configuration Release --no-restore
