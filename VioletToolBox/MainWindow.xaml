@@ -914,8 +914,8 @@
                                 </Style>
                             </Grid.Style>
                         <Grid
-				Name="HomeView"
-				Visibility="Collapsed">
+				Name="HomeView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue"
+				Visibility="Collapsed" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
                                 <Style x:Key="HomeCardStyle" TargetType="Border">
                                     <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
@@ -992,7 +992,7 @@
                                                 <Border x:Name="PART_Border"
                                                         Width="42"
                                                         Height="22"
-                                                        Background="#FFB8C2CC"
+                                                        Background="{DynamicResource AppDisabledSurfaceBrush}"
                                                         CornerRadius="11">
                                                     <VisualStateManager.VisualStateGroups>
                                                         <VisualStateGroup x:Name="CheckStates">
@@ -1029,7 +1029,7 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsChecked" Value="True">
-                                                        <Setter Property="Background" TargetName="PART_Border" Value="#FF28A745"/>
+                                                        <Setter Property="Background" TargetName="PART_Border" Value="{DynamicResource AppSuccessBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -1099,7 +1099,7 @@
                                                     <TextBlock x:Name="ABPartitionText" Grid.Row="0" Grid.Column="3" Text="--" VerticalAlignment="Center" Foreground="#FF8BC34A" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
 
                                                     <TextBlock Grid.Row="1" Grid.Column="0" Text="连接类型:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,10,5" />
-                                                    <TextBlock x:Name="ConnectionTypeText" Grid.Row="1" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="#FF2196F3" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock x:Name="ConnectionTypeText" Grid.Row="1" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="{DynamicResource AppAccentBrush}" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
                                                     <TextBlock Grid.Row="1" Grid.Column="2" Text="CPU厂家:" FontWeight="Bold" VerticalAlignment="Center" Margin="12,5,10,5" />
                                                     <TextBlock x:Name="CpuManufacturerText" Grid.Row="1" Grid.Column="3" Text="--" VerticalAlignment="Center" Foreground="#FFB737CC" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
 
@@ -1121,13 +1121,13 @@
                                                     <TextBlock Grid.Row="5" Grid.Column="0" Text="安卓版本:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,10,5" />
                                                     <TextBlock x:Name="AndroidVersionText" Grid.Row="5" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="#FF00BCD4" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
                                                     <TextBlock Grid.Row="5" Grid.Column="2" Text="SELinux:" FontWeight="Bold" VerticalAlignment="Center" Margin="12,5,10,5" />
-                                                    <TextBlock x:Name="SelinuxStatusText" Grid.Row="5" Grid.Column="3" Text="--" VerticalAlignment="Center" Foreground="#FF2196F3" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock x:Name="SelinuxStatusText" Grid.Row="5" Grid.Column="3" Text="--" VerticalAlignment="Center" Foreground="{DynamicResource AppAccentBrush}" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
 
                                                     <TextBlock Grid.Row="6" Grid.Column="0" Text="解锁状态:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,10,5" />
                                                     <TextBlock x:Name="UnlockStatusText" Grid.Row="6" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="#FFE91E63" FontWeight="Bold" TextTrimming="CharacterEllipsis" />
 
                                                     <TextBlock Grid.Row="7" Grid.Column="0" Text="版本信息:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,10,5" />
-                                                    <TextBlock x:Name="VersionInfoText" Grid.Row="7" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="#FF2196F3" FontWeight="Bold" TextTrimming="CharacterEllipsis" Grid.ColumnSpan="3" />
+                                                    <TextBlock x:Name="VersionInfoText" Grid.Row="7" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="{DynamicResource AppAccentBrush}" FontWeight="Bold" TextTrimming="CharacterEllipsis" Grid.ColumnSpan="3" />
 
                                                     <TextBlock Grid.Row="8" Grid.Column="0" Text="内核版本:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,10,5" />
                                                     <TextBlock x:Name="KernelVersionText" Grid.Row="8" Grid.Column="1" Text="--" VerticalAlignment="Center" Foreground="#FF795548" FontWeight="Bold" TextTrimming="CharacterEllipsis" Grid.ColumnSpan="3" />
@@ -1172,33 +1172,33 @@
                                                             </Grid.ColumnDefinitions>
                                                             <StackPanel Grid.Column="0" HorizontalAlignment="Center">
                                                                 <Grid Width="150" Height="150">
-                                                                    <Ellipse Stroke="#E2E8F0" StrokeThickness="12" Stretch="Uniform"/>
+                                                                    <Ellipse Stroke="{DynamicResource AppBorderBrush}" StrokeThickness="12" Stretch="Uniform"/>
                                                                     <Ellipse Stroke="{StaticResource StorageGradient}" StrokeThickness="{Binding StrokeThickness}" Stretch="Uniform" StrokeDashArray="{Binding StorageDashArray}" StrokeDashCap="Round" StrokeDashOffset="0">
                                                                         <Ellipse.RenderTransform>
                                                                             <RotateTransform Angle="-90" CenterX="75" CenterY="75"/>
                                                                         </Ellipse.RenderTransform>
                                                                     </Ellipse>
                                                                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                        <TextBlock Text="{Binding StorageUsage, StringFormat={}{0:F1}%}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#1E90FF"/>
-                                                                        <TextBlock Text="{Binding StorageText}" HorizontalAlignment="Center" FontSize="12" Foreground="#718096" Margin="0,5,0,0"/>
+                                                                        <TextBlock Text="{Binding StorageUsage, StringFormat={}{0:F1}%}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource AppAccentBrush}"/>
+                                                                        <TextBlock Text="{Binding StorageText}" HorizontalAlignment="Center" FontSize="12" Foreground="{DynamicResource AppMutedTextBrush}" Margin="0,5,0,0"/>
                                                                     </StackPanel>
                                                                 </Grid>
-                                                                <TextBlock Text="内部存储" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Margin="0,14,0,0" Foreground="#4A5568"/>
+                                                                <TextBlock Text="内部存储" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Margin="0,14,0,0" Foreground="{DynamicResource AppMutedTextBrush}"/>
                                                             </StackPanel>
                                                             <StackPanel Grid.Column="1" HorizontalAlignment="Center">
                                                                 <Grid Width="150" Height="150">
-                                                                    <Ellipse Stroke="#E2E8F0" StrokeThickness="12" Stretch="Uniform"/>
+                                                                    <Ellipse Stroke="{DynamicResource AppBorderBrush}" StrokeThickness="12" Stretch="Uniform"/>
                                                                     <Ellipse Stroke="{StaticResource MemoryGradient}" StrokeThickness="{Binding StrokeThickness}" Stretch="Uniform" StrokeDashArray="{Binding MemoryDashArray}" StrokeDashCap="Round" StrokeDashOffset="0">
                                                                         <Ellipse.RenderTransform>
                                                                             <RotateTransform Angle="-90" CenterX="75" CenterY="75"/>
                                                                         </Ellipse.RenderTransform>
                                                                     </Ellipse>
                                                                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                        <TextBlock Text="{Binding MemoryUsage, StringFormat={}{0:F1}%}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#1E90FF"/>
-                                                                        <TextBlock Text="{Binding MemoryText}" HorizontalAlignment="Center" FontSize="12" Foreground="#718096" Margin="0,5,0,0"/>
+                                                                        <TextBlock Text="{Binding MemoryUsage, StringFormat={}{0:F1}%}" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource AppAccentBrush}"/>
+                                                                        <TextBlock Text="{Binding MemoryText}" HorizontalAlignment="Center" FontSize="12" Foreground="{DynamicResource AppMutedTextBrush}" Margin="0,5,0,0"/>
                                                                     </StackPanel>
                                                                 </Grid>
-                                                                <TextBlock Text="运行内存" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Margin="0,14,0,0" Foreground="#4A5568"/>
+                                                                <TextBlock Text="运行内存" HorizontalAlignment="Center" FontSize="18" FontWeight="SemiBold" Margin="0,14,0,0" Foreground="{DynamicResource AppMutedTextBrush}"/>
                                                             </StackPanel>
                                                         </Grid>
                                                     </Viewbox>
@@ -1261,11 +1261,11 @@
                                                 <ComboBox x:Name="RebootCommandComboBox"
                                                           Margin="0,10,0,0"
                                                           Height="36"
-                                                          BorderBrush="#FFCFD8E3"
+                                                          BorderBrush="{DynamicResource AppBorderBrush}"
                                                           BorderThickness="1"
                                                           SelectedIndex="0"
                                                           SelectionChanged="RebootCommandComboBox_SelectionChanged"
-                                                          Foreground="#FF6E56B5">
+                                                          Foreground="{DynamicResource AppAccentBrush}">
                                                     <ComboBoxItem Content="更多重启指令"/>
                                                     <ComboBoxItem Content="adb reboot sideload"/>
                                                     <ComboBoxItem Content="fastboot oem edl"/>
@@ -1296,7 +1296,7 @@
                                                     </Button>
                                                 </UniformGrid>
 
-                                                <Border Background="#FFF8FAFD" BorderBrush="#FFE6ECF3" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,4,0,0">
+                                                <Border Background="{DynamicResource AppSurfaceAltBrush}" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" CornerRadius="10" Padding="12" Margin="0,4,0,0">
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="*" />
@@ -1309,7 +1309,7 @@
                                                             <RowDefinition Height="Auto" />
                                                         </Grid.RowDefinitions>
 
-                                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="设备检测" FontSize="14" FontWeight="SemiBold" Foreground="#FF52606D" VerticalAlignment="Center" Margin="0,4,0,4"/>
+                                                        <TextBlock Grid.Row="0" Grid.Column="0" Text="设备检测" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource AppMutedTextBrush}" VerticalAlignment="Center" Margin="0,4,0,4"/>
                                                         <ToggleButton x:Name="DeviceDetectionToggle"
                                                                       Grid.Row="0"
                                                                       Grid.Column="1"
@@ -1319,29 +1319,29 @@
                                                                       Margin="12,4,0,4"
                                                                       ToolTip="开启后持续检测 ADB 与 Fastboot 设备"/>
 
-                                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="工具自检" FontSize="14" FontWeight="SemiBold" Foreground="#FF52606D" VerticalAlignment="Center" Margin="0,6,0,4"/>
+                                                        <TextBlock Grid.Row="1" Grid.Column="0" Text="工具自检" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource AppMutedTextBrush}" VerticalAlignment="Center" Margin="0,6,0,4"/>
                                                         <ToggleButton x:Name="ToolSelfCheckToggle" Grid.Row="1" Grid.Column="1" Style="{StaticResource HomeSwitchStyle}" Click="ToolSelfCheckToggle_Click" Checked="ToolSelfCheckToggle_Checked" Margin="12,6,0,4"/>
 
-                                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="多设备" FontSize="14" FontWeight="SemiBold" Foreground="#FF52606D" VerticalAlignment="Center" Margin="0,6,0,4"/>
+                                                        <TextBlock Grid.Row="2" Grid.Column="0" Text="多设备" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource AppMutedTextBrush}" VerticalAlignment="Center" Margin="0,6,0,4"/>
                                                         <ToggleButton x:Name="MultiDeviceDetectionToggle" Grid.Row="2" Grid.Column="1" Style="{StaticResource HomeSwitchStyle}" IsChecked="True" Margin="12,6,0,4"/>
 
                                                         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,8,0,0" VerticalAlignment="Center">
-                                                            <TextBlock Text="选择设备" Width="70" VerticalAlignment="Center" FontSize="13" Foreground="#FF6F7B87"/>
+                                                            <TextBlock Text="选择设备" Width="70" VerticalAlignment="Center" FontSize="13" Foreground="{DynamicResource AppMutedTextBrush}"/>
                                                             <ComboBox x:Name="MultiDeviceComboBox"
                                                                       Width="210"
                                                                       Height="30"
                                                                       FontSize="14"
-                                                                      Background="White"
-                                                                      Foreground="#FF1A1A1A"
-                                                                      BorderBrush="#FFCFD8E3"
+                                                                      Background="{DynamicResource AppSurfaceBrush}"
+                                                                      Foreground="{DynamicResource AppTextBrush}"
+                                                                      BorderBrush="{DynamicResource AppBorderBrush}"
                                                                       BorderThickness="1"/>
                                                         </StackPanel>
                                                     </Grid>
                                                 </Border>
 
                                                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                                                    <TextBlock Text="保存设备信息" FontSize="13" FontWeight="Bold" Foreground="#FF7A5CC4" Cursor="Hand" PreviewMouseLeftButtonDown="SaveDeviceInfoText_PreviewMouseLeftButtonDown"/>
-                                                    <TextBlock Text="  |  " FontSize="13" Foreground="#FFB2BAC2"/>
+                                                    <TextBlock Text="保存设备信息" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource AppAccentBrush}" Cursor="Hand" PreviewMouseLeftButtonDown="SaveDeviceInfoText_PreviewMouseLeftButtonDown"/>
+                                                    <TextBlock Text="  |  " FontSize="13" Foreground="{DynamicResource AppDisabledTextBrush}"/>
                                                     <TextBlock x:Name="LinkGuideTextBlock"
                                                                FontSize="13"
                                                                FontWeight="Bold"
@@ -1359,12 +1359,12 @@
                                                             </Style>
                                                         </TextBlock.Style>
                                                     </TextBlock>
-                                                    <TextBlock Text="  |  " FontSize="13" Foreground="#FFB2BAC2"/>
+                                                    <TextBlock Text="  |  " FontSize="13" Foreground="{DynamicResource AppDisabledTextBrush}"/>
                                                     <TextBlock x:Name="ConnectionGuideTextBlock"
                                                                Text="连接指南"
                                                                FontSize="13"
                                                                FontWeight="Bold"
-                                                               Foreground="#FF7A5CC4"
+                                                               Foreground="{DynamicResource AppAccentBrush}"
                                                                Cursor="Hand"
                                                                MouseLeftButtonUp="ConnectionGuideTextBlock_MouseLeftButtonUp">
                                                         <TextBlock.Style>
@@ -1378,12 +1378,12 @@
                                                             </Style>
                                                         </TextBlock.Style>
                                                     </TextBlock>
-                                                    <TextBlock Text="  |  " FontSize="13" Foreground="#FFB2BAC2"/>
+                                                    <TextBlock Text="  |  " FontSize="13" Foreground="{DynamicResource AppDisabledTextBrush}"/>
                                                     <TextBlock x:Name="Usb3PatchTextBlock"
                                                                Text="USB3.0补丁"
                                                                FontSize="13"
                                                                FontWeight="Bold"
-                                                               Foreground="#FF7A5CC4"
+                                                               Foreground="{DynamicResource AppAccentBrush}"
                                                                Cursor="Hand"
                                                                ToolTip="以管理员权限运行 USB 3.0 兼容性补丁"
                                                                MouseLeftButtonUp="Usb3PatchTextBlock_MouseLeftButtonUp">
@@ -1409,13 +1409,13 @@
                             </ScrollViewer>
                         </Grid>
                         <Grid
-                        Name="AutorootView"
+                        Name="AutorootView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue"
                         Visibility="Collapsed"  
-                        Background="#FFF8FAFD">
+                        Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
                                 <Style x:Key="AutorootCardStyle" TargetType="Border">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6ECF3"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="CornerRadius" Value="14"/>
                                     <Setter Property="Padding" Value="12"/>
@@ -1423,31 +1423,31 @@
                                 <Style x:Key="AutorootPanelTitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="16"/>
                                     <Setter Property="FontWeight" Value="Bold"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                 </Style>
                                 <Style x:Key="AutorootPanelSubtitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="12"/>
-                                    <Setter Property="Foreground" Value="#FF7E8A97"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="Margin" Value="0,2,0,0"/>
                                 </Style>
                                 <Style x:Key="AutorootFieldLabelStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="13"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
-                                    <Setter Property="Foreground" Value="#FF52606D"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
                                 </Style>
                                 <Style x:Key="AutorootComboBoxStyle" TargetType="ComboBox">
                                     <Setter Property="Height" Value="32"/>
                                     <Setter Property="FontSize" Value="14"/>
-                                    <Setter Property="Background" Value="White"/>
-                                    <Setter Property="Foreground" Value="#FF1A1A1A"/>
-                                    <Setter Property="BorderBrush" Value="#FFCFD8E3"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                 </Style>
                                 <Style x:Key="AutorootPrimaryButtonStyle" TargetType="Button">
                                     <Setter Property="Height" Value="34"/>
                                     <Setter Property="Padding" Value="12,0"/>
-                                    <Setter Property="Background" Value="#FF8BD5FF"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="Foreground" Value="White"/>
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="FontSize" Value="13"/>
@@ -1461,10 +1461,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FF63BFF4"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FF4AAFE9"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -1472,13 +1472,13 @@
                                     </Setter>
                                 </Style>
                                 <Style x:Key="AutorootAccentButtonStyle" TargetType="Button" BasedOn="{StaticResource AutorootPrimaryButtonStyle}">
-                                    <Setter Property="Background" Value="#FFC99AE4"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                 </Style>
                                 <Style x:Key="AutorootLightButtonStyle" TargetType="Button">
                                     <Setter Property="Height" Value="30"/>
                                     <Setter Property="Padding" Value="12,0"/>
-                                    <Setter Property="Background" Value="#FFF8FAFD"/>
-                                    <Setter Property="Foreground" Value="#FF1A1A1A"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="BorderBrush" Value="#FFE0E6ED"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="FontSize" Value="13"/>
@@ -1494,8 +1494,8 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FFF1F7FD"/>
-                                                        <Setter Property="BorderBrush" Value="#FFD4E7F6"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppHoverSurfaceBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -1506,7 +1506,7 @@
                                     <Setter Property="Width" Value="84"/>
                                     <Setter Property="Height" Value="27"/>
                                     <Setter Property="Foreground" Value="White"/>
-                                    <Setter Property="Background" Value="SkyBlue"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="FontSize" Value="12"/>
                                     <Setter Property="Cursor" Value="Hand"/>
@@ -1518,11 +1518,11 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FF63BFF4"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
-                                                        <Setter Property="Background" Value="#FFD8DDE3"/>
-                                                        <Setter Property="Foreground" Value="#FF8A949E"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppDisabledSurfaceBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppDisabledTextBrush}"/>
                                                         <Setter Property="Cursor" Value="Arrow"/>
                                                         <Setter Property="Opacity" Value="0.72"/>
                                                     </Trigger>
@@ -1535,7 +1535,7 @@
                                        TargetType="CheckBox"
                                        BasedOn="{StaticResource {x:Type CheckBox}}">
                                     <Setter Property="FontSize" Value="13"/>
-                                    <Setter Property="Foreground" Value="#FF3B4651"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="Margin" Value="0,0,0,6"/>
                                     <Setter Property="Cursor" Value="Hand"/>
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -1734,7 +1734,7 @@
                                                              Grid.Column="2"
                                                              TextWrapping="NoWrap"
                                                              Height="36"
-                                                             Background="White"
+                                                             Background="{DynamicResource AppSurfaceBrush}"
                                                              FontSize="12"
                                                              FontWeight="Normal"
                                                              IsEnabled="{Binding IsChecked, ElementName=OfflinePatchModeRadioButton}"/>
@@ -1763,7 +1763,7 @@
                                                              Grid.Column="2"
                                                              TextWrapping="NoWrap"
                                                              Height="36"
-                                                             Background="White"
+                                                             Background="{DynamicResource AppSurfaceBrush}"
                                                              FontSize="12"
                                                              FontWeight="Normal"
                                                              IsReadOnly="True"
@@ -1803,7 +1803,7 @@
                                                                 Width="118"
                                                                 Click="BtnAutoRoot_Click"
                                                                 Style="{StaticResource AutorootPrimaryButtonStyle}"
-                                                                Background="#FFC99AE4">
+                                                                Background="{DynamicResource AppAccentBrush}">
                                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                                 <svg:SvgViewbox Source="images/开始1.svg" Width="16" Height="16" Margin="0,0,5,0"/>
                                                                 <TextBlock Text="开始" VerticalAlignment="Center" Foreground="White"/>
@@ -1870,19 +1870,19 @@
                                                     <TextBlock x:Name="AutorootTrafficUsageTextBlock"
                                                                Grid.Row="0"
                                                                FontSize="11"
-                                                               Foreground="Black"
+                                                               Foreground="{DynamicResource AppTextBrush}"
                                                                HorizontalAlignment="Center"
                                                                Margin="0,0,0,6"
                                                                Width="441"
                                                                TextAlignment="Center">
                                                         <Run Text="使用本功能将消耗服务器流量"/>
                                                         <Run Text="≈10MB/次"
-                                                             Foreground="#FF8E5CC7"
+                                                             Foreground="{DynamicResource AppAccentBrush}"
                                                              FontWeight="SemiBold"/>
                                                         <Run Text="，您当前已消耗"/>
                                                         <Run x:Name="AutorootTrafficUsedRun"
                                                              Text="0MB流量."
-                                                             Foreground="#FF28A745"
+                                                             Foreground="{DynamicResource AppSuccessBrush}"
                                                              FontWeight="Bold"/>
                                                         <Run Text="   "/>
                                                         <Hyperlink NavigateUri="https://violettool.top/others/donate.html"
@@ -1895,8 +1895,8 @@
                                                                  Maximum="100"
                                                                  Value="0"
                                                                  Tag="0MB/s"
-                                                                 Background="#FFF0F0F0"
-                                                                 BorderBrush="#FFD8D8D8"
+                                                                 Background="{DynamicResource AppSurfaceAltBrush}"
+                                                                 BorderBrush="{DynamicResource AppBorderBrush}"
                                                                  BorderThickness="1">
                                                         <ProgressBar.Style>
                                                             <Style TargetType="{x:Type ProgressBar}">
@@ -1927,14 +1927,14 @@
                                                                                                VerticalAlignment="Center"
                                                                                                Margin="8,0,0,0"
                                                                                                FontSize="12"
-                                                                                               Foreground="#FF333333"
+                                                                                               Foreground="{DynamicResource AppTextBrush}"
                                                                                                FontWeight="Medium"/>
                                                                                     <TextBlock Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0}%}"
                                                                                                HorizontalAlignment="Right"
                                                                                                VerticalAlignment="Center"
                                                                                                Margin="0,0,8,0"
                                                                                                FontSize="12"
-                                                                                               Foreground="#FF333333"
+                                                                                               Foreground="{DynamicResource AppTextBrush}"
                                                                                                FontWeight="Medium"/>
                                                                                 </Grid>
                                                                             </Border>
@@ -1967,7 +1967,7 @@
                                                              Grid.Column="2"
                                                              TextWrapping="NoWrap"
                                                              Height="36"
-                                                             Background="White"
+                                                             Background="{DynamicResource AppSurfaceBrush}"
                                                              FontSize="12"
                                                              FontWeight="Normal"/>
                                                     <Button Grid.Column="4"
@@ -1993,7 +1993,7 @@
                                                              Grid.Column="2"
                                                              TextWrapping="NoWrap"
                                                              Height="36"
-                                                             Background="White"
+                                                             Background="{DynamicResource AppSurfaceBrush}"
                                                              FontSize="12"
                                                              FontWeight="Normal"/>
                                                     <Button Grid.Column="4"
@@ -2039,7 +2039,7 @@
                                                         Margin="0,0,8,0"
                                                         Click="BtnCancelAutoRoot_Click"
                                                         IsEnabled="False"
-                                                        Style="{StaticResource AutorootAccentButtonStyle}" Background="#FFFFB2A1">
+                                                        Style="{StaticResource AutorootAccentButtonStyle}" Background="{DynamicResource AppDangerBrush}">
                                                     <TextBlock Text="停止操作" Foreground="White"/>
                                                 </Button>
                                                 <Button x:Name="btnClearLog"
@@ -2047,17 +2047,17 @@
                                                         Grid.Column="2"
                                                         Width="92"
                                                         Click="BtnClearLog_Click"
-                                                        Style="{StaticResource AutorootLightButtonStyle}" Background="#FFAECEFF" Height="34">
+                                                        Style="{StaticResource AutorootLightButtonStyle}" Background="{DynamicResource AppAccentHoverBrush}" Height="34">
                                                     <TextBlock Text="清空日志" Foreground="White"/>
                                                 </Button>
                                                 <RichTextBox x:Name="txtLog"
                                                              Grid.Row="1"
                                                              Grid.ColumnSpan="3"
                                                              Margin="0,10,0,0"
-                                                             Background="#FFFBFCFE"
-                                                             Foreground="#FF1E293B"
+                                                             Background="{DynamicResource AppSurfaceBrush}"
+                                                             Foreground="{DynamicResource AppTextBrush}"
                                                              BorderThickness="1"
-                                                             BorderBrush="#FFDCE3EC"
+                                                             BorderBrush="{DynamicResource AppBorderBrush}"
                                                              IsReadOnly="True"
                                                              VerticalScrollBarVisibility="Auto"
                                                              HorizontalScrollBarVisibility="Auto"
@@ -2068,7 +2068,7 @@
                                                         <FlowDocument PagePadding="0" ColumnWidth="10000" ColumnGap="0">
                                                             <Paragraph Margin="0,1,0,6"
                        LineHeight="19"
-                       Foreground="#FF475569">
+                       Foreground="{DynamicResource AppTextBrush}">
                                                                 <Run Text="温馨提示：全自动ROOT功能和脱机修补功能所使用的KMI补丁文件均来自ROOT管理器官方，修补方式也和官方一致，ROOT有风险，由于部分机子版本原因，若使用过程中出现无限重启卡第一屏的情况，请长按电源和音量下键尝试进入Fastboot模式，并刷入与当前设备系统版本一致的boot.img或init_boot.img文件后即可正常开机，本程序只提供云端下载与批处理服务，正确使用时变砖概率趋近与0，一切后果与本程序无关，看不懂上面的话的请勿使用本功能！！！"/>
                                                             </Paragraph>
                                                         </FlowDocument>
@@ -2114,7 +2114,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 boot 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2142,7 +2142,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 boot/init_boot 镜像" TextChanged="AvbInitBootPathTextBox_TextChanged"/>
                                                         <Button Grid.Column="4"
@@ -2168,7 +2168,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 vbmeta 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2196,7 +2196,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 vbmeta 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2222,7 +2222,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 boot 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2248,7 +2248,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 recovery 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2274,7 +2274,7 @@
                                                                  Grid.Column="2"
                                                                  Height="34"
                                                                  FontSize="12"
-                                                                 Background="White"
+                                                                 Background="{DynamicResource AppSurfaceBrush}"
                                                                  IsReadOnly="True"
                                                                  Text="选择 vbmeta_system 镜像"/>
                                                         <Button Grid.Column="4"
@@ -2297,7 +2297,7 @@
                                                             Margin="0,0,8,0"
                                                             ToolTip="不知道自己当前版本使用新旧方案的先分析一下"
                                                             Click="AvbAnalyzeVbmetaButton_Click"
-                                                            Style="{StaticResource AutorootLightButtonStyle}" Background="#FFA4C9FF" Foreground="White" BorderBrush="#FFA4C9FF">
+                                                            Style="{StaticResource AutorootLightButtonStyle}" Background="{DynamicResource AppAccentBrush}" Foreground="White" BorderBrush="{DynamicResource AppAccentBorderBrush}">
                                                         <TextBlock Text="分析 vbmeta"/>
                                                     </Button>
                                                     <Button x:Name="AvbStartSignButton"
@@ -4547,26 +4547,26 @@
                             </ProgressBar>
                         </Grid>
                         <Grid
-                            Name="HiddenEnvironmentView"
+                            Name="HiddenEnvironmentView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue"
                             Visibility="Visible"
-                            Background="#FFF7F8FC"
+                            Background="{DynamicResource AppWindowBackgroundBrush}"
                             Cursor="">
                             <Grid.Resources>
                                 <Style x:Key="FastbootSecondaryButtonStyle"
                                        TargetType="{x:Type Button}"
                                        BasedOn="{StaticResource FastbootButtonBaseStyle}">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="Foreground" Value="#FF475569"/>
-                                    <Setter Property="BorderBrush" Value="#FFD8DEE8"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                 </Style>
                                 <Style x:Key="FastbootCardGroupBoxStyle"
                                        TargetType="{x:Type GroupBox}"
                                        BasedOn="{StaticResource PayloadGroupBoxStyle}">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFE2E6ED"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
-                                    <Setter Property="Foreground" Value="#FF263142"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="FontFamily" Value="Microsoft YaHei UI"/>
                                     <Setter Property="FontSize" Value="12"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
@@ -4578,7 +4578,7 @@
                                     <Setter Property="FontFamily" Value="Microsoft YaHei UI"/>
                                     <Setter Property="FontSize" Value="11.5"/>
                                     <Setter Property="FontWeight" Value="Normal"/>
-                                    <Setter Property="Foreground" Value="#FF475569"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="Cursor" Value="Hand"/>
                                 </Style>
                                 <Style x:Key="HiddenEnvironmentSchemeCheckBoxStyle"
@@ -4598,7 +4598,7 @@
                                       Margin="485,0,0,0">
                                 <RichTextBox x:Name="HiddenEnvironmentLogTextBox"
                                              IsReadOnly="True"
-                                             Background="#FFFAFBFD"
+                                             Background="{DynamicResource AppSurfaceAltBrush}"
                                              BorderThickness="0"
                                              Padding="7,7"
                                              HorizontalContentAlignment="Stretch"
@@ -4606,7 +4606,7 @@
                                              FontFamily="Cascadia Mono,Microsoft YaHei UI,Consolas"
                                              FontSize="11.75"
                                              FontWeight="Normal"
-                                             Foreground="#FF334155"
+                                             Foreground="{DynamicResource AppTextBrush}"
                                              VerticalScrollBarVisibility="Auto"
                                              HorizontalScrollBarVisibility="Disabled"
                                              IsDocumentEnabled="False"
@@ -4623,8 +4623,8 @@
                                       Margin="0,0,368,465">
                                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="资料目录：" VerticalAlignment="Top" FontSize="12" Margin="0,7,0,0"/>
                             </GroupBox>
-                            <TextBox x:Name="HiddenRootZipPathTextBox" HorizontalAlignment="Left" Margin="76,12,0,0" TextWrapping="NoWrap" Text="请选择隐藏环境资源包7z文件" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="9,0" Width="292" Height="32" FontFamily="Microsoft YaHei UI" FontSize="12" Background="White" BorderBrush="#FFDDE2EA" BorderThickness="1" Foreground="#FF64748B" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
-                            <Button x:Name="SelectHiddenRootZipButton" HorizontalAlignment="Left" Margin="375,13,0,0" VerticalAlignment="Top" Width="84" Click="SelectHiddenRootZipButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" BorderBrush="#FFE6E6E6" Background="SkyBlue">
+                            <TextBox x:Name="HiddenRootZipPathTextBox" HorizontalAlignment="Left" Margin="76,12,0,0" TextWrapping="NoWrap" Text="请选择隐藏环境资源包7z文件" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="9,0" Width="292" Height="32" FontFamily="Microsoft YaHei UI" FontSize="12" Background="{DynamicResource AppSurfaceBrush}" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" Foreground="{DynamicResource AppMutedTextBrush}" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                            <Button x:Name="SelectHiddenRootZipButton" HorizontalAlignment="Left" Margin="375,13,0,0" VerticalAlignment="Top" Width="84" Click="SelectHiddenRootZipButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" BorderBrush="{DynamicResource AppBorderBrush}" Background="{DynamicResource AppAccentBrush}">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <svg:SvgViewbox Source="images/文件夹.svg" Width="16" Height="16" Margin="0,0,5,0"/>
@@ -4632,12 +4632,12 @@
                                     </StackPanel>
                                 </Button.Content>
                             </Button>
-                            <TextBlock Margin="17,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="97" FontFamily="Microsoft YaHei UI" FontSize="12" FontWeight="SemiBold" Foreground="#FF334155"><Run Text="隐藏方案"/><Run Language="zh-cn" Text="："/></TextBlock>
+                            <TextBlock Margin="17,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="97" FontFamily="Microsoft YaHei UI" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}"><Run Text="隐藏方案"/><Run Language="zh-cn" Text="："/></TextBlock>
                             <CheckBox x:Name="MagiskAlpha28104CheckBox" Content="Magisk Alpha方案  支持版本：28101~28104" HorizontalAlignment="Left" Margin="76,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.304,0.51" Width="334" Style="{StaticResource HiddenEnvironmentSchemeCheckBoxStyle}" Checked="HiddenRootScheme_Checked"/>
                             <CheckBox x:Name="MagiskAlpha29000CheckBox" Content="Magisk Alpha方案  支持版本：29000~最新" HorizontalAlignment="Left" Margin="76,83,0,0" VerticalAlignment="Top" Width="327" Style="{StaticResource HiddenEnvironmentSchemeCheckBoxStyle}" Checked="HiddenRootScheme_Checked"/>
                             <CheckBox x:Name="SUkiSULKMCheckBox" Content="SUkiSU LKM方案  支持版本：≥4.1 （KernelSU适用≥3.2）【新】" HorizontalAlignment="Left" Margin="76,112,0,0" VerticalAlignment="Top" Width="398" Style="{StaticResource HiddenEnvironmentSchemeCheckBoxStyle}" Checked="HiddenRootScheme_Checked"/>
                             <CheckBox x:Name="SUkiSUGKICheckBox" Content="SUkiSU GKI/Built-in方案  支持版本：≥3.18" HorizontalAlignment="Left" Margin="76,138,0,0" VerticalAlignment="Top" Width="362" Style="{StaticResource HiddenEnvironmentSchemeCheckBoxStyle}" Checked="HiddenRootScheme_Checked"/>
-                            <Button x:Name="StartHiddenRootButton" HorizontalAlignment="Left" Margin="15,166,0,0" VerticalAlignment="Top" Width="154" Click="StartHiddenRootButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" Background="#FFB876DD" BorderBrush="#FFB876DD">
+                            <Button x:Name="StartHiddenRootButton" HorizontalAlignment="Left" Margin="15,166,0,0" VerticalAlignment="Top" Width="154" Click="StartHiddenRootButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" Background="{DynamicResource AppAccentBrush}" BorderBrush="#FFB876DD">
                                 <Button.Content>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock Text="开始隐藏" VerticalAlignment="Center"/>
@@ -4654,8 +4654,8 @@
                                          Maximum="100"
                                          Value="0"
                                          Tag="等待开始"
-                                         Background="#FFF1F3F7"
-                                         BorderBrush="#FFDCE1E8"
+                                         Background="{DynamicResource AppSurfaceAltBrush}"
+                                         BorderBrush="{DynamicResource AppBorderBrush}"
                                          BorderThickness="1"
                                          Margin="10,223,0,0">
                                 <ProgressBar.Style>
@@ -4687,7 +4687,7 @@
                                                                        VerticalAlignment="Center"
                                                                        Margin="8,0,0,0"
                                                                        FontSize="12"
-                                                                       Foreground="#FF333333"
+                                                                       Foreground="{DynamicResource AppTextBrush}"
                                                                        FontWeight="Medium" />
                                                             <TextBlock x:Name="ProgressText"
                                                                        Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0}%}"
@@ -4695,7 +4695,7 @@
                                                                        VerticalAlignment="Center"
                                                                        Margin="0,0,8,0"
                                                                        FontSize="12"
-                                                                       Foreground="#FF333333"
+                                                                       Foreground="{DynamicResource AppTextBrush}"
                                                                        FontWeight="Medium" />
                                                         </Grid>
                                                     </Border>
@@ -4705,7 +4705,7 @@
                                     </Style>
                                 </ProgressBar.Style>
                             </ProgressBar>
-                            <TextBlock HorizontalAlignment="Left" Margin="44,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" FontFamily="Microsoft YaHei UI" FontSize="11.5" Foreground="#FFD97706"><Run Text="本功能建议线刷后搭配KernelSU使用，本界面特别鸣谢@王听 @月饼 开发"/></TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Margin="44,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="415" FontFamily="Microsoft YaHei UI" FontSize="11.5" Foreground="{DynamicResource AppWarningBrush}"><Run Text="本功能建议线刷后搭配KernelSU使用，本界面特别鸣谢@王听 @月饼 开发"/></TextBlock>
                             <CheckBox x:Name="InstallZip6CheckBox" Content="额外安装LSP" HorizontalAlignment="Left" Margin="176,166,0,0" VerticalAlignment="Top" Width="104" Style="{StaticResource HiddenEnvironmentCheckBoxStyle}"/>
                             <CheckBox x:Name="AddRescueModuleCheckBox" Content="添加救砖模块" HorizontalAlignment="Left" Margin="176,184,0,0" VerticalAlignment="Top" Width="104" Style="{StaticResource HiddenEnvironmentCheckBoxStyle}"/>
                             <GroupBox Header="快捷安装"
@@ -4764,8 +4764,8 @@
                                              Drop="ModuleListBox_Drop"
                                              DragEnter="ModuleListBox_DragEnter"
                                              DragOver="ModuleListBox_DragOver"
-                                             Background="#FFFAFBFD"
-                                             BorderBrush="#FFE2E6ED"
+                                             Background="{DynamicResource AppSurfaceAltBrush}"
+                                             BorderBrush="{DynamicResource AppBorderBrush}"
                                              BorderThickness="1"
                                              HorizontalContentAlignment="Stretch">
                                         <ListBox.Template>
@@ -4794,7 +4794,7 @@
                                                     </Grid.ColumnDefinitions>
                                                     <StackPanel Orientation="Horizontal" Margin="5" Grid.Column="0">
                                                         <svg:SvgViewbox Source="images/压缩包.svg" Width="20" Height="20" Margin="0,0,8,0"/>
-                                                        <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="#FF334155"/>
+                                                        <TextBlock Text="{Binding FileName}" VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="{DynamicResource AppTextBrush}"/>
                                                     </StackPanel>
                                                     <CheckBox Grid.Column="1"
                                                               IsChecked="{Binding IsSelected, Mode=TwoWay}"
@@ -4805,10 +4805,10 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <TextBlock HorizontalAlignment="Left" Margin="0,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="#FF334155"><Run Text="拖动一个或多个模块到窗口，自动识别"/><Run Language="zh-cn" Text="ROOT"/><Run Text="管理器并安装"/></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="0,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="{DynamicResource AppTextBrush}"><Run Text="拖动一个或多个模块到窗口，自动识别"/><Run Language="zh-cn" Text="ROOT"/><Run Text="管理器并安装"/></TextBlock>
                                     <Button x:Name="ClearModuleListButton" Content="清空列表" HorizontalAlignment="Left" Margin="374,317,0,0" VerticalAlignment="Top" Width="81" Click="ClearModuleListButton_Click" Style="{StaticResource FastbootSecondaryButtonStyle}"/>
-                                    <TextBlock HorizontalAlignment="Left" Margin="0,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="#FF64748B" RenderTransformOrigin="0.497,0.824" Width="231"><Run Text="支持自动过滤模块文件，"/><Run Language="zh-cn" Text="排除无关多余"/><Run Text="文件"/></TextBlock>
-                                    <Button HorizontalAlignment="Left" Margin="281,317,0,0" VerticalAlignment="Top" Width="84" BorderBrush="#FFE6E6E6" Background="SkyBlue" Click="SelectModuleButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" ToolTip="手动选择模块文件">
+                                    <TextBlock HorizontalAlignment="Left" Margin="0,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" FontSize="12" Foreground="{DynamicResource AppMutedTextBrush}" RenderTransformOrigin="0.497,0.824" Width="231"><Run Text="支持自动过滤模块文件，"/><Run Language="zh-cn" Text="排除无关多余"/><Run Text="文件"/></TextBlock>
+                                    <Button HorizontalAlignment="Left" Margin="281,317,0,0" VerticalAlignment="Top" Width="84" BorderBrush="{DynamicResource AppBorderBrush}" Background="{DynamicResource AppAccentBrush}" Click="SelectModuleButton_Click" Style="{StaticResource FastbootPrimaryButtonStyle}" ToolTip="手动选择模块文件">
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                             <svg:SvgViewbox Source="images/文件夹.svg" Width="16" Height="16" Margin="0,0,5,0"/>
                                             <TextBlock Text="选择" VerticalAlignment="Center" Foreground="White"/>
@@ -6257,17 +6257,17 @@
                             </ScrollViewer>
                         </Grid>
                         <Grid
-                        Name="PayloadView"
+                        Name="PayloadView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue"
                         Visibility="Collapsed"
                         Margin="12"
-                        Loaded="PayloadView_Loaded" Cursor="">
+                        Loaded="PayloadView_Loaded" Cursor="" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <GroupBox Header="选择" Grid.Row="0" Style="{StaticResource PayloadGroupBoxStyle}" Margin="-12,-8,0,18" HorizontalAlignment="Left" Width="550" FontSize="12" BorderBrush="#FFE0E0E0">
+                            <GroupBox Header="选择" Grid.Row="0" Style="{StaticResource PayloadGroupBoxStyle}" Margin="-12,-8,0,18" HorizontalAlignment="Left" Width="550" FontSize="12" BorderBrush="{DynamicResource AppBorderBrush}">
                                 <Grid Margin="0,0,-15,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -6284,7 +6284,7 @@
                                     <TextBox Grid.Row="0" Grid.Column="1" Height="30" VerticalContentAlignment="Center" Name="InputPathTextBox"
                                          Text="支持本地/云端全量包_欧加散包_无需解压直接提取" Margin="0,0,45,0" TextChanged="InputPathTextBox_TextChanged"
                                          GotFocus="InputPathTextBox_GotFocus" LostFocus="InputPathTextBox_LostFocus"/>
-                                    <Button Height="30" Name="BrowseInputButton" Click="BrowseInputButton_Click" Grid.Column="1" Grid.ColumnSpan="2" Width="87" HorizontalAlignment="Left" Margin="351,0,0,0" Background="SkyBlue" Foreground="White" BorderBrush="#FFCFD1D1">
+                                    <Button Height="30" Name="BrowseInputButton" Click="BrowseInputButton_Click" Grid.Column="1" Grid.ColumnSpan="2" Width="87" HorizontalAlignment="Left" Margin="351,0,0,0" Background="{DynamicResource AppAccentBrush}" Foreground="White" BorderBrush="{DynamicResource AppBorderBrush}">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/文件夹.svg" Width="14" Height="14" Margin="0,0,6,0"/>
@@ -6297,7 +6297,7 @@
                                     <TextBox Grid.Row="1" Grid.Column="1" Height="30" Margin="0,11,45,1" VerticalContentAlignment="Center" Name="OutputDirTextBox"
                                          Text="请选择解包后文件的保存路径文件夹..." TextChanged="OutputDirTextBox_TextChanged"
                                          GotFocus="OutputDirTextBox_GotFocus"/>
-                                    <Button Grid.Row="1" Grid.Column="1" Height="30" Margin="351,10,0,0" Name="BrowseOutputButton" Click="BrowseOutputButton_Click" Grid.ColumnSpan="2" VerticalAlignment="Top" Width="87" HorizontalAlignment="Left" BorderBrush="#FFCFD1D1" Background="SkyBlue" Foreground="White">
+                                    <Button Grid.Row="1" Grid.Column="1" Height="30" Margin="351,10,0,0" Name="BrowseOutputButton" Click="BrowseOutputButton_Click" Grid.ColumnSpan="2" VerticalAlignment="Top" Width="87" HorizontalAlignment="Left" BorderBrush="{DynamicResource AppBorderBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/文件夹.svg" Width="14" Height="14" Margin="0,0,6,0"/>
@@ -6319,7 +6319,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <GroupBox Header="分区表" Grid.Column="0" Grid.RowSpan="2" Margin="-11,0,10,10" Style="{StaticResource PayloadGroupBoxStyle}" FontSize="12" BorderBrush="#FFE0E0E0">
+                                <GroupBox Header="分区表" Grid.Column="0" Grid.RowSpan="2" Margin="-11,0,10,10" Style="{StaticResource PayloadGroupBoxStyle}" FontSize="12" BorderBrush="{DynamicResource AppBorderBrush}">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -6327,11 +6327,11 @@
                                         </Grid.RowDefinitions>
 
                                         <TextBox Grid.Row="0" Height="30" VerticalContentAlignment="Center" Name="SearchTextBox"
-                                             TextChanged="SearchTextBox_TextChanged" BorderBrush="#FFE0E0E0" />
+                                             TextChanged="SearchTextBox_TextChanged" BorderBrush="{DynamicResource AppBorderBrush}" />
 
                                         <DataGrid Grid.Row="1" Margin="0,10,0,0" Name="PartitionsDataGrid"
                                               AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="False"
-                                              HeadersVisibility="Column" SelectionMode="Extended" SelectionChanged="PartitionsDataGrid_SelectionChanged" FontSize="12" Background="#FFF6EFF8" Cursor="" RowHeight="26">
+                                              HeadersVisibility="Column" SelectionMode="Extended" SelectionChanged="PartitionsDataGrid_SelectionChanged" FontSize="12" Background="{DynamicResource AppAccentSurfaceBrush}" Cursor="" RowHeight="26">
                                             <DataGrid.Columns>
                                                 <DataGridCheckBoxColumn Width="35" Binding="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                                     <DataGridCheckBoxColumn.CellStyle>
@@ -6366,7 +6366,7 @@
                                                             <Setter Property="Padding" Value="0"/>
                                                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                                             <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                                            <Setter Property="Background" Value="#FFF6EFF8"/>
+                                                            <Setter Property="Background" Value="{DynamicResource AppAccentSurfaceBrush}"/>
                                                         </Style>
                                                     </DataGridCheckBoxColumn.HeaderStyle>
                                                     <DataGridCheckBoxColumn.Header>
@@ -6388,15 +6388,15 @@
                                     </Grid>
                                 </GroupBox>
 
-                                <GroupBox Header="日志" Grid.Column="1" Margin="0,-121,0,10" Grid.RowSpan="2" Style="{StaticResource PayloadGroupBoxStyle}" FontSize="12" BorderBrush="#FFE0E0E0">
+                                <GroupBox Header="日志" Grid.Column="1" Margin="0,-121,0,10" Grid.RowSpan="2" Style="{StaticResource PayloadGroupBoxStyle}" FontSize="12" BorderBrush="{DynamicResource AppBorderBrush}">
                                     <RichTextBox Name="LogTextBox" IsReadOnly="True" VerticalScrollBarVisibility="Auto"
                                              HorizontalScrollBarVisibility="Auto" IsDocumentEnabled="False" Margin="-16,-16,-16,-16"/>
                                 </GroupBox>
 
                                 <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                                    <Button Name="ReadInfoButton" Width="90" Height="32" Margin="0,0,10,0" Content="读取信息" Click="ReadInfoButton_Click" Background="#FFEAC3F5" Foreground="White"/>
-                                    <Button Name="ExportButton" Width="89" Height="32" Margin="0,0,10,0" Content="提取镜像" Click="ExportButton_Click" Background="#FF67C0E4" Foreground="White"/>
-                                    <Button Name="StopOperationButton" Width="75" Height="32" Content="停止操作" Click="PayloadStopOperationButton_Click" Background="#FFFF9F9F" Foreground="White"/>
+                                    <Button Name="ReadInfoButton" Width="90" Height="32" Margin="0,0,10,0" Content="读取信息" Click="ReadInfoButton_Click" Background="{DynamicResource AppAccentSubtleBrush}" Foreground="White"/>
+                                    <Button Name="ExportButton" Width="89" Height="32" Margin="0,0,10,0" Content="提取镜像" Click="ExportButton_Click" Background="{DynamicResource AppAccentHoverBrush}" Foreground="White"/>
+                                    <Button Name="StopOperationButton" Width="75" Height="32" Content="停止操作" Click="PayloadStopOperationButton_Click" Background="{DynamicResource AppDangerBrush}" Foreground="White"/>
                                 </StackPanel>
                             </Grid>
 
@@ -6414,8 +6414,8 @@
                                                  Maximum="100"
                                                  Value="0"
                                                  Tag="速度: 0 B/s  |  耗时: 00:00"
-                                                 Background="#FFF0F0F0"
-                                                 BorderBrush="#FFD8D8D8"
+                                                 Background="{DynamicResource AppSurfaceAltBrush}"
+                                                 BorderBrush="{DynamicResource AppBorderBrush}"
                                                  BorderThickness="1">
                                         <ProgressBar.Style>
                                             <Style TargetType="{x:Type ProgressBar}">
@@ -6457,7 +6457,7 @@
                                                IsHitTestVisible="False"
                                                FontSize="12"
                                                FontWeight="Medium"
-                                               Foreground="#FF333333"/>
+                                               Foreground="{DynamicResource AppTextBrush}"/>
                                     <TextBlock Name="OverallPercentTextBlock"
                                                Text="0.00%"
                                                HorizontalAlignment="Right"
@@ -6467,7 +6467,7 @@
                                                IsHitTestVisible="False"
                                                FontSize="12"
                                                FontWeight="Medium"
-                                               Foreground="#FF333333"/>
+                                               Foreground="{DynamicResource AppTextBrush}"/>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -8498,11 +8498,11 @@
                             </Border>
                         </Grid>
 
-                        <Grid Name="AboutToolView" Visibility="Collapsed" Background="#FFF6F8FA">
+                        <Grid Name="AboutToolView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue" Visibility="Collapsed" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
                                 <Style x:Key="AboutCardStyle" TargetType="Border">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFD0D7DE"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="CornerRadius" Value="6"/>
                                     <Setter Property="Padding" Value="16"/>
@@ -8510,18 +8510,18 @@
                                 <Style x:Key="AboutSectionTitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="15"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
-                                    <Setter Property="Foreground" Value="#FF1F2328"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="Margin" Value="0,0,0,8"/>
                                 </Style>
                                 <Style x:Key="AboutBodyTextStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="13"/>
-                                    <Setter Property="Foreground" Value="#FF656D76"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="TextWrapping" Value="Wrap"/>
                                     <Setter Property="LineHeight" Value="20"/>
                                 </Style>
                                 <Style x:Key="AboutTagBorderStyle" TargetType="Border">
-                                    <Setter Property="Background" Value="#FFF6F8FA"/>
-                                    <Setter Property="BorderBrush" Value="#FFD0D7DE"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="CornerRadius" Value="6"/>
                                     <Setter Property="Padding" Value="9,4"/>
@@ -8530,10 +8530,10 @@
                                 <Style x:Key="AboutTagTextStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="12"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
-                                    <Setter Property="Foreground" Value="#FF1F2328"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                 </Style>
                                 <Style TargetType="Ellipse">
-                                    <Setter Property="Stroke" Value="#FFD0D7DE"/>
+                                    <Setter Property="Stroke" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="StrokeThickness" Value="1"/>
                                     <Setter Property="SnapsToDevicePixels" Value="True"/>
                                 </Style>
@@ -8542,8 +8542,8 @@
                                         BasedOn="{StaticResource {x:Type Button}}">
                                     <Setter Property="Width" Value="36"/>
                                     <Setter Property="Height" Value="36"/>
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFD0D7DE"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="Cursor" Value="Hand"/>
                                     <Setter Property="Padding" Value="0"/>
@@ -8559,10 +8559,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="AboutSocialButtonBorder" Property="Background" Value="#FFF3F4F6"/>
+                                                        <Setter TargetName="AboutSocialButtonBorder" Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter TargetName="AboutSocialButtonBorder" Property="Background" Value="#FFEAEEF2"/>
+                                                        <Setter TargetName="AboutSocialButtonBorder" Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -8590,9 +8590,9 @@
                                             </Ellipse>
 
                                             <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
-                                                <TextBlock Text="泡菜" FontSize="18" FontWeight="SemiBold" Foreground="#FF1F2328"/>
-                                                <Border Background="#FFDDF4FF" BorderBrush="#FF54AEFF" BorderThickness="1" CornerRadius="6" Padding="9,4" HorizontalAlignment="Left" Margin="0,6,0,8">
-                                                    <TextBlock Text="前后端开发 &amp; 核心架构" FontSize="12" Foreground="#FF0969DA" FontWeight="SemiBold"/>
+                                                <TextBlock Text="泡菜" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}"/>
+                                                <Border Background="{DynamicResource AppAccentSubtleBrush}" BorderBrush="{DynamicResource AppAccentBorderBrush}" BorderThickness="1" CornerRadius="6" Padding="9,4" HorizontalAlignment="Left" Margin="0,6,0,8">
+                                                    <TextBlock Text="前后端开发 &amp; 核心架构" FontSize="12" Foreground="{DynamicResource AppAccentBrush}" FontWeight="SemiBold"/>
                                                 </Border>
                                                 <TextBlock Text="该项目由哔哩哔哩UP主”泡菜学不会“开发，开发此项目希望能为安卓玩机生态贡献自己的一份力量。"
                                                            Style="{StaticResource AboutBodyTextStyle}"/>
@@ -8616,20 +8616,20 @@
                                             </Grid.ColumnDefinitions>
 
                                             <!-- 收款码区域 -->
-                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="支持开发者" FontSize="15" FontWeight="SemiBold" Foreground="#FF1F2328"/>
+                                            <TextBlock Grid.Row="0" Grid.Column="0" Text="支持开发者" FontSize="15" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}"/>
                                             <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                     <StackPanel Margin="0,0,12,0">
-                                                        <Border Width="132" Height="132" CornerRadius="6" BorderBrush="#FFD0D7DE" BorderThickness="1" Background="#FFF6F8FA" Padding="6">
+                                                        <Border Width="132" Height="132" CornerRadius="6" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" Background="{DynamicResource AppSurfaceAltBrush}" Padding="6">
                                                             <Image Source="zfb.png" Stretch="Uniform"/>
                                                         </Border>
-                                                        <TextBlock FontSize="12" Foreground="#FF0969DA" HorizontalAlignment="Center" Margin="0,7,0,0" FontWeight="SemiBold"><Run Text="支付宝"/><Run Text="A"/><Run Language="zh-cn" Text="l"/><Run Text="iPay"/></TextBlock>
+                                                        <TextBlock FontSize="12" Foreground="{DynamicResource AppAccentBrush}" HorizontalAlignment="Center" Margin="0,7,0,0" FontWeight="SemiBold"><Run Text="支付宝"/><Run Text="A"/><Run Language="zh-cn" Text="l"/><Run Text="iPay"/></TextBlock>
                                                     </StackPanel>
                                                     <StackPanel>
-                                                        <Border Width="132" Height="132" CornerRadius="6" BorderBrush="#FFD0D7DE" BorderThickness="1" Background="#FFF6F8FA" Padding="6">
+                                                        <Border Width="132" Height="132" CornerRadius="6" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" Background="{DynamicResource AppSurfaceAltBrush}" Padding="6">
                                                             <Image Source="wx.png" Stretch="Uniform"/>
                                                         </Border>
-                                                        <TextBlock FontSize="12" Foreground="#FF1A7F37" HorizontalAlignment="Center" Margin="0,7,0,0" FontWeight="SemiBold"><Run Text="微信"/><Run Language="zh-cn" Text="Wechat"/></TextBlock>
+                                                        <TextBlock FontSize="12" Foreground="{DynamicResource AppSuccessBrush}" HorizontalAlignment="Center" Margin="0,7,0,0" FontWeight="SemiBold"><Run Text="微信"/><Run Language="zh-cn" Text="Wechat"/></TextBlock>
                                                     </StackPanel>
                                                 </StackPanel>
                                             </StackPanel>
@@ -8639,10 +8639,10 @@
 
                                             <!-- 社交媒体区域 -->
                                             <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="4" VerticalAlignment="Center">
-                                                <TextBlock Text="感谢支持" FontSize="15" FontWeight="SemiBold" Foreground="#FF1F2328" Margin="0,0,0,8"/>
+                                                <TextBlock Text="感谢支持" FontSize="15" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}" Margin="0,0,0,8"/>
                                                 <TextBlock Style="{StaticResource AboutBodyTextStyle}" Margin="0,0,0,16"><Run Text="如果您喜欢本程序，欢迎赞赏支持，金额不限。您的支持是本程序持续免费维护和改进的动力！"/></TextBlock>
 
-                                                <TextBlock Text="社交媒体" FontSize="13" FontWeight="SemiBold" Foreground="#FF656D76" Margin="0,0,0,7"/>
+                                                <TextBlock Text="社交媒体" FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource AppMutedTextBrush}" Margin="0,0,0,7"/>
 
                                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                     <!-- 哔哩哔哩 -->
@@ -8689,7 +8689,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8704,7 +8704,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8719,7 +8719,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8734,7 +8734,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8749,7 +8749,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8764,7 +8764,7 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
@@ -8779,17 +8779,17 @@
                                                             Margin="12,0,0,0"
                                                             FontSize="15"
                                                             FontWeight="SemiBold"
-                                                            Foreground="#FF1F2328"
+                                                            Foreground="{DynamicResource AppTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
 
                                             <!-- 虚位以待 -->
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="4,6">
-                                                <Border Width="42" Height="42" CornerRadius="21" Background="#FFF6F8FA" BorderBrush="#FFD0D7DE" BorderThickness="1">
+                                                <Border Width="42" Height="42" CornerRadius="21" Background="{DynamicResource AppSurfaceAltBrush}" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1">
                                                     <TextBlock Text="?"
                                                                FontSize="18"
                                                                FontWeight="Bold"
-                                                               Foreground="#FF656D76"
+                                                               Foreground="{DynamicResource AppMutedTextBrush}"
                                                                HorizontalAlignment="Center"
                                                                VerticalAlignment="Center"/>
                                                 </Border>
@@ -8797,7 +8797,7 @@
                                                            Margin="12,0,0,0"
                                                            FontSize="15"
                                                            FontWeight="SemiBold"
-                                                           Foreground="#FF656D76"
+                                                           Foreground="{DynamicResource AppMutedTextBrush}"
                                                            VerticalAlignment="Center"/>
                                             </StackPanel>
                                         </UniformGrid>
@@ -8810,7 +8810,7 @@
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                                     <TextBlock Text="⚙️" FontSize="15" Margin="0,0,7,0" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="核心开发环境" FontSize="14" FontWeight="SemiBold" Foreground="#FF1F2328" VerticalAlignment="Center"/>
+                                                    <TextBlock Text="核心开发环境" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}" VerticalAlignment="Center"/>
                                                 </StackPanel>
                                                 <WrapPanel>
                                                     <Border Style="{StaticResource AboutTagBorderStyle}">
@@ -8839,7 +8839,7 @@
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                                     <TextBlock Text="❤️" FontSize="15" Margin="0,0,7,0" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="特别鸣谢开源项目（名称按A~Z排序）" FontSize="14" FontWeight="SemiBold" Foreground="#FF1F2328" VerticalAlignment="Center"/>
+                                                    <TextBlock Text="特别鸣谢开源项目（名称按A~Z排序）" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource AppTextBrush}" VerticalAlignment="Center"/>
                                                 </StackPanel>
                                                 <WrapPanel>
                                                     <Border Style="{StaticResource AboutTagBorderStyle}">
@@ -8956,7 +8956,7 @@
                                                     <TextBlock Text="月饼" Style="{StaticResource AboutTagTextStyle}"/>
                                                 </Border>
                                             </WrapPanel>
-                                            <TextBlock Text="以及众多未留名的爱心网友，致以最诚挚的感谢！" FontSize="12" Foreground="#FF656D76" HorizontalAlignment="Center" Margin="0,6,0,0"/>
+                                            <TextBlock Text="以及众多未留名的爱心网友，致以最诚挚的感谢！" FontSize="12" Foreground="{DynamicResource AppMutedTextBrush}" HorizontalAlignment="Center" Margin="0,6,0,0"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>
@@ -9282,18 +9282,18 @@
                             </Grid>
                         </Grid>
                         <Grid
-                        Name="AndroidGeneralView"
+                        Name="AndroidGeneralView" TextElement.Foreground="{DynamicResource AppTextBrush}" KeyboardNavigation.TabNavigation="Continue"
                         Visibility="Collapsed"
-                        Background="White">
+                        Background="{DynamicResource AppWindowBackgroundBrush}">
                             <GroupBox
                             Header="合并散包super"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Width="380"
                             Height="96"
                             HorizontalAlignment="Left"
@@ -9332,8 +9332,8 @@
                                 </GroupBox.Style>
                                 <Grid>
                                     <TextBlock Text="散包路径：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,0,0,0"/>
-                                    <TextBox x:Name="SuperScatterPathTextBox" HorizontalAlignment="Left" Margin="51,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="193" BorderBrush="#FFE0E0E0"/>
-                                    <Button x:Name="SelectSuperScatterButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectSuperScatterButton_Click" Background="#FFA7D3F6" BorderBrush="#FFA7D3F6" Foreground="White">
+                                    <TextBox x:Name="SuperScatterPathTextBox" HorizontalAlignment="Left" Margin="51,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="193" BorderBrush="{DynamicResource AppBorderBrush}"/>
+                                    <Button x:Name="SelectSuperScatterButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectSuperScatterButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/文件夹.svg" Width="16" Height="16" Margin="0,0,6,0"/>
@@ -9343,19 +9343,19 @@
                                     </Button>
                                     <CheckBox x:Name="CleanupMyPartitionsCheckBox" Content="清理残留文件" HorizontalAlignment="Left" Margin="-8,40,0,0" VerticalAlignment="Top" Checked="CleanupMyPartitionsCheckBox_Checked"/>
                                     <CheckBox x:Name="FilterXmlCheckBox" Content="过滤多余xml" HorizontalAlignment="Left" Margin="94,40,0,0" VerticalAlignment="Top"/>
-                                    <Button x:Name="StartSuperPackButton" Content="开始打包" HorizontalAlignment="Left" Margin="250,34,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="StartSuperPackButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                                    <Button x:Name="StartSuperPackButton" Content="开始打包" HorizontalAlignment="Left" Margin="250,34,0,0" VerticalAlignment="Top" Width="88" Height="28" Click="StartSuperPackButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="解包OFP"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="390,-6,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Height="96"
                             VerticalAlignment="Top"
                             Panel.ZIndex="1">
@@ -9392,22 +9392,22 @@
                                 </GroupBox.Style>
                                 <Grid>
                                     <TextBlock Text="OFP文件：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,0,0,0"/>
-                                    <TextBox x:Name="OfpFilePathTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-4,0,0" BorderBrush="#FFE0E0E0" Width="273"/>
-                                    <Button x:Name="SelectOfpFileButton" Content="选择" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-4,0,0" Width="85" Click="SelectOfpFileButton_Click" Background="#FFA7D3F6" BorderBrush="#FFA7D3F6" Foreground="White"/>
+                                    <TextBox x:Name="OfpFilePathTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-4,0,0" BorderBrush="{DynamicResource AppBorderBrush}" Width="273"/>
+                                    <Button x:Name="SelectOfpFileButton" Content="选择" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-4,0,0" Width="85" Click="SelectOfpFileButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                     <ProgressBar x:Name="OfpExtractProgressBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,32,0,0" Height="18" Minimum="0" Maximum="100" Value="0" Width="332"/>
-                                    <Button x:Name="StartOfpExtractButton" Content="开始解包" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,27,0,0" Width="85" Height="28" Click="StartOfpExtractButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                                    <Button x:Name="StartOfpExtractButton" Content="开始解包" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,27,0,0" Width="85" Height="28" Click="StartOfpExtractButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="生成TXT线刷脚本"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="0,101,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Width="380"
                             Height="102"
                             HorizontalAlignment="Left"
@@ -9448,8 +9448,8 @@
                                     <TextBlock HorizontalAlignment="Left" Margin="-8,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.477,0.596">
                                     <Run Language="zh-cn" Text="镜像目录："/>
                                     </TextBlock>
-                                    <TextBox x:Name="ImageDirTextBox" HorizontalAlignment="Left" Margin="51,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="193" BorderBrush="#FFE0E0E0"/>
-                                    <Button x:Name="SelectImageDirButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectImageDirButton_Click" BorderBrush="#FFA7D3F6" Background="#FFA7D3F6" Foreground="White">
+                                    <TextBox x:Name="ImageDirTextBox" HorizontalAlignment="Left" Margin="51,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="193" BorderBrush="{DynamicResource AppBorderBrush}"/>
+                                    <Button x:Name="SelectImageDirButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectImageDirButton_Click" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/文件夹.svg" Width="16" Height="16" Margin="0,0,6,0"/>
@@ -9457,20 +9457,20 @@
                                             </StackPanel>
                                         </Button.Content>
                                     </Button>
-                                    <Button x:Name="GenerateFlashScriptButton" Content="开始生成" HorizontalAlignment="Left" Margin="253,36,0,0" VerticalAlignment="Top" Width="85" Click="GenerateFlashScriptButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                                    <Button x:Name="GenerateFlashScriptButton" Content="开始生成" HorizontalAlignment="Left" Margin="253,36,0,0" VerticalAlignment="Top" Width="85" Click="GenerateFlashScriptButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                     <CheckBox x:Name="ExcludeSensitiveFlashScriptCheckBox" Content="排除敏感文件" HorizontalAlignment="Left" Margin="-8,42,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked_3" IsChecked="True" ToolTip="排除绑定指纹和基带的关键分区"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="解包OPS"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="390,101,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Height="102"
                             VerticalAlignment="Top"
                             Panel.ZIndex="2">
@@ -9507,22 +9507,22 @@
                                 </GroupBox.Style>
                                 <Grid>
                                     <TextBlock Text="OPS文件：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,0,0,0"/>
-                                    <TextBox x:Name="OpsFilePathTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-4,0,0" BorderBrush="#FFE0E0E0" Width="273"/>
-                                    <Button x:Name="SelectOpsFileButton" Content="选择" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-4,0,0" Width="85" Click="SelectOpsFileButton_Click" Background="#FFA7D3F6" BorderBrush="#FFA7D3F6" Foreground="White"/>
+                                    <TextBox x:Name="OpsFilePathTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,-4,0,0" BorderBrush="{DynamicResource AppBorderBrush}" Width="273"/>
+                                    <Button x:Name="SelectOpsFileButton" Content="选择" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-4,0,0" Width="85" Click="SelectOpsFileButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                     <ProgressBar x:Name="OpsExtractProgressBar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-8,32,0,0" Height="18" Minimum="0" Maximum="100" Value="0" Width="332"/>
-                                    <Button x:Name="StartOpsExtractButton" Content="开始解包" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,27,0,0" Width="85" Height="28" Click="StartOpsExtractButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                                    <Button x:Name="StartOpsExtractButton" Content="开始解包" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,27,0,0" Width="85" Height="28" Click="StartOpsExtractButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="安卓通用卡刷转线刷"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="0,214,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Width="380"
                             Height="102"
                             HorizontalAlignment="Left"
@@ -9561,8 +9561,8 @@
                                 </GroupBox.Style>
                                 <Grid>
                                     <TextBlock HorizontalAlignment="Left" Margin="-8,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="解包后的文件夹"/><Run Language="zh-cn" Text="："/></TextBlock>
-                                    <TextBox x:Name="UnpackedFolderTextBox" HorizontalAlignment="Left" Margin="90,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="154" BorderBrush="#FFE0E0E0"/>
-                                    <Button x:Name="SelectUnpackedFolderButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectUnpackedFolderButton_Click" BorderBrush="#FFA7D3F6" Background="#FFA7D3F6" Foreground="White">
+                                    <TextBox x:Name="UnpackedFolderTextBox" HorizontalAlignment="Left" Margin="90,-4,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="154" BorderBrush="{DynamicResource AppBorderBrush}"/>
+                                    <Button x:Name="SelectUnpackedFolderButton" HorizontalAlignment="Left" Margin="253,-4,0,0" VerticalAlignment="Top" Width="85" Click="SelectUnpackedFolderButton_Click" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/文件夹.svg" Width="16" Height="16" Margin="0,0,6,0"/>
@@ -9570,22 +9570,22 @@
                                             </StackPanel>
                                         </Button.Content>
                                     </Button>
-                                    <Button x:Name="StartConvertFlashButton" Content="开始线刷" HorizontalAlignment="Left" Margin="253,41,0,0" VerticalAlignment="Top" Width="85" Click="StartConvertFlashButton_Click" BorderBrush="#FFE0BCF5" Background="#FFE0BCF5" Foreground="White"/>
-                                    <TextBlock HorizontalAlignment="Left" Margin="0,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Gray" FontSize="10" RenderTransformOrigin="1.65,1.333" Width="174"><Run Text="未解包请先切换到欧加线刷区域解包"/></TextBlock>
+                                    <Button x:Name="StartConvertFlashButton" Content="开始线刷" HorizontalAlignment="Left" Margin="253,41,0,0" VerticalAlignment="Top" Width="85" Click="StartConvertFlashButton_Click" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="0,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource AppMutedTextBrush}" FontSize="10" RenderTransformOrigin="1.65,1.333" Width="174"><Run Text="未解包请先切换到欧加线刷区域解包"/></TextBlock>
                                     <CheckBox x:Name="ConvertFlashWipeCheckBox" Content="清除数据" HorizontalAlignment="Left" Margin="-5,38,0,0" Checked="CheckBox_Checked_4" VerticalAlignment="Top"/>
                                     <CheckBox x:Name="ConvertFlashRebootCheckBox" Content="自动重启" HorizontalAlignment="Left" Margin="79,39,0,0" VerticalAlignment="Top"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="合并OFP分段Super"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="390,214,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Height="102"
                             VerticalAlignment="Top"
                             Panel.ZIndex="2">
@@ -9637,7 +9637,7 @@
                                     x:Name="OfpSuperSegmentsTextBox"
                                     Height="28"
                                     IsReadOnly="True"
-                                    BorderBrush="#FFE0E0E0"
+                                    BorderBrush="{DynamicResource AppBorderBrush}"
                                     VerticalContentAlignment="Center"
                                     ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" Grid.ColumnSpan="2" Margin="59,21,0,21"/>
                                     <Button
@@ -9645,29 +9645,29 @@
                                     Grid.Column="3"
                                     Content="选择"
                                     Click="SelectOfpSuperPartsFolderButton_Click"
-                                    Background="#FFA7D3F6"
-                                    BorderBrush="#FFA7D3F6"
+                                    Background="{DynamicResource AppAccentBrush}"
+                                    BorderBrush="{DynamicResource AppAccentBrush}"
                                     Foreground="White" Width="85"/>
                                     <Button
                                     x:Name="StartMergeOfpSuperButton"
                                     Grid.Column="5"
                                     Content="开始合并"
                                     Click="StartMergeOfpSuperButton_Click"
-                                    Background="#FFE0BCF5"
-                                    BorderBrush="#FFE0BCF5"
+                                    Background="{DynamicResource AppAccentBrush}"
+                                    BorderBrush="{DynamicResource AppAccentBrush}"
                                     Foreground="White" Width="85"/>
                                 </Grid>
                             </GroupBox>
                             <GroupBox
                             Header="Twrp_Recovery"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="1,327,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Width="380"
                             Height="95"
                             HorizontalAlignment="Left"
@@ -9703,9 +9703,9 @@
                                         </Setter>
                                     </Style>
                                 </GroupBox.Style>
-                                <Button Content="读分区表" HorizontalAlignment="Left" Margin="86,36,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="85" Foreground="White" BorderBrush="#FFE0BCF5" Background="#FFE0BCF5"/>
+                                <Button Content="读分区表" HorizontalAlignment="Left" Margin="86,36,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="85" Foreground="White" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}"/>
                             </GroupBox>
-                            <RichTextBox x:Name="SuperPackLogRichTextBox" Margin="390,327,0,10" TextChanged="RichTextBox_TextChanged" CaretBrush="White" BorderBrush="#FFE0E0E0">
+                            <RichTextBox x:Name="SuperPackLogRichTextBox" Margin="390,327,0,10" TextChanged="RichTextBox_TextChanged" CaretBrush="White" BorderBrush="{DynamicResource AppBorderBrush}">
                                 <FlowDocument>
                                     <Paragraph>
 
@@ -9713,20 +9713,20 @@
                                 </FlowDocument>
                             </RichTextBox>
                             <TextBlock HorizontalAlignment="Left" Margin="8,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center"><Run Language="zh-cn" Text="提取或写入"/><Run Text="的分区："/></TextBlock>
-                            <ComboBox x:Name="ReadPartitionComboBox" HorizontalAlignment="Left" Margin="113,0,0,0" VerticalAlignment="Center" Width="239" IsEditable="True" IsReadOnly="True" Text="等待用户读取分区表..." BorderBrush="#FFE0E0E0"/>
-                            <Button Content="回读分区" HorizontalAlignment="Left" Margin="282,378,0,0" VerticalAlignment="Top" Width="85" Click="ReadOutPartitionButton_Click_New" BorderBrush="#FFE0BCF5" Background="#FFE0BCF5" Foreground="White"/>
-                            <Button Content="推送卡刷包" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" Width="85" Click="PushZipToSdcardButton_Click" BorderBrush="#FFE0BCF5" Background="#FFE0BCF5" Foreground="White"/>
-                            <Button Content="写入分区" HorizontalAlignment="Left" Margin="192,378,0,0" VerticalAlignment="Top" Width="85" Click="WriteSelectedPartitionButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                            <ComboBox x:Name="ReadPartitionComboBox" HorizontalAlignment="Left" Margin="113,0,0,0" VerticalAlignment="Center" Width="239" IsEditable="True" IsReadOnly="True" Text="等待用户读取分区表..." BorderBrush="{DynamicResource AppBorderBrush}"/>
+                            <Button Content="回读分区" HorizontalAlignment="Left" Margin="282,378,0,0" VerticalAlignment="Top" Width="85" Click="ReadOutPartitionButton_Click_New" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White"/>
+                            <Button Content="推送卡刷包" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" Width="85" Click="PushZipToSdcardButton_Click" BorderBrush="{DynamicResource AppAccentBrush}" Background="{DynamicResource AppAccentBrush}" Foreground="White"/>
+                            <Button Content="写入分区" HorizontalAlignment="Left" Margin="192,378,0,0" VerticalAlignment="Top" Width="85" Click="WriteSelectedPartitionButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
                             <GroupBox
                             Header="OCDT生成"
-                            Background="#FFFFFF"
+                            Background="{DynamicResource AppSurfaceBrush}"
                             Margin="0,432,0,0"
                             Padding="15"
                             BorderThickness="1"
-                            BorderBrush="#FFE0E0E0"
+                            BorderBrush="{DynamicResource AppBorderBrush}"
                             FontSize="13"
                             FontWeight="Bold"
-                            Foreground="#333"
+                            Foreground="{DynamicResource AppTextBrush}"
                             Width="380"
                             Height="276"
                             HorizontalAlignment="Left"
@@ -9764,7 +9764,7 @@
                                 </GroupBox.Style>
                                 <Grid>
                                     <TextBlock HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="zh-cn" Text="项目号"/><Run Text=":"/></TextBlock>
-                                    <TextBox x:Name="OcdtProjIdTextBox" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="290" BorderBrush="#FFE0E0E0" ToolTip="例如：23803"/>
+                                    <TextBox x:Name="OcdtProjIdTextBox" HorizontalAlignment="Left" Margin="48,0,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="290" BorderBrush="{DynamicResource AppBorderBrush}" ToolTip="例如：23803"/>
 
                                     <TextBlock HorizontalAlignment="Left" Margin="13,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="平台:"/>
                                     <ComboBox x:Name="OcdtSizeComboBox" HorizontalAlignment="Left" Margin="48,34,0,0" VerticalAlignment="Top" Width="126" SelectedIndex="1">
@@ -9779,9 +9779,9 @@
                                         <ComboBoxItem Content="geyixue_fill"/>
                                     </ComboBox>
 
-                                    <Button x:Name="GenerateOcdtButton" Content="生成 OCDT" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="338" Height="30" Click="GenerateOcdtButton_Click" Background="#FFE0BCF5" BorderBrush="#FFE0BCF5" Foreground="White"/>
+                                    <Button x:Name="GenerateOcdtButton" Content="生成 OCDT" HorizontalAlignment="Left" Margin="0,73,0,0" VerticalAlignment="Top" Width="338" Height="30" Click="GenerateOcdtButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White"/>
 
-                                    <TextBlock HorizontalAlignment="Left" Margin="0,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="11" Foreground="#FF666666" LineHeight="16"><Run Text="选择对应的处理器和项目号后点击生成。项目号可在解压后的售后线刷包 version_info.txt 中查看 project= 字段。"/></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="0,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" FontSize="11" Foreground="{DynamicResource AppMutedTextBrush}" LineHeight="16"><Run Text="选择对应的处理器和项目号后点击生成。项目号可在解压后的售后线刷包 version_info.txt 中查看 project= 字段。"/></TextBlock>
                                 </Grid>
                             </GroupBox>
                         </Grid>
