@@ -54,7 +54,20 @@ var pages = new[]
             "RomSelectCopyLinksButton_Click" }, 16, true),
     new PageCheck("BackupAssistantView", "photoGallery",
         new[] { "BtnLoadImages_Click", "BtnBackup_Click",
-            "BtnRestoreContacts_Click" }, 6, true)
+            "BtnRestoreContacts_Click" }, 6, true),
+    // P5 pages were previously missing all runtime App palette tokens.
+    new PageCheck("HomeView", "RebootPhoneButton",
+        new[] { "RebootPhoneButton_Click", "RefreshDeviceButton_Click" }, 30, true),
+    new PageCheck("AutorootView", "btnAutoRoot",
+        new[] { "BtnAutoRoot_Click", "AvbStartSignButton_Click" }, 30, true),
+    new PageCheck("HiddenEnvironmentView", "StartHiddenRootButton",
+        new[] { "StartHiddenRootButton_Click", "StartModuleInstallButton_Click" }, 22, true),
+    new PageCheck("PayloadView", "ExportButton",
+        new[] { "ExportButton_Click", "PayloadStopOperationButton_Click" }, 17, true),
+    new PageCheck("AboutToolView", "AboutToolView",
+        new[] { "SocialMediaButton_Click" }, 30, true),
+    new PageCheck("AndroidGeneralView", "StartSuperPackButton",
+        new[] { "StartSuperPackButton_Click", "StartConvertFlashButton_Click" }, 50, true)
 };
 
 int totalTokens = 0;
@@ -112,8 +125,8 @@ foreach (PageCheck check in pages)
     Console.WriteLine($"PASS {check.RootName}: {uses.Count} runtime token references, handlers preserved");
 }
 
-Check(totalTokens >= 500, "P3 and P4 pages should share at least 500 palette references.");
-Console.WriteLine($"PASS P3/P4 theme coverage: {pages.Length} pages, {totalTokens} token references");
+Check(totalTokens >= 750, "P3/P4/P5 pages should share at least 750 palette references.");
+Console.WriteLine($"PASS P3/P4/P5 theme coverage: {pages.Length} pages, {totalTokens} token references");
 
 
 // Reproducible baseline from P3 head e0a5cde8: every named XAML control and
@@ -186,6 +199,94 @@ Check(sizingSource.Contains("ConfigureResponsiveWindowBounds();", StringComparis
       layoutSource.Contains("private void WindowResizeThumb_DragDelta", StringComparison.Ordinal),
     "Original global scaling must be replaced with native window bounds");
 Console.WriteLine("PASS responsive shell structure: native size, scroll overflow, resize grip");
+
+// P0 feature inventory. Every user-facing capability has a source-linked XAML
+// action and a stated P6 manual verification gap; static presence isn't execution.
+using var featureDocument = JsonDocument.Parse(File.ReadAllText(
+    Path.Combine(repoRoot, "tests", "FeatureRegressionBaseline", "features.json")));
+JsonElement featuresRoot = featureDocument.RootElement;
+JsonElement[] featureEntries = featuresRoot.GetProperty("entries").EnumerateArray().ToArray();
+Check(featureEntries.Length == 110 &&
+      featuresRoot.GetProperty("feature_count").GetInt32() == 110 &&
+      featuresRoot.GetProperty("page_count").GetInt32() == 18,
+    "P0 source-linked feature inventory must contain 110 entries in 18 groups");
+var seenFeatureIds = new HashSet<string>(StringComparer.Ordinal);
+foreach (JsonElement feature in featureEntries)
+{
+    string id = feature.GetProperty("id").GetString()!;
+    string pageName = feature.GetProperty("page").GetString()!;
+    string handlerName = feature.GetProperty("handler").GetString()!;
+    string? controlName = feature.GetProperty("control").GetString();
+
+    Check(seenFeatureIds.Add(id), $"Duplicate P0 feature ID: {id}");
+    XElement page = doc.Descendants()
+        .FirstOrDefault(el => el.Name.LocalName == "Grid" &&
+            el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == pageName))
+        ?? throw new InvalidOperationException($"{id} references missing page {pageName}");
+    if (controlName is not null)
+    {
+        XElement control = page.DescendantsAndSelf().FirstOrDefault(el =>
+            el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == controlName))
+            ?? throw new InvalidOperationException($"{id} lost control {controlName}");
+        Check(control.Attributes().Any(a => a.Value == handlerName &&
+            EventAttributeNames.Contains(a.Name.LocalName)),
+            $"{id} control {controlName} lost handler {handlerName}");
+    }
+    else
+    {
+        Check(page.DescendantsAndSelf().Any(el => el.Attributes().Any(a =>
+            a.Value == handlerName && EventAttributeNames.Contains(a.Name.LocalName))),
+            $"{id} lost handler {handlerName}");
+    }
+    Check(feature.GetProperty("p6").GetProperty("status").GetString() == "pending" &&
+          feature.GetProperty("baseline").GetProperty("behavior").GetString() == "not_verified",
+        $"{id} must not be presented as hardware-tested");
+}
+Console.WriteLine("PASS P0: 110 feature anchors, 18 pages, P6 gaps explicitly tracked");
+
+// P5 basic accessibility and motion. Hardware/DPI/actual screen-reader evaluation
+// remain P6 manual checks.
+string[] p5Pages = { "HomeView", "AutorootView", "HiddenEnvironmentView",
+    "PayloadView", "AboutToolView", "AndroidGeneralView" };
+foreach (string pageName in p5Pages)
+{
+    XElement page = doc.Descendants().FirstOrDefault(el =>
+        el.Name.LocalName == "Grid" &&
+        el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == pageName))
+        ?? throw new InvalidOperationException($"Missing P5 page {pageName}");
+    Check(page.Attributes().Any(a => a.Name.LocalName == "TabNavigation" && a.Value == "Continue"),
+        $"{pageName} must retain keyboard navigation");
+    Check(page.Attributes().Any(a => a.Name.LocalName == "Name" &&
+        a.Name.NamespaceName.Length > 0 && a.Value != pageName),
+        $"{pageName} should be labelled for screen readers");
+    Check(page.Descendants().Count(el => el.Name.LocalName == "Style" &&
+        el.Attributes().Any(a => a.Name.LocalName == "BasedOn" &&
+            a.Value.StartsWith("{StaticResource CorePage", StringComparison.Ordinal))) >= 12,
+        $"{pageName} should use themed controls and focus states");
+}
+
+Check(doc.Descendants().Any(el => el.Name.LocalName == "Style" &&
+      el.Attributes().Any(a => a.Name.LocalName == "Key" && a.Value == "CorePageKeyboardFocusStyle")),
+    "Keyboard focus style missing");
+string[] focusTargets = { "CorePageButtonStyle", "CorePageTextBoxStyle",
+    "CorePageComboBoxStyle", "CorePageCheckBoxStyle", "CorePageRadioButtonStyle" };
+foreach (string target in focusTargets)
+{
+    XElement style = doc.Descendants().First(el => el.Name.LocalName == "Style" &&
+        el.Attributes().Any(a => a.Name.LocalName == "Key" && a.Value == target));
+    Check(style.Elements().Any(el => el.Name.LocalName == "Setter" &&
+        el.Attribute("Property")?.Value == "FocusVisualStyle" &&
+        el.Attribute("Value")?.Value == "{StaticResource CorePageKeyboardFocusStyle}"),
+        $"Keyboard focus not configured for {target}");
+}
+XElement homePage = doc.Descendants().First(el => el.Name.LocalName == "Grid" &&
+    el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == "HomeView"));
+Check(homePage.Descendants().Count(el => el.Name.LocalName == "DoubleAnimation" &&
+    el.Attribute("Duration")?.Value == "00:00:0.12") == 2 &&
+    !homePage.Descendants().Any(el => el.Attributes().Any(a =>
+        a.Name.LocalName == "RepeatBehavior" && a.Value == "Forever")),
+    "Home animations must be bounded and short");
+Console.WriteLine("PASS P5: six page accessibility labels, keyboard focus and bounded motion");
 
 static void ValidateMultiset(string[] baseline, string[] current, string type)
 {
