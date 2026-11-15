@@ -418,6 +418,7 @@
         <Border
             Width="1000" Height="800"
             Background="{DynamicResource AppWindowBackgroundBrush}"
+            TextElement.Foreground="{DynamicResource AppTextBrush}"
             CornerRadius="20"
             BorderThickness="1"
             BorderBrush="{DynamicResource AppBorderBrush}"
@@ -483,19 +484,19 @@
                             </Button.Content>
                             <Button.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="强调色">
-                                        <MenuItem Header="跟随 Windows 系统强调色"
+                                    <MenuItem Header="强调色" Tag="强调色">
+                                        <MenuItem Header="跟随 Windows 系统强调色" Tag="跟随 Windows 系统强调色"
                                                   Command="{x:Static theme:ThemeCommands.UseWindowsAccentCommand}"/>
-                                        <MenuItem Header="固定紫罗兰色"
+                                        <MenuItem Header="固定紫罗兰色" Tag="固定紫罗兰色"
                                                   Command="{x:Static theme:ThemeCommands.UseVioletAccentCommand}"/>
                                     </MenuItem>
                                     <Separator/>
-                                    <MenuItem Header="界面主题">
-                                        <MenuItem Header="跟随系统"
+                                    <MenuItem Header="界面主题" Tag="界面主题">
+                                        <MenuItem Header="跟随系统" Tag="跟随系统"
                                                   Command="{x:Static theme:ThemeCommands.UseSystemThemeCommand}"/>
-                                        <MenuItem Header="浅色"
+                                        <MenuItem Header="浅色" Tag="浅色"
                                                   Command="{x:Static theme:ThemeCommands.UseLightThemeCommand}"/>
-                                        <MenuItem Header="深色"
+                                        <MenuItem Header="深色" Tag="深色"
                                                   Command="{x:Static theme:ThemeCommands.UseDarkThemeCommand}"/>
                                     </MenuItem>
                                 </ContextMenu>
@@ -536,6 +537,7 @@
                         <ScrollViewer Background="{DynamicResource AppSidebarBackgroundBrush}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="SideMenuScrollViewer_PreviewMouseWheel">
                             <hc:SideMenu ExpandMode="Freedom"
                                          Background="Transparent"
+                                         Foreground="{DynamicResource AppTextBrush}"
                                          Margin="0,10,0,10"
                                          FontFamily="Microsoft YaHei UI"
                                          FontSize="13"
@@ -853,6 +855,7 @@
                                 </Style>
                                 <Style x:Key="HomeToolButtonStyle" TargetType="Button" BasedOn="{StaticResource HomeActionButtonStyle}">
                                     <Setter Property="Background" Value="{DynamicResource AppAccentSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type Button}">
@@ -930,7 +933,18 @@
 							HorizontalScrollBarVisibility="Disabled"
 							Cursor="">
                                 <StackPanel Margin="0,0,0,8">
-
+                                    <Grid Margin="0,0,0,14">
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="设备工作台"
+                                                       FontSize="22"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="{DynamicResource AppTextBrush}"/>
+                                            <TextBlock Text="设备连接、状态信息与快捷操作"
+                                                       FontSize="12"
+                                                       Margin="0,4,0,0"
+                                                       Foreground="{DynamicResource AppMutedTextBrush}"/>
+                                        </StackPanel>
+                                    </Grid>
                                     <Grid Margin="0,0,0,12">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="1.8*" />
