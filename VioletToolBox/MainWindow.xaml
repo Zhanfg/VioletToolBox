@@ -4775,13 +4775,13 @@
                             </GroupBox>
                         </Grid>
                         <Grid
-                        Name="VioletDownloadView"
+                        Name="VioletDownloadView" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed"
-                        Background="#FFF8FAFD">
+                        Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
                                 <Style x:Key="VioletCardStyle" TargetType="Border">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6ECF3"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="CornerRadius" Value="14"/>
                                     <Setter Property="Padding" Value="14"/>
@@ -4789,18 +4789,18 @@
                                 <Style x:Key="VioletPanelTitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="16"/>
                                     <Setter Property="FontWeight" Value="Bold"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                 </Style>
                                 <Style x:Key="VioletPanelSubtitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="12"/>
-                                    <Setter Property="Foreground" Value="#FF7E8A97"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="Margin" Value="0,4,0,0"/>
                                     <Setter Property="TextWrapping" Value="Wrap"/>
                                 </Style>
                                 <Style x:Key="VioletActionButtonStyle" TargetType="Button">
                                     <Setter Property="Height" Value="34"/>
                                     <Setter Property="Padding" Value="10,0"/>
-                                    <Setter Property="Background" Value="#FF8BD5FF"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="Foreground" Value="White"/>
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="FontSize" Value="13"/>
@@ -4814,10 +4814,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FF63BFF4"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FF4AAFE9"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -4827,9 +4827,9 @@
                                 <Style x:Key="VioletSecondaryButtonStyle" TargetType="Button">
                                     <Setter Property="Height" Value="34"/>
                                     <Setter Property="Padding" Value="10,0"/>
-                                    <Setter Property="Background" Value="#FFF8FAFD"/>
-                                    <Setter Property="Foreground" Value="#FF293642"/>
-                                    <Setter Property="BorderBrush" Value="#FFE0E6ED"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="FontSize" Value="13"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
@@ -4845,17 +4845,17 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FFF1F7FD"/>
-                                                        <Setter Property="BorderBrush" Value="#FFD4E7F6"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppHoverSurfaceBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FFE8F2FA"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppHoverSurfaceBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
                                                         <Setter Property="Opacity" Value="1"/>
-                                                        <Setter Property="Background" Value="#FFD8E0E8"/>
-                                                        <Setter Property="BorderBrush" Value="#FFC8D2DC"/>
-                                                        <Setter Property="Foreground" Value="#FF6F7B87"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppDisabledSurfaceBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -4863,9 +4863,9 @@
                                     </Setter>
                                 </Style>
                                 <Style x:Key="VioletPauseButtonStyle" TargetType="Button" BasedOn="{StaticResource VioletSecondaryButtonStyle}">
-                                    <Setter Property="Background" Value="#FFFFEEEE"/>
-                                    <Setter Property="Foreground" Value="#FFB84B4B"/>
-                                    <Setter Property="BorderBrush" Value="#FFF3CACA"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppDangerSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppDangerBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppDangerBrush}"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type Button}">
@@ -4877,16 +4877,16 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FFFFE4E4"/>
-                                                        <Setter Property="BorderBrush" Value="#FFEDB8B8"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppDangerSurfaceBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppDangerBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FFFBD6D6"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppDangerSurfaceBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
-                                                        <Setter Property="Background" Value="#FFF1F3F5"/>
-                                                        <Setter Property="BorderBrush" Value="#FFDDE3E8"/>
-                                                        <Setter Property="Foreground" Value="#FF7A8793"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -4894,9 +4894,9 @@
                                     </Setter>
                                 </Style>
                                 <Style x:Key="VioletResumeButtonStyle" TargetType="Button" BasedOn="{StaticResource VioletSecondaryButtonStyle}">
-                                    <Setter Property="Background" Value="#FFFFF4E5"/>
-                                    <Setter Property="Foreground" Value="#FFB86B17"/>
-                                    <Setter Property="BorderBrush" Value="#FFF2D4AA"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppWarningBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type Button}">
@@ -4908,16 +4908,16 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FFFFEBD3"/>
-                                                        <Setter Property="BorderBrush" Value="#FFEBC38C"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FFF8DFC0"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentSurfaceBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
-                                                        <Setter Property="Background" Value="#FFF1F3F5"/>
-                                                        <Setter Property="BorderBrush" Value="#FFDDE3E8"/>
-                                                        <Setter Property="Foreground" Value="#FF7A8793"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                                        <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -4925,7 +4925,7 @@
                                     </Setter>
                                 </Style>
                                 <Style x:Key="VioletAccentButtonStyle" TargetType="Button" BasedOn="{StaticResource VioletActionButtonStyle}">
-                                    <Setter Property="Background" Value="#FFC99AE4"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type Button}">
@@ -4934,10 +4934,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FFB983D8"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FFA871C9"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
                                                         <Setter Property="Opacity" Value="0.55"/>
@@ -4950,15 +4950,15 @@
                                 <Style x:Key="VioletLabelStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="13"/>
                                     <Setter Property="FontWeight" Value="SemiBold"/>
-                                    <Setter Property="Foreground" Value="#FF52606D"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="Margin" Value="0,0,0,6"/>
                                 </Style>
                                 <Style x:Key="VioletTextBoxStyle" TargetType="TextBox">
                                     <Setter Property="MinHeight" Value="36"/>
                                     <Setter Property="Padding" Value="11,7"/>
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
-                                    <Setter Property="BorderBrush" Value="#FFD8E1EA"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="FontSize" Value="13"/>
                                     <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -4978,19 +4978,19 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="VioletTextBoxBorder" Property="BorderBrush" Value="#FFB9C9D8"/>
+                                                        <Setter TargetName="VioletTextBoxBorder" Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsKeyboardFocused" Value="True">
                                                         <Setter TargetName="VioletTextBoxBorder" Property="BorderBrush" Value="#FF8BC8EE"/>
                                                         <Setter TargetName="VioletTextBoxBorder" Property="BorderThickness" Value="1.5"/>
                                                     </Trigger>
                                                     <Trigger Property="IsReadOnly" Value="True">
-                                                        <Setter TargetName="VioletTextBoxBorder" Property="Background" Value="#FFF8FAFD"/>
+                                                        <Setter TargetName="VioletTextBoxBorder" Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
-                                                        <Setter TargetName="VioletTextBoxBorder" Property="Background" Value="#FFF3F6F9"/>
-                                                        <Setter TargetName="VioletTextBoxBorder" Property="BorderBrush" Value="#FFE3E8EE"/>
-                                                        <Setter Property="Foreground" Value="#FF9AA4AE"/>
+                                                        <Setter TargetName="VioletTextBoxBorder" Property="Background" Value="{DynamicResource AppSurfaceAltBrush}"/>
+                                                        <Setter TargetName="VioletTextBoxBorder" Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppDisabledTextBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -4999,9 +4999,9 @@
                                 </Style>
                                 <Style x:Key="VioletComboBoxStyle" TargetType="ComboBox">
                                     <Setter Property="Height" Value="36"/>
-                                    <Setter Property="Background" Value="White"/>
-                                    <Setter Property="Foreground" Value="#FF1A1A1A"/>
-                                    <Setter Property="BorderBrush" Value="#FFCFD8E3"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="Padding" Value="8,0"/>
                                     <Setter Property="FontSize" Value="13"/>
@@ -5031,23 +5031,23 @@
                                                                                           HorizontalAlignment="Left"
                                                                                           Content="{TemplateBinding Content}"/>
                                                                         <Border Grid.Column="1"
-                                                                                Background="#FFF5F8FC"
-                                                                                BorderBrush="#FFE6ECF3"
+                                                                                Background="{DynamicResource AppSurfaceAltBrush}"
+                                                                                BorderBrush="{DynamicResource AppBorderBrush}"
                                                                                 BorderThickness="1,0,0,0"
                                                                                 CornerRadius="0,10,10,0">
                                                                             <Path HorizontalAlignment="Center"
                                                                                   VerticalAlignment="Center"
-                                                                                  Fill="#FF6F7B87"
+                                                                                  Fill="{DynamicResource AppMutedTextBrush}"
                                                                                   Data="M 0 0 L 4 4 L 8 0 Z"/>
                                                                         </Border>
                                                                     </Grid>
                                                                 </Border>
                                                                 <ControlTemplate.Triggers>
                                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                                        <Setter TargetName="Border" Property="BorderBrush" Value="#FF9BCDEE"/>
+                                                                        <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                                                     </Trigger>
                                                                     <Trigger Property="IsChecked" Value="True">
-                                                                        <Setter TargetName="Border" Property="BorderBrush" Value="#FF8BD5FF"/>
+                                                                        <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource AppAccentBorderBrush}"/>
                                                                     </Trigger>
                                                                 </ControlTemplate.Triggers>
                                                             </ControlTemplate>
@@ -5068,8 +5068,8 @@
                                                            IsOpen="{TemplateBinding IsDropDownOpen}"
                                                            PopupAnimation="Slide">
                                                         <Grid MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                                                            <Border Background="White"
-                                                                    BorderBrush="#FFD9E4EF"
+                                                            <Border Background="{DynamicResource AppSurfaceBrush}"
+                                                                    BorderBrush="{DynamicResource AppBorderBrush}"
                                                                     BorderThickness="1"
                                                                     CornerRadius="10"
                                                                     Margin="0,6,0,0">
@@ -5088,7 +5088,7 @@
                                 </Style>
                                 <Style x:Key="VioletComboBoxItemStyle" TargetType="ComboBoxItem">
                                     <Setter Property="Padding" Value="10,8"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
@@ -5103,11 +5103,11 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsHighlighted" Value="True">
-                                                        <Setter TargetName="ItemBorder" Property="Background" Value="#FFF1F7FD"/>
+                                                        <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource AppHoverSurfaceBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsSelected" Value="True">
-                                                        <Setter TargetName="ItemBorder" Property="Background" Value="#FFE2F2FE"/>
-                                                        <Setter Property="Foreground" Value="#FF2A84C9"/>
+                                                        <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -5224,15 +5224,15 @@
                                                         </ComboBox>
                                                     </StackPanel>
                                                     <Border Grid.Column="2"
-                                                            Background="#FFF8FAFD"
-                                                            BorderBrush="#FFE6ECF3"
+                                                            Background="{DynamicResource AppSurfaceAltBrush}"
+                                                            BorderBrush="{DynamicResource AppBorderBrush}"
                                                             BorderThickness="1"
                                                             CornerRadius="10"
                                                             Padding="12,8" Margin="0,4,0,0">
                                                         <StackPanel>
-                                                            <TextBlock FontSize="13" FontWeight="SemiBold" Foreground="#FF52606D" Text="使用建议"/>
+                                                            <TextBlock FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource AppMutedTextBrush}" Text="使用建议"/>
                                                             <TextBlock Margin="0,3,0,0"
-                                                                       Foreground="#FF7E8A97"
+                                                                       Foreground="{DynamicResource AppMutedTextBrush}"
                                                                        FontSize="12"
                                                                        TextWrapping="Wrap"
                                                                        Text="普通下载建议先用 8 或 16 线程；如果链接不稳定，可先降低线程数后再尝试继续下载。"/>
@@ -5269,7 +5269,7 @@
                                                     <Button x:Name="VioletDownloadPauseButton"
                                                             Click="VioletDownloadPauseButton_Click"
                                                             Style="{StaticResource VioletPauseButtonStyle}"
-                                                            Margin="4,0,4,0" Foreground="White" BorderBrush="#FFFFA7A7" Background="#FFFFA7A7">
+                                                            Margin="4,0,4,0" Foreground="White" BorderBrush="#FFFFA7A7" Background="{DynamicResource AppDangerBrush}">
                                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                             <Grid Width="14" Height="14" Margin="0,0,5,0">
                                                                 <svg:SvgViewbox Source="images/暂停.svg" Width="14" Height="14">
@@ -5398,8 +5398,8 @@
                                                          Maximum="100"
                                                          Value="0"
                                                          Tag="等待开始下载..."
-                                                         Background="#FFF0F0F0"
-                                                         BorderBrush="#FFD8D8D8"
+                                                         Background="{DynamicResource AppSurfaceAltBrush}"
+                                                         BorderBrush="{DynamicResource AppBorderBrush}"
                                                          BorderThickness="1"
                                                          ValueChanged="VioletDownloadProgressBar_ValueChanged" Grid.ColumnSpan="2">
                                                 <ProgressBar.Style>
@@ -5424,14 +5424,14 @@
                                                                                        VerticalAlignment="Center"
                                                                                        Margin="8,0,0,0"
                                                                                        FontSize="12"
-                                                                                       Foreground="#FF333333"
+                                                                                       Foreground="{DynamicResource AppTextBrush}"
                                                                                        FontWeight="Medium"/>
                                                                             <TextBlock Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0}%}"
                                                                                        HorizontalAlignment="Right"
                                                                                        VerticalAlignment="Center"
                                                                                        Margin="0,0,8,0"
                                                                                        FontSize="12"
-                                                                                       Foreground="#FF333333"
+                                                                                       Foreground="{DynamicResource AppTextBrush}"
                                                                                        FontWeight="Medium"/>
                                                                         </Grid>
                                                                     </Border>
@@ -5444,7 +5444,7 @@
 
                                             <TextBlock x:Name="VioletDownloadProgressTextBlock"
                                                        Margin="0,8,0,0"
-                                                       Foreground="#475569"
+                                                       Foreground="{DynamicResource AppMutedTextBrush}"
                                                        FontSize="12"
                                                        Text="等待开始下载..."
                                                        Visibility="Collapsed" />
@@ -5457,19 +5457,19 @@
                             </ScrollViewer>
                         </Grid>
                         <Grid
-                        Name="SystemZoneView"
-                        Visibility="Collapsed" Cursor="">
+                        Name="SystemZoneView" TextElement.Foreground="{DynamicResource AppTextBrush}"
+                        Visibility="Collapsed" Cursor="" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Border
-                                    Background="#F8F9FA"
+                                    Background="{DynamicResource AppSurfaceAltBrush}"
                                     CornerRadius="10"
                                     Padding="20"
                                     Margin="0,0,0,20" Cursor="">
                                 <Border
-                                            Background="#FFFFFF"
+                                            Background="{DynamicResource AppSurfaceBrush}"
                                             CornerRadius="8"
                                             Padding="20"
                                             BorderThickness="1"
-                                            BorderBrush="#E0E0E0"
+                                            BorderBrush="{DynamicResource AppBorderBrush}"
                                             Margin="-20,-20,0,-31" Width="840" HorizontalAlignment="Left">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -5478,7 +5478,7 @@
                                         </Grid.RowDefinitions>
                                         <StackPanel Margin="-9,0,0,0" Grid.RowSpan="2">
                                             <StackPanel Orientation="Horizontal">
-                                            <Button VerticalAlignment="Top" Width="105" Click="LoadSystemZoneLocationButton_Click" Height="36" Background="#FFD39AF3" Foreground="White">
+                                            <Button VerticalAlignment="Top" Width="105" Click="LoadSystemZoneLocationButton_Click" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/加载.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5486,7 +5486,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="130" Height="36" Background="#FFD39AF3" Foreground="White" Margin="10,0,0,0" Click="Button_Click_1" Tag="传入文件到手机">
+                                            <Button VerticalAlignment="Top" Width="130" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White" Margin="10,0,0,0" Click="Button_Click_1" Tag="传入文件到手机">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/向下.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5494,7 +5494,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="130" Height="36" Background="#FFD39AF3" Foreground="White" Margin="10,0,0,0" Click="Button_Click_2">
+                                            <Button VerticalAlignment="Top" Width="130" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White" Margin="10,0,0,0" Click="Button_Click_2">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/向上.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5502,7 +5502,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="#FF9A9AF3" Foreground="White" Margin="10,0,0,0" Click="RefreshButton_Click">
+                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White" Margin="10,0,0,0" Click="RefreshButton_Click">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/刷新.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5510,7 +5510,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="#FF9A9AF3" Foreground="White" Margin="10,0,0,0" Click="BackButton_Click">
+                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White" Margin="10,0,0,0" Click="BackButton_Click">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/向左.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5518,7 +5518,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="#FF9A9AF3" Foreground="White" Margin="10,0,0,0" Click="InstallApkButton_Click">
+                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="{DynamicResource AppAccentBrush}" Foreground="White" Margin="10,0,0,0" Click="InstallApkButton_Click">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/APK.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5526,7 +5526,7 @@
                                                     </StackPanel>
                                                 </Button.Content>
                                             </Button>
-                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="#FFFD8383" Foreground="White" Margin="10,0,0,0" Click="DeleteSelectedFilesButton_Click">
+                                            <Button VerticalAlignment="Top" Width="94" Height="36" Background="{DynamicResource AppDangerBrush}" Foreground="White" Margin="10,0,0,0" Click="DeleteSelectedFilesButton_Click">
                                                 <Button.Content>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                         <svg:SvgViewbox Source="images/卸载.svg" Width="16" Height="16" Margin="0,0,6,0" />
@@ -5537,7 +5537,7 @@
                                             </StackPanel>
                                             <Grid Width="807" VerticalAlignment="Center" Margin="2,8,0,0">
                                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                                    <TextBlock Text="加载位置：" VerticalAlignment="Center" Foreground="#FF666666" FontSize="13"/>
+                                                    <TextBlock Text="加载位置：" VerticalAlignment="Center" Foreground="{DynamicResource AppMutedTextBrush}" FontSize="13"/>
                                                     <RadioButton x:Name="SystemZoneInternalStorageRadioButton"
                                                                  GroupName="SystemZoneLoadLocation"
                                                                  Content="内部存储"
@@ -5565,14 +5565,14 @@
                                                            TextTrimming="CharacterEllipsis"
                                                            FontFamily="Cascadia Mono,Microsoft YaHei UI,Consolas"
                                                            FontSize="12"
-                                                           Foreground="#FF64748B"
+                                                           Foreground="{DynamicResource AppMutedTextBrush}"
                                                            Cursor="Hand"
                                                            ToolTip="当前路径，点击复制"
                                                            ToolTipService.ShowDuration="60000"
                                                            MouseLeftButtonUp="CopyTextBlockContent"/>
                                             </Grid>
                                         </StackPanel>
-                                        <ListBox Name="FileListTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="807" Height="456" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Consolas" FontSize="12" SelectionChanged="FileListTextBox_SelectionChanged" MouseDoubleClick="FileListTextBox_MouseDoubleClick" PreviewMouseLeftButtonDown="FileListTextBox_PreviewMouseLeftButtonDown" ContextMenuOpening="FileListTextBox_ContextMenuOpening" SelectionMode="Multiple" Margin="-9,70,0,0" BorderBrush="#FFF8ECFF" HorizontalContentAlignment="Center" AllowDrop="True" Drop="FileListTextBox_Drop" DragOver="FileListTextBox_DragOver">
+                                        <ListBox Name="FileListTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="807" Height="456" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Consolas" FontSize="12" SelectionChanged="FileListTextBox_SelectionChanged" MouseDoubleClick="FileListTextBox_MouseDoubleClick" PreviewMouseLeftButtonDown="FileListTextBox_PreviewMouseLeftButtonDown" ContextMenuOpening="FileListTextBox_ContextMenuOpening" SelectionMode="Multiple" Margin="-9,70,0,0" BorderBrush="{DynamicResource AppBorderBrush}" HorizontalContentAlignment="Center" AllowDrop="True" Drop="FileListTextBox_Drop" DragOver="FileListTextBox_DragOver">
                                             <ListBox.ContextMenu>
                                                 <ContextMenu>
                                                     <MenuItem x:Name="SystemZoneNewFolderMenuItem" Header="新建文件夹" Click="CreateSystemZoneFolderMenuItem_Click"/>
@@ -5604,7 +5604,7 @@
                                                                     </Viewbox.Style>
                                                                     <Canvas Width="1000" Height="1000">
                                                                         <!-- 文件夹图标 -->
-                                                                        <Path Fill="#694B4B" Data="M170.2 246.4h342.1s44.2-77.8 89.1-77.8h254.9c20.7 0 37.7 19.8 37.7 44l1.1 598.1c0 24.2-19.8 44-44 44h-681c-24.2 0-44-19.8-44-44V290.4c0.1-24.2 19.9-44 44.1-44z">
+                                                                        <Path Fill="{DynamicResource AppMutedTextBrush}" Data="M170.2 246.4h342.1s44.2-77.8 89.1-77.8h254.9c20.7 0 37.7 19.8 37.7 44l1.1 598.1c0 24.2-19.8 44-44 44h-681c-24.2 0-44-19.8-44-44V290.4c0.1-24.2 19.9-44 44.1-44z">
                                                                             <Path.Style>
                                                                                 <Style TargetType="Path">
                                                                                     <Setter Property="Visibility" Value="Visible"/>
@@ -5616,7 +5616,7 @@
                                                                                 </Style>
                                                                             </Path.Style>
                                                                         </Path>
-                                                                        <Path Fill="#00B5FC" Data="M895.2 425.1H509.1s-44.2-71.4-89.1-71.4H125.1c-20.7 0-38.9 16.3-38.9 36l40 429.2c0 19.7 19.8 35.8 44 35.8h685c24.2 0 44-16.1 44-35.8l40-358c0-19.7-19.8-35.8-44-35.8z">
+                                                                        <Path Fill="{DynamicResource AppAccentBrush}" Data="M895.2 425.1H509.1s-44.2-71.4-89.1-71.4H125.1c-20.7 0-38.9 16.3-38.9 36l40 429.2c0 19.7 19.8 35.8 44 35.8h685c24.2 0 44-16.1 44-35.8l40-358c0-19.7-19.8-35.8-44-35.8z">
                                                                             <Path.Style>
                                                                                 <Style TargetType="Path">
                                                                                     <Setter Property="Visibility" Value="Visible"/>
@@ -5629,7 +5629,7 @@
                                                                             </Path.Style>
                                                                         </Path>
                                                                         <!-- 文档图标（仅普通文件显示，不包含压缩包和镜像） -->
-                                                                        <Path Fill="#714AEE" Data="M889.412267 101.0944c-8.785067-9.6384-21.960533-9.6384-30.7456 0L628.078933 349.269333a24.8832 24.8832 0 0 0 0 33.732267c4.394667 4.821333 10.978133 7.227733 15.3728 7.227733 6.587733 0 10.978133-2.410667 15.3728-7.227733L889.412267 134.826667a24.8832 24.8832 0 0 0 0-33.732267z m-116.394667 265.0368v481.877333c0 7.232-6.587733 14.464-13.175467 14.464H206.429867c-6.587733 2.4064-13.175467-4.821333-13.175467-12.049066V204.6976c0-7.227733 6.587733-14.455467 13.175467-14.455467h423.8464c13.175467 0 21.960533-9.6384 21.960533-24.093866 0-14.455467-8.789333-24.093867-21.960533-24.093867H206.429867C175.684267 142.0544 149.333333 170.9696 149.333333 204.6976v645.725867C149.333333 884.155733 175.684267 913.066667 206.429867 913.066667h553.412266c32.938667 0 57.1008-28.910933 57.1008-62.6432V368.5376c0-14.455467-8.789333-26.500267-21.960533-26.500267-13.179733 0-21.9648 9.634133-21.9648 24.093867zM551.214933 416.725333h-256.938666c-13.179733 0-21.960533 9.634133-21.960534 24.093867 0 14.455467 8.7808 24.093867 21.960534 24.093867h254.7456c13.175467 0 21.960533-9.642667 21.960533-24.093867 0-14.459733-8.789333-24.093867-19.767467-24.093867z m-278.8992 255.394134c0 14.459733 8.7808 24.093867 21.960534 24.093866h377.728c13.1712 0 21.956267-9.634133 21.956266-24.093866 0-14.455467-8.785067-24.093867-21.960533-24.093867H294.272c-10.978133 0-21.956267 9.642667-21.956267 24.093867z">
+                                                                        <Path Fill="{DynamicResource AppAccentBrush}" Data="M889.412267 101.0944c-8.785067-9.6384-21.960533-9.6384-30.7456 0L628.078933 349.269333a24.8832 24.8832 0 0 0 0 33.732267c4.394667 4.821333 10.978133 7.227733 15.3728 7.227733 6.587733 0 10.978133-2.410667 15.3728-7.227733L889.412267 134.826667a24.8832 24.8832 0 0 0 0-33.732267z m-116.394667 265.0368v481.877333c0 7.232-6.587733 14.464-13.175467 14.464H206.429867c-6.587733 2.4064-13.175467-4.821333-13.175467-12.049066V204.6976c0-7.227733 6.587733-14.455467 13.175467-14.455467h423.8464c13.175467 0 21.960533-9.6384 21.960533-24.093866 0-14.455467-8.789333-24.093867-21.960533-24.093867H206.429867C175.684267 142.0544 149.333333 170.9696 149.333333 204.6976v645.725867C149.333333 884.155733 175.684267 913.066667 206.429867 913.066667h553.412266c32.938667 0 57.1008-28.910933 57.1008-62.6432V368.5376c0-14.455467-8.789333-26.500267-21.960533-26.500267-13.179733 0-21.9648 9.634133-21.9648 24.093867zM551.214933 416.725333h-256.938666c-13.179733 0-21.960533 9.634133-21.960534 24.093867 0 14.455467 8.7808 24.093867 21.960534 24.093867h254.7456c13.175467 0 21.960533-9.642667 21.960533-24.093867 0-14.459733-8.789333-24.093867-19.767467-24.093867z m-278.8992 255.394134c0 14.459733 8.7808 24.093867 21.960534 24.093866h377.728c13.1712 0 21.956267-9.634133 21.956266-24.093866 0-14.455467-8.785067-24.093867-21.960533-24.093867H294.272c-10.978133 0-21.956267 9.642667-21.956267 24.093867z">
                                                                             <Path.Style>
                                                                                 <Style TargetType="Path">
                                                                                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -5735,7 +5735,7 @@
                                                                        TextAlignment="Center"
                                                                        TextWrapping="NoWrap"
                                                                        FontSize="10"
-                                                                       Foreground="#FF555555"
+                                                                       Foreground="{DynamicResource AppMutedTextBrush}"
                                                                        Width="108"
                                                                        Height="15"
                                                                        Margin="0,2,0,0"/>
@@ -5752,8 +5752,8 @@
                                                 Margin="-9,70,0,0"
                                                 Panel.ZIndex="20"
                                                 Visibility="Collapsed"
-                                                Background="#B8FFFFFF"
-                                                BorderBrush="#66D8DEE8"
+                                                Background="{DynamicResource AppOverlayBrush}"
+                                                BorderBrush="{DynamicResource AppBorderBrush}"
                                                 BorderThickness="1"
                                                 CornerRadius="5">
                                             <StackPanel HorizontalAlignment="Center"
@@ -5763,13 +5763,13 @@
                                                                   Height="84"
                                                                   DotSpeed="2.6"
                                                                   DotDiameter="7"
-                                                                  Foreground="#FF8B5CF6"
+                                                                  Foreground="{DynamicResource AppAccentBrush}"
                                                                   Margin="0,0,0,12"/>
                                                 <TextBlock Text="正在读取目录..."
                                                            HorizontalAlignment="Center"
                                                            FontFamily="Microsoft YaHei UI"
                                                            FontSize="11.5"
-                                                           Foreground="#FF64748B"/>
+                                                           Foreground="{DynamicResource AppMutedTextBrush}"/>
                                             </StackPanel>
                                         </Border>
                                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="807" Margin="-9,0,0,0" Grid.RowSpan="2" Panel.ZIndex="10">
@@ -5777,8 +5777,8 @@
                                                 <local:SystemZoneLogTextBox x:Name="FileTransferLogTextBox"
                                                                             Text="无需打开文件传输模式，仅充电模式下可进行正常文件传输，支持直接从电脑端批量拖动文件到窗口传输文件，加载根目录文件需要提前在设备上授予SHELL ROOT权限。"
                                                                             IsReadOnly="True"
-                                                                            Background="#FFFAFBFD"
-                                                                            BorderBrush="#FFF8ECFF"
+                                                                            Background="{DynamicResource AppSurfaceAltBrush}"
+                                                                            BorderBrush="{DynamicResource AppBorderBrush}"
                                                                             BorderThickness="1"
                                                                             Padding="7,7"
                                                                             HorizontalContentAlignment="Stretch"
@@ -5786,12 +5786,12 @@
                                                                             FontFamily="Cascadia Mono,Microsoft YaHei UI,Consolas"
                                                                             FontSize="11.75"
                                                                             FontWeight="Normal"
-                                                                            Foreground="#FF334155"
+                                                                            Foreground="{DynamicResource AppTextBrush}"
                                                                             VerticalScrollBarVisibility="Auto"
                                                                             HorizontalScrollBarVisibility="Disabled"/>
                                             </Grid>
                                             <Grid Height="24" Margin="0,8,0,0">
-                                                <ProgressBar x:Name="SystemZoneProgressBar" Height="24" Minimum="0" Maximum="100" Value="0" Tag="0/0    0.00 B/s" Visibility="Visible" Background="#FFF0F0F0" BorderBrush="#FFD8D8D8" BorderThickness="1" Margin="0,7,0,-7">
+                                                <ProgressBar x:Name="SystemZoneProgressBar" Height="24" Minimum="0" Maximum="100" Value="0" Tag="0/0    0.00 B/s" Visibility="Visible" Background="{DynamicResource AppSurfaceAltBrush}" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" Margin="0,7,0,-7">
                                                     <ProgressBar.Style>
                                                         <Style TargetType="{x:Type ProgressBar}">
                                                             <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -5824,14 +5824,14 @@
                                                                                            VerticalAlignment="Center"
                                                                                            Margin="8,0,0,0"
                                                                                            FontSize="12"
-                                                                                           Foreground="#FF333333"
+                                                                                           Foreground="{DynamicResource AppTextBrush}"
                                                                                            FontWeight="Medium"/>
                                                                                 <TextBlock Text="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:0}%}"
                                                                                            HorizontalAlignment="Right"
                                                                                            VerticalAlignment="Center"
                                                                                            Margin="0,0,8,0"
                                                                                            FontSize="12"
-                                                                                           Foreground="#FF333333"
+                                                                                           Foreground="{DynamicResource AppTextBrush}"
                                                                                            FontWeight="Medium"/>
                                                                             </Grid>
                                                                         </Border>
@@ -5848,9 +5848,9 @@
                             </Border>
                         </Grid>
                         <Grid
-                        Name="DownloadView"
+                        Name="DownloadView" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed"
-                        d:Visibility="Collapsed" Cursor="">
+                        d:Visibility="Collapsed" Cursor="" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <ScrollViewer
                             VerticalScrollBarVisibility="Disabled"
                             PanningMode="None">
@@ -5859,8 +5859,8 @@
                                     Margin="0,46,0,0"
                                     CornerRadius="12"
                                     BorderThickness="1"
-                                    BorderBrush="#20E5A8EF"
-                                    Background="#55FFFFFF"
+                                    BorderBrush="{DynamicResource AppAccentBorderBrush}"
+                                    Background="{DynamicResource AppSurfaceBrush}"
                                     Effect="{StaticResource DropShadowEffect}">
                                         <Grid
                                         x:Name="DownloadZoneContainer"
@@ -6079,8 +6079,8 @@
                                                 <Border
                                                 CornerRadius="12"
                                                 BorderThickness="1"
-                                                BorderBrush="#20E5A8EF"
-                                                Background="White"
+                                                BorderBrush="{DynamicResource AppAccentBorderBrush}"
+                                                Background="{DynamicResource AppSurfaceBrush}"
                                                 Effect="{StaticResource DropShadowEffect}">
                                                     <Grid>
                                                         <ListBox
@@ -6122,14 +6122,14 @@
                                                         Visibility="Collapsed"
                                                         Background="Transparent">
                                                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                <TextBlock Text="解析中..." FontSize="16" Foreground="#333333" HorizontalAlignment="Center"/>
+                                                                <TextBlock Text="解析中..." FontSize="16" Foreground="{DynamicResource AppTextBrush}" HorizontalAlignment="Center"/>
                                                                 <ProgressBar
                                                                 IsIndeterminate="True"
                                                                 Width="260"
                                                                 Height="6"
                                                                 Margin="0,16,0,0"
-                                                                Foreground="#FFC99AE4"
-                                                                Background="#20C99AE4"
+                                                                Foreground="{DynamicResource AppAccentBrush}"
+                                                                Background="{DynamicResource AppAccentSurfaceBrush}"
                                                                 BorderThickness="0"/>
                                                             </StackPanel>
                                                         </Grid>
@@ -6138,7 +6138,7 @@
                                             </Grid>
                                         </Grid>
                                     </Border>
-                                    <Button HorizontalAlignment="Left" Margin="740,0,0,0" VerticalAlignment="Top" Width="108" Height="35" Background="#FFC99AE4" BorderBrush="#FFC99AE4" Foreground="White" FontSize="14" Click="BackToDriverTileButton_Click">
+                                    <Button HorizontalAlignment="Left" Margin="740,0,0,0" VerticalAlignment="Top" Width="108" Height="35" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppAccentBrush}" Foreground="White" FontSize="14" Click="BackToDriverTileButton_Click">
                                         <Button.Content>
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                 <svg:SvgViewbox Source="images/back.svg" Width="16" Height="16" Margin="0,0,6,0"/>
@@ -6150,7 +6150,7 @@
                                         <Label.Content>
                                             <TextBlock>
                                             <Run Text="您可以双击打开文件夹目录或双击运行程序，支持访问官网"/>
-                                            <Hyperlink NavigateUri="https://violettool.top/upload.html" RequestNavigate="UploadWebsiteLink_RequestNavigate" Foreground="#FFB876DD">
+                                            <Hyperlink NavigateUri="https://violettool.top/upload.html" RequestNavigate="UploadWebsiteLink_RequestNavigate" Foreground="{DynamicResource AppAccentBrush}">
                                                 <Hyperlink.TextDecorations>
                                                     <TextDecorationCollection>
                                                         <TextDecoration Location="Underline"/>
@@ -6381,16 +6381,16 @@
                             </Grid>
                         </Grid>
                         <Grid
-                        Name="RomDownloadview"
+                        Name="RomDownloadview" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed"
-                        Margin="12">
+                        Margin="12" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.Resources>
                                 <Style x:Key="RomSectionStyle"
                                        TargetType="{x:Type GroupBox}"
                                        BasedOn="{StaticResource PayloadGroupBoxStyle}">
                                     <Setter Property="Padding" Value="16,14,16,16"/>
                                     <Setter Property="FontSize" Value="13"/>
-                                    <Setter Property="BorderBrush" Value="#FFE1E6EC"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                 </Style>
                                 <Style x:Key="RomFieldLabelStyle"
                                        TargetType="{x:Type Label}"
@@ -6417,7 +6417,7 @@
                                     <Setter Property="Height" Value="34"/>
                                     <Setter Property="FontSize" Value="12"/>
                                     <Setter Property="FontWeight" Value="Normal"/>
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
                                 </Style>
                                 <Style x:Key="RomPrimaryButtonStyle"
                                        TargetType="{x:Type Button}"
@@ -6426,23 +6426,23 @@
                                     <Setter Property="MinWidth" Value="124"/>
                                     <Setter Property="Padding" Value="18,0"/>
                                     <Setter Property="Foreground" Value="#FFFFFFFF"/>
-                                    <Setter Property="Background" Value="SkyBlue"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6E6E6"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                 </Style>
                                 <Style x:Key="RomSecondaryButtonStyle"
                                        TargetType="{x:Type Button}"
                                        BasedOn="{StaticResource RomPrimaryButtonStyle}">
                                     <Setter Property="Foreground" Value="#FFFFFFFF"/>
-                                    <Setter Property="Background" Value="#FF73A9D2"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6E6E6"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                 </Style>
                                 <Style x:Key="RomDangerButtonStyle"
                                        TargetType="{x:Type Button}"
                                        BasedOn="{StaticResource RomPrimaryButtonStyle}">
                                     <Setter Property="Foreground" Value="#FFFFFFFF"/>
-                                    <Setter Property="Background" Value="#FFFF8E88"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6E6E6"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppDangerBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                 </Style>
                                 <Style x:Key="RomVersionDropDownItemStyle" TargetType="ComboBoxItem">
                                     <Setter Property="MinWidth" Value="720"/>
@@ -6451,7 +6451,7 @@
                                     <Setter Property="FontSize" Value="12.5"/>
                                     <Setter Property="FontWeight" Value="Medium"/>
                                     <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
                                     <Setter Property="SnapsToDevicePixels" Value="True"/>
                                     <Setter Property="ToolTip" Value="{Binding Content, RelativeSource={RelativeSource Self}}"/>
@@ -6470,15 +6470,15 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsHighlighted" Value="True">
-                                                        <Setter TargetName="ItemBorder" Property="Background" Value="#FFF1F7FD"/>
-                                                        <Setter Property="Foreground" Value="#FF246FA8"/>
+                                                        <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource AppHoverSurfaceBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsSelected" Value="True">
-                                                        <Setter TargetName="ItemBorder" Property="Background" Value="#FFE2F2FE"/>
-                                                        <Setter Property="Foreground" Value="#FF1F6DA8"/>
+                                                        <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
-                                                        <Setter Property="Foreground" Value="#FF9AA6B2"/>
+                                                        <Setter Property="Foreground" Value="{DynamicResource AppDisabledTextBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -6515,7 +6515,7 @@
                                         <ColumnDefinition Width="1.35*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="品牌：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="品牌：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomBrandComboBox"
                                               Grid.Row="0"
                                               Grid.Column="1"
@@ -6530,14 +6530,14 @@
                                         <ComboBoxItem Content="魅族"/>
                                     </ComboBox>
 
-                                    <Label Grid.Row="0" Grid.Column="3" Content="系列：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Content="系列：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSeriesComboBox"
                                               Grid.Row="0"
                                               Grid.Column="4"
                                               Style="{StaticResource RomComboBoxStyle}"
                                               SelectionChanged="RomSeriesComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="0" Grid.Column="6" Content="机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="6" Content="机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomDeviceComboBox"
                                               Grid.Row="0"
                                               Grid.Column="7"
@@ -6545,7 +6545,7 @@
                                               MinWidth="146"
                                               SelectionChanged="RomDeviceComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Margin="0,14,10,0" Content="版本：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Margin="0,14,10,0" Content="版本：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomVersionComboBox"
                                               Grid.Row="1"
                                               Grid.Column="1"
@@ -6558,7 +6558,7 @@
                                               ItemContainerStyle="{StaticResource RomVersionDropDownItemStyle}"
                                               SelectionChanged="RomVersionComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="1" Grid.Column="6" Margin="0,14,10,0" Content="分区：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="1" Grid.Column="6" Margin="0,14,10,0" Content="分区：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomPartitionComboBox"
                                               Grid.Row="1"
                                               Grid.Column="7"
@@ -6572,7 +6572,7 @@
                                         <ComboBoxItem Content="vendor_boot"/>
                                     </ComboBox>
 
-                                    <Label Grid.Row="2" Grid.Column="0" Margin="0,14,10,0" Content="路径：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Margin="0,14,10,0" Content="路径：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Margin="0,14,0,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -6590,7 +6590,7 @@
                                                 Style="{StaticResource RomPrimaryButtonStyle}"
                                                 MinWidth="156"
                                                 Content="开始下载"
-                                                Click="RomDownloadStartButton_Click" Background="SkyBlue" BorderBrush="#FFE6E6E6"/>
+                                                Click="RomDownloadStartButton_Click" Background="{DynamicResource AppAccentBrush}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     </Grid>
 
                                     <Grid Grid.Row="3"
@@ -6603,8 +6603,8 @@
                                                      Maximum="100"
                                                      Value="0"
                                                      Tag="镜像下载进度"
-                                                     Background="#FFF1F3F7"
-                                                     BorderBrush="#FFDCE1E8"
+                                                     Background="{DynamicResource AppSurfaceAltBrush}"
+                                                     BorderBrush="{DynamicResource AppBorderBrush}"
                                                      BorderThickness="1">
                                             <ProgressBar.Style>
                                                 <Style TargetType="{x:Type ProgressBar}">
@@ -6646,7 +6646,7 @@
                                                    IsHitTestVisible="False"
                                                    FontSize="12"
                                                    FontWeight="Medium"
-                                                   Foreground="#FF333333"/>
+                                                   Foreground="{DynamicResource AppTextBrush}"/>
                                         <TextBlock Text="{Binding Value, ElementName=RomDownloadProgressBar, StringFormat={}{0:0}%}"
                                                    HorizontalAlignment="Right"
                                                    VerticalAlignment="Center"
@@ -6655,7 +6655,7 @@
                                                    IsHitTestVisible="False"
                                                    FontSize="12"
                                                    FontWeight="Medium"
-                                                   Foreground="#FF333333"/>
+                                                   Foreground="{DynamicResource AppTextBrush}"/>
                                     </Grid>
                                 </Grid>
                             </GroupBox>
@@ -6681,7 +6681,7 @@
                                         <ColumnDefinition Width="1.35*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="品牌：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="品牌：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSelectBrandComboBox"
                                               Grid.Row="0"
                                               Grid.Column="1"
@@ -6696,14 +6696,14 @@
                                         <ComboBoxItem Content="魅族"/>
                                     </ComboBox>
 
-                                    <Label Grid.Row="0" Grid.Column="3" Content="系列：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Content="系列：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSelectSeriesComboBox"
                                               Grid.Row="0"
                                               Grid.Column="4"
                                               Style="{StaticResource RomComboBoxStyle}"
                                               SelectionChanged="RomSelectSeriesComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="0" Grid.Column="6" Content="机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="6" Content="机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSelectDeviceComboBox"
                                               Grid.Row="0"
                                               Grid.Column="7"
@@ -6711,7 +6711,7 @@
                                               MinWidth="146"
                                               SelectionChanged="RomSelectDeviceComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Margin="0,14,10,0" Content="版本：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Margin="0,14,10,0" Content="版本：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSelectVersionComboBox"
                                               Grid.Row="1"
                                               Grid.Column="1"
@@ -6724,7 +6724,7 @@
                                               ItemContainerStyle="{StaticResource RomVersionDropDownItemStyle}"
                                               SelectionChanged="RomSelectVersionComboBox_SelectionChanged"/>
 
-                                    <Label Grid.Row="1" Grid.Column="6" Margin="0,14,10,0" Content="类型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="1" Grid.Column="6" Margin="0,14,10,0" Content="类型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="RomSelectPackageTypeComboBox"
                                               Grid.Row="1"
                                               Grid.Column="7"
@@ -6794,7 +6794,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="预设机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="预设机型：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <ComboBox x:Name="LenovoPresetModelComboBox"
                                               Grid.Row="0"
                                               Grid.Column="1"
@@ -6807,7 +6807,7 @@
                                         <ComboBoxItem Content="Y700五代" Tag="ZAH20097CN"/>
                                     </ComboBox>
 
-                                    <Label Grid.Row="0" Grid.Column="3" Content="SN/MTM：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="White"/>
+                                    <Label Grid.Row="0" Grid.Column="3" Content="SN/MTM：" Style="{StaticResource RomFieldLabelStyle}" BorderBrush="{DynamicResource AppBorderBrush}"/>
                                     <TextBox x:Name="LenovoQueryInputTextBox"
                                              Grid.Row="0"
                                              Grid.Column="4"
@@ -6832,7 +6832,7 @@
                                                Grid.Column="0"
                                                Grid.ColumnSpan="9"
                                                Margin="0,12,0,0"
-                                               Foreground="#FF6D7885"
+                                               Foreground="{DynamicResource AppMutedTextBrush}"
                                                FontSize="12"
                                                FontWeight="Normal"><Run Text="支持 8 位 SN、10 位 MTM，或直接选择预设机型自动输出刷机包。"/><Run Language="zh-cn" Text="（查询的刷机包均为最新版）"/></TextBlock>
 
@@ -6848,7 +6848,7 @@
                                              VerticalScrollBarVisibility="Auto"
                                              HorizontalScrollBarVisibility="Disabled"
                                              Background="#FFFAFBFC"
-                                             BorderBrush="#FFE5E9EE"
+                                             BorderBrush="{DynamicResource AppBorderBrush}"
                                              BorderThickness="1"
                                              FontSize="12"
                                              Padding="12"
@@ -8320,7 +8320,7 @@
                         </Grid>
 
                         <!-- 备份助手视图 -->
-                        <Grid Name="BackupAssistantView" Visibility="Collapsed" Margin="12,0,12,12">
+                        <Grid Name="BackupAssistantView" TextElement.Foreground="{DynamicResource AppTextBrush}" Visibility="Collapsed" Margin="12,0,12,12" Background="{DynamicResource AppWindowBackgroundBrush}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="10"/>
@@ -8367,11 +8367,11 @@
                             </Grid>
 
                             <!-- 右侧导航栏 -->
-                            <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1" Background="WhiteSmoke">
+                            <Border Grid.Column="2" BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="1" Background="WhiteSmoke">
                                 <StackPanel>
                                     <Button x:Name="btnNavPhotos" Content=" 📷&#x0a;图片" Width="78" Height="80" Click="BtnNavPhotos_Click" FontSize="14" Background="DodgerBlue" Foreground="White" BorderThickness="0"/>
-                                    <Button x:Name="btnNavVideos" Content=" 🎬&#x0a;视频" Width="78" Height="80" Click="BtnNavVideos_Click" FontSize="14" Margin="0,1,0,0" Background="White" Foreground="Black" BorderThickness="0"/>
-                                    <Button x:Name="btnNavContacts" Content="  📞&#x0a;通讯录" Width="78" Height="80" Click="BtnNavContacts_Click" FontSize="14" Margin="0,1,0,0" Background="White" Foreground="Black" BorderThickness="0"/>
+                                    <Button x:Name="btnNavVideos" Content=" 🎬&#x0a;视频" Width="78" Height="80" Click="BtnNavVideos_Click" FontSize="14" Margin="0,1,0,0" Background="{DynamicResource AppSurfaceBrush}" Foreground="{DynamicResource AppTextBrush}" BorderThickness="0"/>
+                                    <Button x:Name="btnNavContacts" Content="  📞&#x0a;通讯录" Width="78" Height="80" Click="BtnNavContacts_Click" FontSize="14" Margin="0,1,0,0" Background="{DynamicResource AppSurfaceBrush}" Foreground="{DynamicResource AppTextBrush}" BorderThickness="0"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -8841,9 +8841,9 @@
                             </ScrollViewer>
                         </Grid>
                         <Grid
-                        Name="AppManagementView"
+                        Name="AppManagementView" TextElement.Foreground="{DynamicResource AppTextBrush}"
                         Visibility="Collapsed"
-                        Background="White"
+                        Background="{DynamicResource AppWindowBackgroundBrush}"
                         Margin="0,-4,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -8855,7 +8855,7 @@
                                       Header="应用列表"
                                       Style="{StaticResource PayloadGroupBoxStyle}"
                                       FontSize="12"
-                                      BorderBrush="#FFE0E0E0" Margin="0,0,0,10">
+                                      BorderBrush="{DynamicResource AppBorderBrush}" Margin="0,0,0,10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -8866,8 +8866,8 @@
                                     <Border Grid.Row="0"
                                             Padding="12"
                                             Margin="0,0,0,10"
-                                            Background="#FFF9F5FC"
-                                            BorderBrush="#FFE8D8F2"
+                                            Background="{DynamicResource AppAccentSurfaceBrush}"
+                                            BorderBrush="{DynamicResource AppAccentBorderBrush}"
                                             BorderThickness="1"
                                             CornerRadius="8">
                                         <Grid>
@@ -8878,7 +8878,7 @@
                                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                                 <TextBlock
                                                            VerticalAlignment="Center"
-                                                           Foreground="#FF444444"><Run Text="仅"/><Run Language="zh-cn" Text="显示"/><Run Text="用户应用"/></TextBlock>
+                                                           Foreground="{DynamicResource AppTextBrush}"><Run Text="仅"/><Run Language="zh-cn" Text="显示"/><Run Text="用户应用"/></TextBlock>
                                                 <ToggleButton x:Name="AppListSwitchToggle"
                                                               Style="{StaticResource SwitchToggleButtonStyle}"
                                                               Checked="AppListThirdPartyToggle_Checked"
@@ -8886,7 +8886,7 @@
                                                               Margin="8,0,18,0"/>
                                                 <TextBlock Text="仅看系统应用"
                                                            VerticalAlignment="Center"
-                                                           Foreground="#FF444444"/>
+                                                           Foreground="{DynamicResource AppTextBrush}"/>
                                                 <ToggleButton x:Name="AppListSwitchToggle复制__C_"
                                                               Style="{StaticResource SwitchToggleButtonStyle}"
                                                               Checked="AppListSystemToggle_Checked"
@@ -8901,7 +8901,7 @@
                                                 <TextBlock Text="包名搜索"
                                                            VerticalAlignment="Center"
                                                            Margin="0,0,12,0"
-                                                           Foreground="#FF444444"/>
+                                                           Foreground="{DynamicResource AppTextBrush}"/>
                                                 <TextBox x:Name="AppPackageSearchComboBox"
                                                          Grid.Column="1"
                                                          Style="{StaticResource AppFilterTextBoxStyle}"
@@ -8920,7 +8920,7 @@
                                     <TextBlock Grid.Row="1"
                                                Text="支持多选应用后进行卸载、冻结、提取 APK 等批量操作。"
                                                Margin="0,0,0,8"
-                                               Foreground="#FF7A7A7A"
+                                               Foreground="{DynamicResource AppMutedTextBrush}"
                                                FontSize="11"/>
 
                                     <DataGrid Grid.Row="2"
@@ -8932,15 +8932,15 @@
                                               SelectionMode="Extended"
                                               SelectionUnit="FullRow"
                                               FontSize="12"
-                                              Background="#FFF6EFF8"
+                                              Background="{DynamicResource AppSurfaceAltBrush}"
                                               BorderThickness="0"
                                               RowHeight="30"
                                               GridLinesVisibility="Horizontal"
-                                              AlternatingRowBackground="#FFFCFAFE">
+                                              AlternatingRowBackground="{DynamicResource AppSurfaceBrush}">
                                         <DataGrid.Resources>
                                             <Style TargetType="{x:Type DataGridColumnHeader}">
-                                                <Setter Property="Background" Value="#FFF1E6F7"/>
-                                                <Setter Property="Foreground" Value="#FF4A4050"/>
+                                                <Setter Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                                 <Setter Property="FontWeight" Value="SemiBold"/>
                                                 <Setter Property="Padding" Value="10,0"/>
                                                 <Setter Property="BorderThickness" Value="0"/>
@@ -8987,7 +8987,7 @@
                                                         <Setter Property="Padding" Value="0"/>
                                                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                                         <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                                        <Setter Property="Background" Value="#FFF1E6F7"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
                                                     </Style>
                                                 </DataGridCheckBoxColumn.HeaderStyle>
                                                 <DataGridCheckBoxColumn.Header>
@@ -9030,7 +9030,7 @@
                                           Header="快捷操作"
                                           Style="{StaticResource PayloadGroupBoxStyle}"
                                           FontSize="12"
-                                          BorderBrush="#FFE0E0E0">
+                                          BorderBrush="{DynamicResource AppBorderBrush}">
                                     <StackPanel>
                                         <Button x:Name="ReadAppListButton"
                                                 Style="{StaticResource AppPrimaryActionButtonStyle}"
@@ -9117,15 +9117,15 @@
                                           Margin="0,12,0,10"
                                           Style="{StaticResource PayloadGroupBoxStyle}"
                                           FontSize="12"
-                                          BorderBrush="#FFE0E0E0">
+                                          BorderBrush="{DynamicResource AppBorderBrush}">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
                                         <Border Grid.Row="1"
-                                                Background="#FFF9F5FC"
-                                                BorderBrush="#FFE8D8F2"
+                                                Background="{DynamicResource AppAccentSurfaceBrush}"
+                                                BorderBrush="{DynamicResource AppAccentBorderBrush}"
                                                 BorderThickness="1"
                                                 CornerRadius="6">
                                             <TextBox x:Name="AppManagementLogTextBox"
@@ -9134,7 +9134,7 @@
                                                      TextWrapping="Wrap"
                                                      VerticalScrollBarVisibility="Auto"
                                                      Background="Transparent"
-                                                     Foreground="#FF4A4050"
+                                                     Foreground="{DynamicResource AppTextBrush}"
                                                      BorderThickness="0"
                                                      Padding="10"
                                                      FontFamily="Segoe UI"/>
