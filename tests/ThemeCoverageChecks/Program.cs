@@ -159,10 +159,18 @@ XElement canvas = viewport.Descendants()
     .FirstOrDefault(el => el.Name.LocalName == "Grid" &&
         el.Attributes().Any(a => a.Name.LocalName == "Name" && a.Value == "ResponsivePageCanvas"))
     ?? throw new InvalidOperationException("ResponsivePageCanvas missing");
-Check(double.TryParse(canvas.Attribute("MinWidth")?.Value, out double canvasWidth) &&
+double[] pageMinWidths = canvas.Descendants()
+    .Where(el => el.Name.LocalName == "Setter" &&
+        el.Attribute("Property")?.Value == "MinWidth")
+    .Select(el => double.TryParse(el.Attribute("Value")?.Value, out double width) ? width : -1)
+    .ToArray();
+Check(pageMinWidths.Contains(900) && pageMinWidths.Contains(700) &&
       double.TryParse(canvas.Attribute("MinHeight")?.Value, out double canvasHeight) &&
-      canvasWidth >= 800 && canvasHeight >= 650,
-    "Legacy controls need a minimum scrollable page area");
+      canvasHeight >= 650,
+    "Each responsive page needs a scrollable minimum width/height policy");
+Check(canvas.Descendants().Any(el => el.Name.LocalName == "DataTrigger" &&
+    (el.Attribute("Binding")?.Value.Contains("BackupAssistantView") ?? false)),
+    "Backup page must be able to use its narrower layout minimum");
 
 XElement grip = doc.Descendants()
     .FirstOrDefault(el => el.Name.LocalName == "Thumb" &&
