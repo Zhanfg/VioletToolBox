@@ -960,36 +960,9 @@ namespace WpfApp1
             UpdateAvbModeFileInputs();
             InitializeVioletDownload();
             
-            // 屏幕适配逻辑
-            double screenHeight = SystemParameters.WorkArea.Height;
-            double screenWidth = SystemParameters.WorkArea.Width;
-            
-            // 目标设计尺寸
-            double targetWidth = 1000;
-            double targetHeight = 800;
+            // Responsive shell layout: keep text at native DPI and scroll page content.
+            ConfigureResponsiveWindowBounds();
 
-            // 如果屏幕空间不足（高度不足800或宽度不足1000），则按比例缩小窗口
-            if (screenHeight < targetHeight || screenWidth < targetWidth)
-            {
-                // 计算需要的缩放比例，取较小值以确保完全放入屏幕
-                // 留出一点边距（95%）
-                double ratioH = screenHeight / targetHeight;
-                double ratioW = screenWidth / targetWidth;
-                double ratio = Math.Min(ratioH, ratioW) * 0.95;
-
-                this.Width = targetWidth * ratio;
-                this.Height = targetHeight * ratio;
-            }
-            else
-            {
-                // 屏幕够大，使用标准尺寸
-                this.Width = targetWidth;
-                this.Height = targetHeight;
-            }
-            
-            // 确保窗口居中
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            
             // 异步增加打开次数
             _ = TryIncrementOpenCountAsync();
             
