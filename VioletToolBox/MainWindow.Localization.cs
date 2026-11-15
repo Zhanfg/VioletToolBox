@@ -25,6 +25,9 @@ namespace WpfApp1
             {
                 // Shell and navigation
                 // Theme controls
+                ["最小化"] = "Minimize",
+                ["设备工作台"] = "Device Workspace",
+                ["设备连接、状态信息与快捷操作"] = "Connection, device status and quick actions",
                 ["主题与强调色"] = "Theme & Accent",
                 ["主题"] = "Theme",
                 ["强调色"] = "Accent Color",
@@ -490,6 +493,9 @@ namespace WpfApp1
             {
                 // Shell and navigation
                 // Theme controls
+                ["最小化"] = "最小化",
+                ["设备工作台"] = "デバイスワークスペース",
+                ["设备连接、状态信息与快捷操作"] = "接続、端末状態、クイック操作",
                 ["主题与强调色"] = "テーマとアクセントカラー",
                 ["主题"] = "テーマ",
                 ["强调色"] = "アクセントカラー",
