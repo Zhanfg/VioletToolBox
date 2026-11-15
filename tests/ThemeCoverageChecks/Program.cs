@@ -256,8 +256,8 @@ foreach (string pageName in p5Pages)
         ?? throw new InvalidOperationException($"Missing P5 page {pageName}");
     Check(page.Attributes().Any(a => a.Name.LocalName == "TabNavigation" && a.Value == "Continue"),
         $"{pageName} must retain keyboard navigation");
-    Check(page.Attributes().Any(a => a.Name.LocalName == "Name" &&
-        a.Name.NamespaceName.Length > 0 && a.Value != pageName),
+    Check(page.Attributes().Any(a => a.Name.LocalName == "AutomationProperties.Name" &&
+        !string.IsNullOrWhiteSpace(a.Value)),
         $"{pageName} should be labelled for screen readers");
     Check(page.Descendants().Count(el => el.Name.LocalName == "Style" &&
         el.Attributes().Any(a => a.Name.LocalName == "BasedOn" &&
