@@ -10515,11 +10515,15 @@
                     </Grid>
                 </Grid>
                 <Border
-				Height="30"
-				VerticalAlignment="Top"
-				Background="{DynamicResource AppStatusBarBackgroundBrush}"
-				BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="0,1,0,0"
-				CornerRadius="0,0,20,20" Height="34" VerticalAlignment="Bottom" Margin="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    Height="34"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource AppStatusBarBackgroundBrush}"
+                    BorderBrush="{DynamicResource AppBorderBrush}"
+                    BorderThickness="0,1,0,0"
+                    CornerRadius="0,0,20,20"
+                    Margin="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2">
                     <Grid Cursor="">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left"
