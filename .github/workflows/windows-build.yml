@@ -36,3 +36,6 @@ jobs:
 
       - name: Build
         run: dotnet build VioletToolBox.sln --configuration Release --no-restore
+
+      - name: Localization regression checks
+        run: dotnet run --project tests/LocalizationChecks/LocalizationChecks.csproj --configuration Release
