@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using Color = System.Windows.Media.Color;
+using Application = System.Windows.Application;
+using ContextMenu = System.Windows.Controls.ContextMenu;
 
 namespace WpfApp1.Theming;
 
