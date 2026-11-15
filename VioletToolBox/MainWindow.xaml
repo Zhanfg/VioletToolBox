@@ -5,6 +5,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	xmlns:local="clr-namespace:WpfApp1"
+    xmlns:theme="clr-namespace:WpfApp1.Theming"
 	xmlns:hc="https://handyorg.github.io/handycontrol"
 	xmlns:svg="http://sharpvectors.codeplex.com/svgc/"
 	xmlns:test1="clr-namespace:test1"
@@ -17,7 +18,8 @@
 	TextOptions.TextFormattingMode="Display"
 	TextOptions.TextRenderingMode="ClearType"
 	RenderOptions.BitmapScalingMode="HighQuality"
-	mc:Ignorable="d">
+	mc:Ignorable="d"
+    theme:ThemeManager.Enable="True">
     <FrameworkElement.Resources>
         <ResourceDictionary>
             <DropShadowEffect
@@ -280,7 +282,7 @@
                 <Setter Property="Height" Value="35"/>
                 <Setter Property="Margin" Value="0,0,0,10"/>
                 <Setter Property="Padding" Value="12,0"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Foreground" Value="{DynamicResource AppAccentTextBrush}"/>
                 <Setter Property="Background" Value="#FF87CEEB"/>
                 <Setter Property="BorderBrush" Value="#FF87CEEB"/>
                 <Setter Property="BorderThickness" Value="1"/>
@@ -354,15 +356,71 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="ShellTitleBarButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Padding" Value="8,0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="ButtonSurface"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="6"
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  TextElement.Foreground="{TemplateBinding Foreground}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ButtonSurface" Property="Background"
+                                            Value="{DynamicResource AppTitleBarHoverBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="ButtonSurface" Property="Opacity" Value="0.78"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ShellCloseButtonStyle"
+                   TargetType="{x:Type Button}"
+                   BasedOn="{StaticResource ShellTitleBarButtonStyle}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="ButtonSurface"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="6">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  TextElement.Foreground="{TemplateBinding Foreground}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ButtonSurface" Property="Background" Value="#FFE81123"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="ButtonSurface" Property="Opacity" Value="0.78"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </FrameworkElement.Resources>
     <Viewbox Stretch="Uniform">
         <Border
             Width="1000" Height="800"
-            Background="#FFFFFFFF"
+            Background="{DynamicResource AppWindowBackgroundBrush}"
             CornerRadius="20"
             BorderThickness="1"
-            BorderBrush="#E0E0E0"
+            BorderBrush="{DynamicResource AppBorderBrush}"
             x:Name="MainContentBorder">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -374,130 +432,108 @@
                     <RowDefinition Height="103*"/>
                 </Grid.RowDefinitions>
                 <Border
-				Height="30"
-				VerticalAlignment="Top"
-				Background="#FFB876DD"
-				CornerRadius="20,20,0,0"
-				MouseLeftButtonDown="Border_MouseLeftButtonDown" Grid.ColumnSpan="2">
-                    <Grid>
+                    Height="36"
+                    VerticalAlignment="Top"
+                    Background="{DynamicResource AppTitleBarBackgroundBrush}"
+                    BorderBrush="{DynamicResource AppBorderBrush}"
+                    BorderThickness="0,0,0,1"
+                    CornerRadius="20,20,0,0"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown"
+                    Grid.ColumnSpan="2">
+                    <Grid Margin="12,0,10,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition
-							Width="91*" />
-                            <ColumnDefinition
-							Width="29*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel
-						Orientation="Horizontal"
-						HorizontalAlignment="Left"
-						VerticalAlignment="Center"
-						Margin="5,0,0,0"/>
-                        <TextBlock
-						HorizontalAlignment="Left"
-						VerticalAlignment="Top"
-						Foreground="#FFFFFFFF"
-						FontWeight="Bold"
-						FontSize="18"
-                        Height="22" Margin="10,6,0,0" FontFamily="Segoe UI Variable Display">
-                        <Run Text="紫罗兰工具箱"/>
-                        </TextBlock>
-                        <Button
-                            x:Name="CloseButton"
-                            Background="#00FFFFFF"
-                            Foreground="#FFFFFFFF"
-                            BorderThickness="0"
-                            FontSize="18"
-                            FontWeight="Bold"
-                            Cursor="Hand"
-                            Click="CloseButton_Click" Margin="201,2,10,2" Grid.Column="1">
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Border Width="8"
+                                    Height="8"
+                                    CornerRadius="4"
+                                    Background="{DynamicResource AppAccentBrush}"
+                                    Margin="0,0,9,0"/>
+                            <TextBlock Text="VioletToolBox"
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource AppTextBrush}"
+                                       FontFamily="Segoe UI Variable Display"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"/>
+                        </StackPanel>
+                        <Button x:Name="ThemeModeButton"
+                                Grid.Column="1"
+                                Style="{StaticResource ShellTitleBarButtonStyle}"
+                                Margin="0,0,4,0"
+                                ToolTip="主题与强调色"
+                                Command="{x:Static theme:ThemeCommands.OpenThemeMenuCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
                             <Button.Content>
-                                <svg:SvgViewbox Source="images/关闭.svg" Width="12" Height="12" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="&#xE790;"
+                                               FontFamily="Segoe MDL2 Assets"
+                                               FontSize="14"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Text="主题"
+                                               Margin="6,0,0,0"
+                                               VerticalAlignment="Center"
+                                               FontSize="12"/>
+                                </StackPanel>
                             </Button.Content>
-                            <Button.Style>
-                                <Style
-                                    TargetType="{x:Type Button}">
-                                    <Setter
-										Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate
-												TargetType="{x:Type Button}">
-                                                <Border
-													Background="{TemplateBinding Background}"
-													CornerRadius="3">
-                                                    <ContentPresenter
-														HorizontalAlignment="Center"
-														VerticalAlignment="Center" />
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger
-														Property="IsMouseOver"
-														Value="True">
-                                                        <Setter
-															Property="Background"
-															Value="#FFE81123" />
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="强调色">
+                                        <MenuItem Header="跟随 Windows 系统强调色"
+                                                  Command="{x:Static theme:ThemeCommands.UseWindowsAccentCommand}"/>
+                                        <MenuItem Header="固定紫罗兰色"
+                                                  Command="{x:Static theme:ThemeCommands.UseVioletAccentCommand}"/>
+                                    </MenuItem>
+                                    <Separator/>
+                                    <MenuItem Header="界面主题">
+                                        <MenuItem Header="跟随系统"
+                                                  Command="{x:Static theme:ThemeCommands.UseSystemThemeCommand}"/>
+                                        <MenuItem Header="浅色"
+                                                  Command="{x:Static theme:ThemeCommands.UseLightThemeCommand}"/>
+                                        <MenuItem Header="深色"
+                                                  Command="{x:Static theme:ThemeCommands.UseDarkThemeCommand}"/>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Button.ContextMenu>
                         </Button>
-                        <Button
-                            x:Name="MinimizeButton"
-                            Background="#00FFFFFF"
-                            Foreground="#FFFFFFFF"
-                            BorderThickness="0"
-                            FontSize="16"
-                            FontWeight="Bold"
-                            Cursor="Hand"
-                            Click="MinimizeButton_Click" Margin="177,2,34,2" Grid.Column="1">
-                            <Button.Content>
-                                <svg:SvgViewbox Source="images/最小化.svg" Width="14" Height="15" />
-                            </Button.Content>
-                            <Button.Style>
-                                <Style
-                                    TargetType="{x:Type Button}">
-                                    <Setter
-										Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate
-												TargetType="{x:Type Button}">
-                                                <Border
-													Background="{TemplateBinding Background}"
-													CornerRadius="3">
-                                                    <ContentPresenter
-														HorizontalAlignment="Center"
-														VerticalAlignment="Center" />
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger
-														Property="IsMouseOver"
-														Value="True">
-                                                        <Setter
-															Property="Background"
-															Value="#FF404040" />
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
+                        <Button x:Name="MinimizeButton"
+                                Grid.Column="2"
+                                Width="34"
+                                Height="28"
+                                Margin="0,0,4,0"
+                                Style="{StaticResource ShellTitleBarButtonStyle}"
+                                Click="MinimizeButton_Click"
+                                ToolTip="最小化">
+                            <svg:SvgViewbox Source="images/最小化.svg" Width="14" Height="15"/>
+                        </Button>
+                        <Button x:Name="CloseButton"
+                                Grid.Column="3"
+                                Width="34"
+                                Height="28"
+                                Style="{StaticResource ShellCloseButtonStyle}"
+                                Click="CloseButton_Click"
+                                ToolTip="关闭">
+                            <svg:SvgViewbox Source="images/关闭.svg" Width="12" Height="12"/>
                         </Button>
                     </Grid>
                 </Border>
                 <Grid
-				Margin="10,30,-13,30" Grid.RowSpan="2" Grid.ColumnSpan="2" Cursor="">
+				Margin="10,36,-13,34" Grid.RowSpan="2" Grid.ColumnSpan="2" Cursor="">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition
-						Width="130" />
+						Width="168" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Border
-					Background="#f8f9fa"
-					BorderBrush="#E0E0E0"
+					Background="{DynamicResource AppSidebarBackgroundBrush}"
+					BorderBrush="{DynamicResource AppBorderBrush}"
 					BorderThickness="0,0,1,0">
-                        <ScrollViewer Background="#f8f9fa" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="SideMenuScrollViewer_PreviewMouseWheel">
+                        <ScrollViewer Background="{DynamicResource AppSidebarBackgroundBrush}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PreviewMouseWheel="SideMenuScrollViewer_PreviewMouseWheel">
                             <hc:SideMenu ExpandMode="Freedom"
                                          Background="Transparent"
                                          Margin="0,10,0,10"
@@ -765,14 +801,14 @@
                     </Border>
                     <Grid
 					Column="1"
-					Margin="5,20,20,0">
+					Margin="14,14,18,0">
                         <Grid
 				Name="HomeView"
 				Visibility="Collapsed">
                             <Grid.Resources>
                                 <Style x:Key="HomeCardStyle" TargetType="Border">
-                                    <Setter Property="Background" Value="#FFFFFFFF"/>
-                                    <Setter Property="BorderBrush" Value="#FFE6ECF3"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}"/>
+                                    <Setter Property="BorderBrush" Value="{DynamicResource AppBorderBrush}"/>
                                     <Setter Property="BorderThickness" Value="1"/>
                                     <Setter Property="CornerRadius" Value="14"/>
                                     <Setter Property="Padding" Value="16"/>
@@ -780,18 +816,18 @@
                                 <Style x:Key="HomePanelTitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="16"/>
                                     <Setter Property="FontWeight" Value="Bold"/>
-                                    <Setter Property="Foreground" Value="#FF2F3A45"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}"/>
                                 </Style>
                                 <Style x:Key="HomePanelSubtitleStyle" TargetType="TextBlock">
                                     <Setter Property="FontSize" Value="12"/>
-                                    <Setter Property="Foreground" Value="#FF7E8A97"/>
+                                    <Setter Property="Foreground" Value="{DynamicResource AppMutedTextBrush}"/>
                                     <Setter Property="Margin" Value="0,4,0,0"/>
                                 </Style>
                                 <Style x:Key="HomeActionButtonStyle" TargetType="Button">
                                     <Setter Property="Height" Value="38"/>
                                     <Setter Property="Margin" Value="0"/>
                                     <Setter Property="Padding" Value="10,0"/>
-                                    <Setter Property="Background" Value="#FF8BD5FF"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentBrush}"/>
                                     <Setter Property="Foreground" Value="White"/>
                                     <Setter Property="BorderThickness" Value="0"/>
                                     <Setter Property="FontSize" Value="13"/>
@@ -805,10 +841,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FF63BFF4"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FF4AAFE9"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -816,7 +852,7 @@
                                     </Setter>
                                 </Style>
                                 <Style x:Key="HomeToolButtonStyle" TargetType="Button" BasedOn="{StaticResource HomeActionButtonStyle}">
-                                    <Setter Property="Background" Value="#FF69C7C1"/>
+                                    <Setter Property="Background" Value="{DynamicResource AppAccentSurfaceBrush}"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type Button}">
@@ -825,10 +861,10 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#FF4FB7B1"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
                                                     </Trigger>
                                                     <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#FF3DA8A2"/>
+                                                        <Setter Property="Background" Value="{DynamicResource AppAccentSubtleBrush}"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -890,7 +926,7 @@
                                 </Style>
                             </Grid.Resources>
                             <ScrollViewer
-							VerticalScrollBarVisibility="Disabled"
+							VerticalScrollBarVisibility="Auto"
 							HorizontalScrollBarVisibility="Disabled"
 							Cursor="">
                                 <StackPanel Margin="0,0,0,8">
@@ -10481,8 +10517,9 @@
                 <Border
 				Height="30"
 				VerticalAlignment="Top"
-				Background="#FFF8ECFF"
-				CornerRadius="0,0,20,20" Margin="0,588,0,0" Grid.Row="1" Grid.ColumnSpan="2">
+				Background="{DynamicResource AppStatusBarBackgroundBrush}"
+				BorderBrush="{DynamicResource AppBorderBrush}" BorderThickness="0,1,0,0"
+				CornerRadius="0,0,20,20" Height="34" VerticalAlignment="Bottom" Margin="0" Grid.Row="1" Grid.ColumnSpan="2">
                     <Grid Cursor="">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left"
@@ -10491,7 +10528,7 @@
                             <Button
                                 Name="JoinQQGroupButton"
                                 Content="V3.7-260814-R56"
-                                Background="#FFF7B0F7"
+                                Background="{DynamicResource AppAccentBrush}"
                                 BorderThickness="0"
                                 Foreground="White"
                                 FontSize="12"
@@ -10536,7 +10573,7 @@
                                     VerticalAlignment="Center"
                                     Background="Transparent"
                                     BorderThickness="0"
-                                    Foreground="#FF6D5C79"
+                                    Foreground="{DynamicResource AppMutedTextBrush}"
                                     Cursor="Hand"
                                     ToolTip="切换至 English"
                                     Click="LanguageSwitchButton_Click">
@@ -10662,7 +10699,7 @@
                             Content="CMD命令行"
                             Background="#00FFFFFF"
                             BorderThickness="0"
-                            Foreground="#666666"
+                            Foreground="{DynamicResource AppMutedTextBrush}"
                             FontSize="12"
                             Cursor="Hand"
                             Margin="0,0,10,0"
