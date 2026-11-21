@@ -26,8 +26,6 @@ using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Asn1.X509;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Asn1.Sec;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 
 namespace SmartTool
 {

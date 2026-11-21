@@ -1452,7 +1452,7 @@ namespace WpfApp1
                 {
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -4901,7 +4901,7 @@ namespace WpfApp1
                 // 在所有重启命令执行完成后终止adb.exe和fastboot.exe进程
                 await KillAllAdbAndFastbootProcesses();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -4925,7 +4925,7 @@ namespace WpfApp1
                 // 在所有重启命令执行完成后终止adb.exe和fastboot.exe进程
                 await KillAllAdbAndFastbootProcesses();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -4949,7 +4949,7 @@ namespace WpfApp1
                 // 在所有重启命令执行完成后终止adb.exe和fastboot.exe进程
                 await KillAllAdbAndFastbootProcesses();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -4973,7 +4973,7 @@ namespace WpfApp1
                 // 在所有重启命令执行完成后终止adb.exe和fastboot.exe进程
                 await KillAllAdbAndFastbootProcesses();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -4997,7 +4997,7 @@ namespace WpfApp1
                 // 在所有重启命令执行完成后终止adb.exe和fastboot.exe进程
                 await KillAllAdbAndFastbootProcesses();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -6582,7 +6582,7 @@ namespace WpfApp1
                 };
                 Process.Start(startInfo);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // 如果管理员权限失败，尝试普通权限
                 try
@@ -7488,7 +7488,7 @@ namespace WpfApp1
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -8115,7 +8115,7 @@ namespace WpfApp1
                     }
                 });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // 发生错误时显示未知
                 Dispatcher.Invoke(() =>
@@ -12242,7 +12242,6 @@ namespace WpfApp1
             // 重置进度条
             ResetOperationProgressBar();
             
-            bool allFlashesSucceeded = true;
             foreach (var partition in selectedPartitions)
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -12264,7 +12263,6 @@ namespace WpfApp1
                     cancellationToken: CancellationToken.None);
                 if (!flashSucceeded)
                 {
-                    allFlashesSucceeded = false;
                     LogToFastboot($"分区 {partition.PartitionName} 刷写失败，已跳过并继续下一个分区", "Red");
                 }
             }
