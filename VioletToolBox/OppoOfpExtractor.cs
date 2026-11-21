@@ -336,6 +336,7 @@ internal static class OppoOfpExtractor
 
     private static int FindQcPageSize(FileStream input)
     {
+        Span<byte> value = stackalloc byte[4];
         foreach (int pageSize in new[] { 0x200, 0x1000 })
         {
             long position = input.Length - pageSize + 0x10;
@@ -344,7 +345,6 @@ internal static class OppoOfpExtractor
                 continue;
             }
 
-            Span<byte> value = stackalloc byte[4];
             input.Position = position;
             ReadExactly(input, value);
             if (BinaryPrimitives.ReadUInt32LittleEndian(value) == 0x7CEF)

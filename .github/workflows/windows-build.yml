@@ -1,0 +1,55 @@
+name: Windows Build
+
+on:
+  push:
+    branches:
+      - main
+      - "ui/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build WPF application
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore VioletToolBox.sln
+
+      - name: Build
+        run: dotnet build VioletToolBox.sln --configuration Release --no-restore
+
+      - name: Localization regression checks
+        run: dotnet run --project tests/LocalizationChecks/LocalizationChecks.csproj --configuration Release
+
+      - name: Core page theme regression checks
+        run: dotnet run --project tests/ThemeCoverageChecks/ThemeCoverageChecks.csproj --configuration Release
+
+      - name: Publish Windows verification build
+        run: dotnet publish VioletToolBox/SmartTool.csproj --configuration Release --no-restore -p:GeneratePackageOnBuild=false --output "${{ runner.temp }}/VioletToolBox-modern-shell"
+
+      - name: Upload Windows verification build
+        uses: actions/upload-artifact@v4
+        with:
+          name: VioletToolBox-modern-shell-win-x64
+          path: ${{ runner.temp }}/VioletToolBox-modern-shell/
+          if-no-files-found: error
+          retention-days: 14
