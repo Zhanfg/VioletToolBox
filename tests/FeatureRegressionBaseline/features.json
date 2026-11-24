@@ -1,0 +1,2430 @@
+{
+  "schema_version": 1,
+  "description": "P0 feature audit: 110 independently traceable UI capabilities; static coverage is not behavioral verification",
+  "page_count": 18,
+  "feature_count": 110,
+  "source": "VioletToolBox/MainWindow.xaml",
+  "parity_baseline": "tests/ThemeCoverageChecks/ui-parity-baseline.json",
+  "entries": [
+    {
+      "id": "F001",
+      "page": "HomeView",
+      "feature": "重启系统",
+      "control": "RebootPhoneButton",
+      "handler": "RebootPhoneButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F002",
+      "page": "HomeView",
+      "feature": "重启至 Fastboot",
+      "control": "RebootToFastbootButton",
+      "handler": "RebootToFastbootButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F003",
+      "page": "HomeView",
+      "feature": "重启至 FastbootD",
+      "control": "RebootToFastbootDButton",
+      "handler": "RebootToFastbootDButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F004",
+      "page": "HomeView",
+      "feature": "重启至 Recovery",
+      "control": "RebootToRecoveryButton",
+      "handler": "RebootToRecoveryButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F005",
+      "page": "HomeView",
+      "feature": "重启至 EDL 9008",
+      "control": "RebootTo9008Button",
+      "handler": "RebootTo9008Button_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F006",
+      "page": "HomeView",
+      "feature": "刷新设备状态",
+      "control": "RefreshDeviceButton",
+      "handler": "RefreshDeviceButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F007",
+      "page": "HomeView",
+      "feature": "无线调试",
+      "control": "WirelessDebugButton",
+      "handler": "WirelessDebugButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F008",
+      "page": "HomeView",
+      "feature": "切换启动槽位",
+      "control": "SwitchSlotButton",
+      "handler": "SwitchSlotButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F009",
+      "page": "HomeView",
+      "feature": "设备自动检测",
+      "control": "DeviceDetectionToggle",
+      "handler": "DeviceDetectionToggle_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F010",
+      "page": "AutorootView",
+      "feature": "脱机修补模式",
+      "control": "OfflinePatchModeRadioButton",
+      "handler": "PatchOperationMode_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F011",
+      "page": "AutorootView",
+      "feature": "一加自动 ROOT 模式",
+      "control": "OnePlusAutoRootModeRadioButton",
+      "handler": "PatchOperationMode_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F012",
+      "page": "AutorootView",
+      "feature": "Magisk Alpha 修补方案",
+      "control": "MagiskAlphaPatchRadioButton",
+      "handler": "PatchScheme_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F013",
+      "page": "AutorootView",
+      "feature": "KernelSU LKM 修补方案",
+      "control": "KernelSuLkmPatchRadioButton",
+      "handler": "PatchScheme_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F014",
+      "page": "AutorootView",
+      "feature": "选择 Boot 镜像",
+      "control": "btnSelectBoot",
+      "handler": "BtnSelectBoot_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F015",
+      "page": "AutorootView",
+      "feature": "执行自动 ROOT",
+      "control": "btnAutoRoot",
+      "handler": "BtnAutoRoot_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F016",
+      "page": "AutorootView",
+      "feature": "分析 AVB vbmeta",
+      "control": "AvbAnalyzeVbmetaButton",
+      "handler": "AvbAnalyzeVbmetaButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F017",
+      "page": "AutorootView",
+      "feature": "执行 AVB 签名",
+      "control": "AvbStartSignButton",
+      "handler": "AvbStartSignButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F018",
+      "page": "ScreenMirrorView",
+      "feature": "强制竖屏",
+      "control": "ForcePortraitButton",
+      "handler": "ForcePortraitButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F019",
+      "page": "ScreenMirrorView",
+      "feature": "强制横屏",
+      "control": "ForceLandscapeButton",
+      "handler": "ForceLandscapeButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F020",
+      "page": "ScreenMirrorView",
+      "feature": "设备截图",
+      "control": "ScreenshotButton",
+      "handler": "ScreenshotButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F021",
+      "page": "ScreenMirrorView",
+      "feature": "模拟返回键",
+      "control": "BackKeyButton",
+      "handler": "BackKeyButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F022",
+      "page": "ScreenMirrorView",
+      "feature": "启动投屏",
+      "control": "StartMirrorButton",
+      "handler": "StartMirrorButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F023",
+      "page": "ScreenMirrorView",
+      "feature": "停止投屏",
+      "control": "StopMirrorButton",
+      "handler": "StopMirrorButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F024",
+      "page": "ScreenMirrorView",
+      "feature": "自动投屏开关",
+      "control": "AutoMirrorCheckBox",
+      "handler": "AutoMirrorCheckBox_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F025",
+      "page": "ScreenMirrorView",
+      "feature": "投屏标题设备名选项",
+      "control": "MirrorTitleShowDeviceNameCheckBox",
+      "handler": "MirrorTitleOptionCheckBox_Changed",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F026",
+      "page": "BasicFlashView",
+      "feature": "选择刷写镜像",
+      "control": "SelectBootFileButton",
+      "handler": "SelectBootFileButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F027",
+      "page": "BasicFlashView",
+      "feature": "刷写 Boot",
+      "control": "FlashBootButton",
+      "handler": "FlashBootButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F028",
+      "page": "BasicFlashView",
+      "feature": "回锁 Bootloader",
+      "control": "LockBLButton",
+      "handler": "LockBLButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F029",
+      "page": "BasicFlashView",
+      "feature": "执行小米线刷脚本",
+      "control": "StartXiaomiFlashButton",
+      "handler": "StartXiaomiFlashButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F030",
+      "page": "BasicFlashView",
+      "feature": "设备格式化",
+      "control": "FormatDeviceButton",
+      "handler": "FormatDeviceButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F031",
+      "page": "BasicFlashView",
+      "feature": "设备锁定状态清理",
+      "control": "EraseGoogleLockButton",
+      "handler": "EraseGoogleLockButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F032",
+      "page": "BasicFlashView",
+      "feature": "修复 ADB 通路",
+      "control": "FixAdbButton",
+      "handler": "FixAdbButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F033",
+      "page": "FastbootVisualizationView",
+      "feature": "读取 Fastboot 分区表",
+      "control": "ReadPartitionTableButton",
+      "handler": "ReadPartitionTableButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F034",
+      "page": "FastbootVisualizationView",
+      "feature": "写入指定分区",
+      "control": "WritePartitionButton",
+      "handler": "WritePartitionButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F035",
+      "page": "FastbootVisualizationView",
+      "feature": "擦除指定分区",
+      "control": "ErasePartitionButton",
+      "handler": "ErasePartitionButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F036",
+      "page": "FastbootVisualizationView",
+      "feature": "备份基带字库",
+      "control": "BackupBasebandButton",
+      "handler": "BackupBasebandButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F037",
+      "page": "FastbootVisualizationView",
+      "feature": "回读指定分区",
+      "control": "ReadPartitionButton",
+      "handler": "ReadPartitionButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F038",
+      "page": "FastbootVisualizationView",
+      "feature": "备份 GPT",
+      "control": "BackupGptButton",
+      "handler": "BackupGptButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F039",
+      "page": "FastbootVisualizationView",
+      "feature": "停止 Fastboot 操作",
+      "control": "StopFastbootVisualizationOperationButton",
+      "handler": "StopFastbootVisualizationOperationButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F040",
+      "page": "HiddenEnvironmentView",
+      "feature": "选择环境资源包",
+      "control": "SelectHiddenRootZipButton",
+      "handler": "SelectHiddenRootZipButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F041",
+      "page": "HiddenEnvironmentView",
+      "feature": "部署隐藏环境",
+      "control": "StartHiddenRootButton",
+      "handler": "StartHiddenRootButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F042",
+      "page": "HiddenEnvironmentView",
+      "feature": "下载环境资源包",
+      "control": "DownloadHiddenPackageButton",
+      "handler": "DownloadHiddenPackageButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F043",
+      "page": "HiddenEnvironmentView",
+      "feature": "安装检测工具",
+      "control": "InstallDetectAppsButton",
+      "handler": "InstallDetectAppsButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F044",
+      "page": "HiddenEnvironmentView",
+      "feature": "安装模块",
+      "control": "StartModuleInstallButton",
+      "handler": "StartModuleInstallButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F045",
+      "page": "VioletDownloadView",
+      "feature": "选择输出目录",
+      "control": "VioletDownloadBrowseOutputButton",
+      "handler": "VioletDownloadBrowseOutputButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F046",
+      "page": "VioletDownloadView",
+      "feature": "开始多线程下载",
+      "control": "VioletDownloadStartButton",
+      "handler": "VioletDownloadStartButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F047",
+      "page": "VioletDownloadView",
+      "feature": "暂停下载",
+      "control": "VioletDownloadPauseButton",
+      "handler": "VioletDownloadPauseButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F048",
+      "page": "VioletDownloadView",
+      "feature": "恢复下载",
+      "control": "VioletDownloadResumeButton",
+      "handler": "VioletDownloadResumeButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F049",
+      "page": "VioletDownloadView",
+      "feature": "替换动态下载链接",
+      "control": "VioletDownloadReplaceUrlButton",
+      "handler": "VioletDownloadReplaceUrlButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F050",
+      "page": "SystemZoneView",
+      "feature": "加载目标目录",
+      "control": null,
+      "handler": "LoadSystemZoneLocationButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F051",
+      "page": "SystemZoneView",
+      "feature": "新建目录",
+      "control": "SystemZoneNewFolderMenuItem",
+      "handler": "CreateSystemZoneFolderMenuItem_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F052",
+      "page": "SystemZoneView",
+      "feature": "新建文件",
+      "control": "SystemZoneNewFileMenuItem",
+      "handler": "CreateSystemZoneFileMenuItem_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F053",
+      "page": "SystemZoneView",
+      "feature": "重命名文件",
+      "control": "SystemZoneRenameMenuItem",
+      "handler": "RenameSystemZoneItemMenuItem_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F054",
+      "page": "SystemZoneView",
+      "feature": "删除文件",
+      "control": "SystemZoneDeleteMenuItem",
+      "handler": "DeleteSystemZoneItemMenuItem_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F055",
+      "page": "DownloadView",
+      "feature": "打开驱动下载入口",
+      "control": null,
+      "handler": "DriverTile_MouseLeftButtonDown",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F056",
+      "page": "DownloadView",
+      "feature": "打开工具软件下载入口",
+      "control": null,
+      "handler": "UtilitySoftwareIcon_MouseLeftButtonDown",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F057",
+      "page": "DownloadView",
+      "feature": "打开 Root 工具入口",
+      "control": null,
+      "handler": "RootManagerTile_MouseLeftButtonDown",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F058",
+      "page": "DownloadView",
+      "feature": "打开内核资源入口",
+      "control": null,
+      "handler": "Kernel4Tile_MouseLeftButtonDown",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F059",
+      "page": "PayloadView",
+      "feature": "选择 Payload 输入",
+      "control": "BrowseInputButton",
+      "handler": "BrowseInputButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F060",
+      "page": "PayloadView",
+      "feature": "选择导出目录",
+      "control": "BrowseOutputButton",
+      "handler": "BrowseOutputButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F061",
+      "page": "PayloadView",
+      "feature": "读取 Payload 信息",
+      "control": "ReadInfoButton",
+      "handler": "ReadInfoButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F062",
+      "page": "PayloadView",
+      "feature": "提取 Payload 分区镜像",
+      "control": "ExportButton",
+      "handler": "ExportButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F063",
+      "page": "PayloadView",
+      "feature": "停止 Payload 操作",
+      "control": "StopOperationButton",
+      "handler": "PayloadStopOperationButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F064",
+      "page": "RomDownloadview",
+      "feature": "下载 ROM",
+      "control": null,
+      "handler": "RomDownloadStartButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F065",
+      "page": "RomDownloadview",
+      "feature": "修复下载网络异常",
+      "control": "RomNetworkRepairButton",
+      "handler": "RomNetworkRepairButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F066",
+      "page": "RomDownloadview",
+      "feature": "复制 ROM 下载链接",
+      "control": "RomSelectCopyLinksButton",
+      "handler": "RomSelectCopyLinksButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F067",
+      "page": "RomDownloadview",
+      "feature": "联想 ROM 查询",
+      "control": "LenovoQueryButton",
+      "handler": "LenovoQueryButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F068",
+      "page": "RomDownloadview",
+      "feature": "复制联想下载链接",
+      "control": "LenovoQueryCopyButton",
+      "handler": "LenovoQueryCopyButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F069",
+      "page": "RomDownloadview",
+      "feature": "动态解析选项",
+      "control": "C16DynamicCheckBox",
+      "handler": "C16DynamicCheckBox_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F070",
+      "page": "EdlFlashView",
+      "feature": "读取 EDL 分区表",
+      "control": "EdlReadGptButton",
+      "handler": "EdlReadGptButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F071",
+      "page": "EdlFlashView",
+      "feature": "写入 GPT",
+      "control": "EdlWriteGptButton",
+      "handler": "EdlWriteGptButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F072",
+      "page": "EdlFlashView",
+      "feature": "EDL 回读分区",
+      "control": "EdlReadPartButton",
+      "handler": "EdlReadPartButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F073",
+      "page": "EdlFlashView",
+      "feature": "EDL 写入分区",
+      "control": "EdlWritePartButton",
+      "handler": "EdlWritePartButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F074",
+      "page": "EdlFlashView",
+      "feature": "EDL 擦除分区",
+      "control": "EdlErasePartButton",
+      "handler": "EdlErasePartButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F075",
+      "page": "EdlFlashView",
+      "feature": "EDL 备份 GPT",
+      "control": "EdlBackupGptButton",
+      "handler": "EdlBackupGptButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F076",
+      "page": "EdlFlashView",
+      "feature": "格式化 LUN",
+      "control": "EdlFormatLunButton",
+      "handler": "EdlFormatLunButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F077",
+      "page": "EdlFlashView",
+      "feature": "EDL 恢复出厂",
+      "control": "EdlFactoryResetButton",
+      "handler": "EdlFactoryResetButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F078",
+      "page": "EdlFlashView",
+      "feature": "EDL 槽位管理",
+      "control": "EdlSlotManagementButton",
+      "handler": "EdlSlotManagementButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F079",
+      "page": "EdlFlashView",
+      "feature": "停止 EDL 操作",
+      "control": "EdlStopOperationButton",
+      "handler": "EdlStopOperationButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F080",
+      "page": "ColorOSAssistantView",
+      "feature": "下载降级助手 APK",
+      "control": "BtnDownloadApk",
+      "handler": "BtnDownloadApk_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F081",
+      "page": "ColorOSAssistantView",
+      "feature": "查询降级包",
+      "control": "BtnQueryOnly",
+      "handler": "BtnQueryOnly_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F082",
+      "page": "ColorOSAssistantView",
+      "feature": "下载并推送降级包",
+      "control": "StartBtn",
+      "handler": "StartBtn_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F083",
+      "page": "BackupAssistantView",
+      "feature": "读取设备相册",
+      "control": "btnLoadImages",
+      "handler": "BtnLoadImages_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F084",
+      "page": "BackupAssistantView",
+      "feature": "备份选中图片",
+      "control": "btnBackup",
+      "handler": "BtnBackup_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F085",
+      "page": "BackupAssistantView",
+      "feature": "恢复通讯录",
+      "control": "btnRestoreContacts",
+      "handler": "BtnRestoreContacts_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F086",
+      "page": "BackupAssistantView",
+      "feature": "切换视频备份视图",
+      "control": "btnNavVideos",
+      "handler": "BtnNavVideos_Click",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F087",
+      "page": "BackupAssistantView",
+      "feature": "切换通讯录备份视图",
+      "control": "btnNavContacts",
+      "handler": "BtnNavContacts_Click",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F088",
+      "page": "AppManagementView",
+      "feature": "读取应用列表",
+      "control": "ReadAppListButton",
+      "handler": "ReadAppListButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F089",
+      "page": "AppManagementView",
+      "feature": "冻结选中应用",
+      "control": "FreezeSelectedAppsButton",
+      "handler": "FreezeSelectedAppsButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F090",
+      "page": "AppManagementView",
+      "feature": "解冻选中应用",
+      "control": "UnfreezeSelectedAppsButton",
+      "handler": "UnfreezeSelectedAppsButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F091",
+      "page": "AppManagementView",
+      "feature": "提取 APK",
+      "control": "ExtractApkButton",
+      "handler": "ExtractApkButton_Click",
+      "risk": "backup",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "使用测试数据验证输出可读及校验一致性，不覆盖真实备份",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F092",
+      "page": "AppManagementView",
+      "feature": "清理应用数据",
+      "control": "ClearAppDataButton",
+      "handler": "ClearAppDataButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F093",
+      "page": "AppManagementView",
+      "feature": "卸载选中应用",
+      "control": "UninstallSelectedAppsButton",
+      "handler": "UninstallSelectedAppsButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F094",
+      "page": "AppManagementView",
+      "feature": "复制包名",
+      "control": "CopySelectedPackagesButton",
+      "handler": "CopySelectedPackagesButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F095",
+      "page": "AndroidGeneralView",
+      "feature": "打包 super 分区",
+      "control": "StartSuperPackButton",
+      "handler": "StartSuperPackButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F096",
+      "page": "AndroidGeneralView",
+      "feature": "解包 OFP",
+      "control": "StartOfpExtractButton",
+      "handler": "StartOfpExtractButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F097",
+      "page": "AndroidGeneralView",
+      "feature": "生成刷写脚本",
+      "control": "GenerateFlashScriptButton",
+      "handler": "GenerateFlashScriptButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F098",
+      "page": "AndroidGeneralView",
+      "feature": "解包 OPS",
+      "control": "StartOpsExtractButton",
+      "handler": "StartOpsExtractButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F099",
+      "page": "AndroidGeneralView",
+      "feature": "执行转换后线刷",
+      "control": "StartConvertFlashButton",
+      "handler": "StartConvertFlashButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F100",
+      "page": "AndroidGeneralView",
+      "feature": "合并 OFP super 分片",
+      "control": "StartMergeOfpSuperButton",
+      "handler": "StartMergeOfpSuperButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F101",
+      "page": "AndroidGeneralView",
+      "feature": "生成 OCDT",
+      "control": "GenerateOcdtButton",
+      "handler": "GenerateOcdtButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F102",
+      "page": "OujiaFlashView",
+      "feature": "修复 super 硬砖",
+      "control": "RepairSuperHardBrickButton",
+      "handler": "RepairSuperHardBrickButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F103",
+      "page": "OujiaFlashView",
+      "feature": "提取分区",
+      "control": "ExtractPartitionButton",
+      "handler": "ExtractPartitionButton_Click",
+      "risk": "file",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "使用临时样本文件和可写目录核查输出、日志和取消操作",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F104",
+      "page": "OujiaFlashView",
+      "feature": "AB 通刷模式",
+      "control": "FlashABCheckBox",
+      "handler": "FlashABCheckBox_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F105",
+      "page": "OujiaFlashView",
+      "feature": "强力线刷模式",
+      "control": "FixSuperCheckBox",
+      "handler": "FixSuperCheckBox_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F106",
+      "page": "OujiaFlashView",
+      "feature": "仅 FastbootD 模式",
+      "control": "PureFBDCheckBox",
+      "handler": "PureFBDCheckBox_Checked",
+      "risk": "mode",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-ui",
+        "manual_procedure": "切换选项并核查互斥状态、启用控件和持久化行为",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F107",
+      "page": "OujiaFlashView",
+      "feature": "检查 ARB 熔断",
+      "control": "ArbFuseCheckButton",
+      "handler": "ArbFuseCheckButton_Click",
+      "risk": "read",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "在可控环境中触发查询，核对读取结果、状态及错误回退",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F108",
+      "page": "OujiaFlashView",
+      "feature": "售后包线刷",
+      "control": "AfterSalesStartFlashButton",
+      "handler": "AfterSalesStartFlashButton_Click",
+      "risk": "destructive",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "仅在隔离且可恢复的测试设备上验证；预先备份，检查确认及回滚",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F109",
+      "page": "OujiaFlashView",
+      "feature": "修复 FastbootD",
+      "control": "AfterSalesFixFastbootDButton",
+      "handler": "FixFastbootDButton_Click",
+      "risk": "device",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-hardware",
+        "manual_procedure": "在可恢复的测试设备上核查设备模式、日志和状态变化",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    },
+    {
+      "id": "F110",
+      "page": "AboutToolView",
+      "feature": "打开社区外部链接",
+      "control": null,
+      "handler": "SocialMediaButton_Click",
+      "risk": "network",
+      "baseline": {
+        "source_sha": "c4ef6d2edc61fcbeff736cab3706a34169bbcc90",
+        "xaml_ui_present": true,
+        "event_bound": true,
+        "ui_parity": "covered: 536 names / 377 bindings P3 baseline",
+        "theme": "theme_static_check",
+        "behavior": "not_verified"
+      },
+      "p6": {
+        "status": "pending",
+        "test_type": "manual-integration",
+        "manual_procedure": "检查网络请求、可用性、错误提示和超时重试，不使用个人凭据",
+        "evidence_required": "操作前后截图/日志、输入样本与设备状态、预期/实测及失败原因"
+      }
+    }
+  ]
+}
