@@ -241,7 +241,7 @@ namespace WpfApp1
             StopOperationButton.IsEnabled = false;
         }
 
-        private void PayloadButton_Click(object sender, RoutedEventArgs e)
+        private void PayloadButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;

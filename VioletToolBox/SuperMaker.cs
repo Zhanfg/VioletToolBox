@@ -65,7 +65,7 @@ namespace OPFlashTool.Services
 
             // 1. 自动寻找配置文件 (META/*.json)
             string metaDir = Path.Combine(rootDirectory, "META");
-            string jsonPath = "";
+            string? jsonPath = "";
 
             if (Directory.Exists(metaDir))
             {

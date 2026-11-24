@@ -1502,7 +1502,7 @@ namespace WpfApp1
             return ports;
         }
 
-        private void EdlPortComboBox_DropDownOpened(object sender, EventArgs e)
+        private void EdlPortComboBox_DropDownOpened(object? sender, EventArgs e)
         {
             LoadEdlPorts();
         }
@@ -2584,7 +2584,7 @@ namespace WpfApp1
         {
         }
 
-        private void EdlPartitionSearchComboBox_DropDownOpened(object sender, EventArgs e)
+        private void EdlPartitionSearchComboBox_DropDownOpened(object? sender, EventArgs e)
         {
             if (sender is not System.Windows.Controls.ComboBox comboBox)
                 return;

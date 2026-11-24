@@ -305,7 +305,7 @@ namespace WpfApp1
             OnPropertyChanged(nameof(StorageDashArray));
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -331,7 +331,7 @@ namespace WpfApp1
         }
         private StorageViewModel _storageViewModel;
         private DispatcherTimer? _storageTimer;
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void CopyTextBlockContent(object sender, MouseButtonEventArgs e)
         {
@@ -1188,7 +1188,7 @@ namespace WpfApp1
                 double memTotalGb = totalKb > 0 ? totalKb / 1024.0 / 1024.0 : 0;
                 double memUsedPct = (totalKb > 0) ? 100.0 - (availKb * 1.0 / totalKb) * 100.0 : 0;
 
-                string targetLine = null;
+                string? targetLine = null;
                 foreach (var line in dfh.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     var lt = line.Trim();
@@ -1290,7 +1290,7 @@ namespace WpfApp1
             }
         }
 
-        private void ToggleAllPartitions(object parameter)
+        private void ToggleAllPartitions(object? parameter)
         {
             bool selectAll = parameter is bool ? (bool)parameter : IsAllPartitionsSelected;
             bool adbMode = IsFastbootVisualizationAdbMode();
@@ -1815,7 +1815,7 @@ namespace WpfApp1
             this.WindowState = WindowState.Minimized;
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示主页视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -1860,7 +1860,7 @@ namespace WpfApp1
             UpdateButtonStates("Home");
         }
 
-        private void ScreenMirrorButton_Click(object sender, RoutedEventArgs e)
+        private void ScreenMirrorButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示投屏视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -1905,7 +1905,7 @@ namespace WpfApp1
             UpdateButtonStates("ScreenMirror");
         }
 
-        private void BasicFlashButton_Click(object sender, RoutedEventArgs e)
+        private void BasicFlashButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示基本刷入视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -1950,7 +1950,7 @@ namespace WpfApp1
             UpdateButtonStates("BasicFlash");
         }
 
-        private void FastbootVisualizationButton_Click(object sender, RoutedEventArgs e)
+        private void FastbootVisualizationButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示Fastboot可视化视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -1998,7 +1998,7 @@ namespace WpfApp1
             UpdatePartitionButtonStates();
         }
 
-        private void DownloadZoneButton_Click(object sender, RoutedEventArgs e)
+        private void DownloadZoneButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;
@@ -2044,7 +2044,7 @@ namespace WpfApp1
 
         }
 
-        private void VioletDownloadButton_Click(object sender, RoutedEventArgs e)
+        private void VioletDownloadButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;
@@ -2088,7 +2088,7 @@ namespace WpfApp1
             currentView = "VioletDownload";
         }
 
-        private void AboutToolButton_Click(object sender, RoutedEventArgs e)
+        private void AboutToolButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示关于工具视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -2134,7 +2134,7 @@ namespace WpfApp1
 
         }
 
-        private void AutorootButton_Click(object sender, RoutedEventArgs e)
+        private void AutorootButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示一键ROOT视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -2956,8 +2956,8 @@ namespace WpfApp1
             {
             }
 
-            Paragraph countdownParagraph = null;
-            Run countdownRun = null;
+            Paragraph? countdownParagraph = null;
+            Run? countdownRun = null;
 
             Dispatcher.Invoke(() =>
             {
@@ -3622,7 +3622,7 @@ namespace WpfApp1
             // 可以在这里添加取消选中的逻辑
         }
 
-        private async void SystemZoneButton_Click(object sender, RoutedEventArgs e)
+        private async void SystemZoneButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示系统专区视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -3682,7 +3682,7 @@ namespace WpfApp1
             currentView = activeView;
         }
 
-        private void AppManagementButton_Click(object sender, RoutedEventArgs e)
+        private void AppManagementButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示应用管理视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -3731,7 +3731,7 @@ namespace WpfApp1
 
         }
 
-        private void AndroidGeneralButton_Click(object sender, RoutedEventArgs e)
+        private void AndroidGeneralButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示安卓常用视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -3780,7 +3780,7 @@ namespace WpfApp1
 
         }
 
-        private void EdlFlashButton_Click(object sender, RoutedEventArgs e)
+        private void EdlFlashButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;
@@ -7019,7 +7019,7 @@ namespace WpfApp1
             }
         }
 
-        private void AppendOcdtLog(string message, System.Windows.Media.Brush color = null)
+        private void AppendOcdtLog(string message, System.Windows.Media.Brush? color = null)
         {
             var paragraph = new Paragraph(new Run($"[{DateTime.Now:HH:mm:ss}] {message}"));
             if (color != null)
@@ -7263,7 +7263,7 @@ namespace WpfApp1
             }
         }
 
-        private byte[] GenerateOcdtConfig(int projIdNum, string strId, string variant = "standard")
+        private byte[] GenerateOcdtConfig(int projIdNum, string? strId, string variant = "standard")
         {
             if (!string.IsNullOrEmpty(strId) && SPECIAL_CONFIG_DB.ContainsKey(strId))
             {
@@ -7306,7 +7306,7 @@ namespace WpfApp1
             return GeyixueEncrypt(plain);
         }
 
-        private string Generate8MbOcdt(int projIdNum, string outputPath, string variant = "standard", byte[] osigBackup = null, string strId = null)
+        private string Generate8MbOcdt(int projIdNum, string outputPath, string variant = "standard", byte[]? osigBackup = null, string? strId = null)
         {
             byte[] data = new byte[8 * 1024 * 1024];
 
@@ -7362,7 +7362,7 @@ namespace WpfApp1
             return outputPath;
         }
 
-        private string Generate128KbOcdt(int projIdNum, string outputPath, string variant = "standard", byte[] osigData = null, string strId = null)
+        private string Generate128KbOcdt(int projIdNum, string outputPath, string variant = "standard", byte[]? osigData = null, string? strId = null)
         {
             byte[] data = new byte[128 * 1024];
 
@@ -7654,7 +7654,7 @@ namespace WpfApp1
                     if (!IsDeviceDetectionCycleCurrent(detectionVersion)) return;
 
                     // 保存当前选中的设备序列号
-                    string currentSelectedSerial = MultiDeviceComboBox.SelectedItem as string;
+                    string? currentSelectedSerial = MultiDeviceComboBox.SelectedItem as string;
                     
                     DeviceSerials.Clear();
                     foreach (var serial in allDeviceSerials)
@@ -10644,12 +10644,12 @@ namespace WpfApp1
         }
         
         // 查找父级控件的辅助方法
-        private T FindParent<T>(DependencyObject child) where T : DependencyObject
+        private T? FindParent<T>(DependencyObject child) where T : DependencyObject
         {
-            DependencyObject parentObject = VisualTreeHelper.GetParent(child);
+            DependencyObject? parentObject = VisualTreeHelper.GetParent(child);
             if (parentObject == null) return null;
             
-            T parent = parentObject as T;
+            T? parent = parentObject as T;
             if (parent != null)
                 return parent;
             else
@@ -13940,7 +13940,7 @@ if (startXiaomiFlashButton != null)
             }
         }
 
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        public event System.ComponentModel.PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -14027,7 +14027,7 @@ public partial class MainWindow : Window
             { "MT6991", "天玑9400" }
         };
         
-        return cpuMapping.TryGetValue(cpuCode, out string cpuName) ? cpuName : "未知";
+        return cpuMapping.TryGetValue(cpuCode, out string? cpuName) ? cpuName : "未知";
     }
     
     private async Task<string> GetWindowsVersionAsync()
@@ -14092,7 +14092,7 @@ public partial class MainWindow : Window
     }
     
     // 传入文件到手机按钮点击事件
-    private async void Button_Click_1(object sender, RoutedEventArgs e)
+    private async void Button_Click_1(object sender, RoutedEventArgs? e)
     {
        try
         {
@@ -16222,7 +16222,7 @@ public partial class MainWindow : Window
                  return;
              }
 
-             ListBoxItem itemContainer = source as ListBoxItem ?? FindParent<ListBoxItem>(source);
+             ListBoxItem? itemContainer = source as ListBoxItem ?? FindParent<ListBoxItem>(source);
              if (itemContainer?.DataContext is not FileItem fileItem)
              {
                  return;
@@ -17237,7 +17237,7 @@ public partial class MainWindow : Window
                  return;
              }
 
-             ListBoxItem itemContainer = source as ListBoxItem ?? FindParent<ListBoxItem>(source);
+             ListBoxItem? itemContainer = source as ListBoxItem ?? FindParent<ListBoxItem>(source);
              if (itemContainer?.DataContext is FileItem selectedFileItem)
              {
                  // 只处理文件夹的双击事件
@@ -18033,7 +18033,7 @@ public partial class MainWindow : Window
             try
             {
                 var combo = FindName("ReadPartitionComboBox") as System.Windows.Controls.ComboBox;
-                string name = combo?.SelectedItem as string;
+                string? name = combo?.SelectedItem as string;
                 if (string.IsNullOrWhiteSpace(name)) name = combo?.Text?.Trim();
                 if (string.IsNullOrWhiteSpace(name) || name.Contains("读取分区表") || name.Contains("未读取到分区"))
                 {
@@ -18166,7 +18166,7 @@ public partial class MainWindow : Window
             try
             {
                 var combo = FindName("ReadPartitionComboBox") as System.Windows.Controls.ComboBox;
-                string name = combo?.SelectedItem as string;
+                string? name = combo?.SelectedItem as string;
                 if (string.IsNullOrWhiteSpace(name)) name = combo?.Text?.Trim();
                 if (string.IsNullOrWhiteSpace(name) || name.Contains("读取分区表") || name.Contains("未读取到分区"))
                 {

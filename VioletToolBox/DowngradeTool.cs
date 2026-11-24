@@ -63,7 +63,7 @@ rwIDAQAB
             Log = logAction;
         }
 
-        private JObject SockRecv(NetworkStream s, int timeoutSec = 5)
+        private JObject? SockRecv(NetworkStream s, int timeoutSec = 5)
         {
             s.ReadTimeout = timeoutSec * 1000;
             try
@@ -171,7 +171,7 @@ rwIDAQAB
             return Encoding.UTF8.GetString(dec);
         }
 
-        private JObject QueryDowngrade(string model, string otaVersion, string prjNum, string duid, string nvCarrier = "10010111", string androidVersion = "Android15", string colorosVersion = "ColorOS15.0.0", string serialNo = "00000000")
+        private JObject QueryDowngrade(string? model, string? otaVersion, string? prjNum, string duid, string nvCarrier = "10010111", string androidVersion = "Android15", string colorosVersion = "ColorOS15.0.0", string serialNo = "00000000")
         {
             byte[] aesKey = new byte[32];
             byte[] nonce = new byte[12];
@@ -325,7 +325,7 @@ rwIDAQAB
             return JObject.Parse(DecSocket(m["extraInfo"].ToString(), kh));
         }
 
-        private JObject SendDowngradeInstall(NetworkStream s, string kh, string installBeanJson)
+        private JObject? SendDowngradeInstall(NetworkStream s, string kh, string installBeanJson)
         {
             SockSend(s, 40006, EncSocket(installBeanJson, kh));
             var m = SockRecv(s, 300);
@@ -691,7 +691,7 @@ rwIDAQAB
             return (true, string.Empty);
         }
 
-        private string GetSerialFromPhone()
+        private string? GetSerialFromPhone()
         {
             var res = AdbCmd("shell getprop ro.serialno");
             if (res.rc == 0 && !string.IsNullOrWhiteSpace(res.stdout))
@@ -743,8 +743,8 @@ rwIDAQAB
         public class DowngradePackageInfo
         {
             public int Index { get; set; }
-            public string ColorOSVersion { get; set; }
-            public string AndroidVersion { get; set; }
+            public string? ColorOSVersion { get; set; }
+            public string? AndroidVersion { get; set; }
             public string AndroidVersionDisplay
             {
                 get
@@ -759,23 +759,23 @@ rwIDAQAB
                 }
             }
             public double SizeGB { get; set; }
-            public string OtaVersion { get; set; }
-            public string DownloadUrl { get; set; }
+            public string? OtaVersion { get; set; }
+            public string? DownloadUrl { get; set; }
         }
 
         public class DowngradeOptions
         {
             public int Port { get; set; } = 8500;
             public int PkgIndex { get; set; } = 0;
-            public string DownloadDir { get; set; }
+            public string? DownloadDir { get; set; }
             public bool QueryOnly { get; set; }
-            public string PushOnlyFile { get; set; }
-            public string ApkPath { get; set; }
+            public string? PushOnlyFile { get; set; }
+            public string? ApkPath { get; set; }
             public bool InstallApkBeforeQuery { get; set; }
         }
 
-        public Action<List<DowngradePackageInfo>> OnPackagesFound;
-        public Action<double, double, string> OnDownloadProgress; // percentage, speed MB/s, text info
+        public Action<List<DowngradePackageInfo>>? OnPackagesFound;
+        public Action<double, double, string>? OnDownloadProgress; // percentage, speed MB/s, text info
 
         private async Task DownloadPackageAsync(string url, string localFile, long totalSize)
         {
@@ -938,7 +938,7 @@ rwIDAQAB
                 ? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "ColorOSData") 
                 : options.DownloadDir;
             
-            string serial = GetSerialFromPhone();
+            string? serial = GetSerialFromPhone();
             int port = options.Port;
 
             if (string.IsNullOrEmpty(serial))
@@ -955,12 +955,12 @@ rwIDAQAB
             await Task.Delay(3000);
             AdbForward(port);
 
-            TcpClient client = null;
-            NetworkStream s = null;
-            string kh = null;
-            JObject info = null;
-            JObject dgBody = null;
-            string duid = null;
+            TcpClient? client = null;
+            NetworkStream? s = null;
+            string? kh = null;
+            JObject? info = null;
+            JObject? dgBody = null;
+            string? duid = null;
 
             for (int i = 0; i < 3; i++)
             {
@@ -972,8 +972,8 @@ rwIDAQAB
                     kh = authRes.Item3;
                     info = GetDeviceInfo(s, kh);
                     var dgRaw = JObject.Parse(info["downgradeRequestBody"]?.ToString() ?? "{}");
-                    if (dgRaw["params"] != null)
-                        dgBody = JObject.Parse(dgRaw["params"].ToString());
+                    if (dgRaw["params"] is { } parameters)
+                        dgBody = JObject.Parse(parameters.ToString());
                     else
                         dgBody = dgRaw;
                     
@@ -998,17 +998,17 @@ rwIDAQAB
                 }
             }
 
-            if (string.IsNullOrEmpty(duid) || duid == new string('0', 64))
+            if (string.IsNullOrEmpty(duid) || duid == new string('0', 64) || dgBody == null)
             {
                 client?.Close();
                 Print("  ✗ 无法从手机端降级助手获取设备信息。请确认降级助手已正常安装并启动，然后重新连接设备再试。");
                 return;
             }
 
-            string model = dgBody["model"]?.ToString();
-            string otaVersion = dgBody["otaVersion"]?.ToString();
+            string? model = dgBody["model"]?.ToString();
+            string? otaVersion = dgBody["otaVersion"]?.ToString();
             string nvCarrier = dgBody["nvCarrier"]?.ToString() ?? "10010111";
-            string prjNum = dgBody["prjNum"]?.ToString();
+            string? prjNum = dgBody["prjNum"]?.ToString();
             string androidVer = dgBody["androidVersion"]?.ToString() ?? "Android15";
             string colorosVer = dgBody["colorosVersion"]?.ToString() ?? "ColorOS15.0.0";
 
@@ -1022,15 +1022,15 @@ rwIDAQAB
             Print("============================================================");
 
             var resp = QueryDowngrade(model, otaVersion, prjNum, duid, nvCarrier, androidVer, colorosVer, serial);
-            if (resp["code"]?.Value<int>() != 200 || resp["data"] == null)
+            if (resp["code"]?.Value<int>() != 200 || resp["data"] is not { } data)
             {
                 Print($"  ✗ 查询失败: {resp}");
                 client?.Close();
                 return;
             }
 
-            string metaData = resp["data"]["metaData"]?.ToString();
-            var packages = (JArray)resp["data"]["downgradeVoList"];
+            string? metaData = data["metaData"]?.ToString();
+            var packages = (JArray)data["downgradeVoList"];
             Print($"  ✓ 找到 {packages.Count} 个可用降级包:");
             
             var packageList = new List<DowngradePackageInfo>();

@@ -93,7 +93,7 @@ namespace WpfApp1
                 {
                     // 查找对应的分区文件
                     string[] possibleExtensions = { ".img", ".bin" };
-                    string foundFilePath = null;
+                    string? foundFilePath = null;
                     
                     foreach (string extension in possibleExtensions)
                     {
@@ -1377,7 +1377,7 @@ namespace WpfApp1
             };
 
         private long _lastGlobalProgressBytes = 0;
-        private DispatcherTimer _flashElapsedTimer;
+        private DispatcherTimer? _flashElapsedTimer;
         private DateTime _flashStartTime;
         private string _flashElapsedText = "耗时00:00";
         public string FlashElapsedText
@@ -9376,7 +9376,7 @@ namespace WpfApp1
             }
         }
 
-        private async void AfterSalesStartFlashButton_Click(object sender, RoutedEventArgs e)
+        private async void AfterSalesStartFlashButton_Click(object? sender, RoutedEventArgs? e)
         {
             try
             {
@@ -9688,8 +9688,8 @@ namespace WpfApp1
                     LogToOugaFlash("单次传输数据较大，等待设备冷却中...", "Yellow");
                     
                     // 创建一个段落用于显示倒计时
-                    System.Windows.Documents.Paragraph countdownParagraph = null;
-                    System.Windows.Documents.Run countdownRun = null;
+                    System.Windows.Documents.Paragraph? countdownParagraph = null;
+                    System.Windows.Documents.Run? countdownRun = null;
                     
                     await Dispatcher.InvokeAsync(() =>
                     {
@@ -10740,8 +10740,8 @@ namespace WpfApp1
                 LogToOugaFlash($"保存路径：{savePath}", "Green");
 
                 // 5. 检查磁盘空间
-                DriveInfo savePathDrive = new DriveInfo(Path.GetPathRoot(savePath));
-                DriveInfo appDrive = new DriveInfo(Path.GetPathRoot(AppDomain.CurrentDomain.BaseDirectory));
+                DriveInfo savePathDrive = new DriveInfo(Path.GetPathRoot(savePath)!);
+                DriveInfo appDrive = new DriveInfo(Path.GetPathRoot(AppDomain.CurrentDomain.BaseDirectory)!);
 
                 long requiredSpace = 30L * 1024 * 1024 * 1024; // 30GB
 
@@ -11051,7 +11051,14 @@ namespace WpfApp1
                     return false;
                 }
 
-                string outputDir = Path.GetDirectoryName(outputPath);
+                string? outputDir = Path.GetDirectoryName(outputPath);
+                if (outputDir == null)
+                {
+                    // 调用方传入的 outputPath 恒为有根目录 + 文件名的组合，
+                    // 此处守卫仅为可空标注兜底：无目录可取时直接失败，不传 null 给 ArgumentList。
+                    LogToOugaFlash("下载路径无效，无法确定输出目录", "Red");
+                    return false;
+                }
                 string fileName = Path.GetFileName(outputPath);
 
                 var startInfo = new ProcessStartInfo
@@ -11278,7 +11285,7 @@ namespace WpfApp1
         }
         
 
-        private void OugaFlashButton_Click(object sender, RoutedEventArgs e)
+        private void OugaFlashButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示欧加刷写视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
