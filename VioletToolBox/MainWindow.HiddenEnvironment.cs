@@ -19,10 +19,10 @@ namespace WpfApp1
     public class ModuleFileItem : INotifyPropertyChanged
     {
         private bool _isSelected;
-        private string _fileName;
-        private string _fullPath;
+        private string? _fileName;
+        private string? _fullPath;
 
-        public string FileName
+        public string? FileName
         {
             get => _fileName;
             set
@@ -32,7 +32,7 @@ namespace WpfApp1
             }
         }
 
-        public string FullPath
+        public string? FullPath
         {
             get => _fullPath;
             set
@@ -52,7 +52,7 @@ namespace WpfApp1
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
@@ -62,7 +62,7 @@ namespace WpfApp1
 
     public partial class MainWindow
     {
-        private void HiddenEnvironmentButton_Click(object sender, RoutedEventArgs e)
+        private void HiddenEnvironmentButton_Click(object sender, RoutedEventArgs? e)
         {
             // 显示隐藏环境视图，隐藏其他视图
             var homeView = this.FindName("HomeView") as Grid;
@@ -237,7 +237,7 @@ namespace WpfApp1
                 }
 
                 // 获取7z文件所在目录
-                string zipDirectory = Path.GetDirectoryName(zipPath);
+                string zipDirectory = Path.GetDirectoryName(zipPath)!;
                 string newZipName = "violettoolbox.7z";
                 string newZipPath = Path.Combine(zipDirectory, newZipName);
 
@@ -305,7 +305,7 @@ namespace WpfApp1
                     string apkDisplayName = apkInfo.displayName;
 
                     // 尝试找到匹配的APK文件（忽略大小写）
-                    string matchedFile = allApkFiles.FirstOrDefault(f => 
+                    string? matchedFile = allApkFiles.FirstOrDefault(f =>
                         Path.GetFileName(f).Equals(apkFileName, StringComparison.OrdinalIgnoreCase));
 
                     // 如果精确匹配失败，尝试模糊匹配
@@ -1150,7 +1150,7 @@ namespace WpfApp1
                         }
 
                         // 获取7z文件所在目录
-                        string zipDirectory = Path.GetDirectoryName(zipPath);
+                        string zipDirectory = Path.GetDirectoryName(zipPath)!;
                         string newZipName = "violettoolbox.7z";
                         string newZipPath = Path.Combine(zipDirectory, newZipName);
 
@@ -1574,7 +1574,7 @@ namespace WpfApp1
             try
             {
                 return Directory.GetFiles(extractPath, "*.zip", SearchOption.TopDirectoryOnly)
-                    .Select(Path.GetFileName)
+                    .Select(path => Path.GetFileName(path))
                     .FirstOrDefault(f => f.StartsWith(prefix, StringComparison.OrdinalIgnoreCase));
             }
             catch

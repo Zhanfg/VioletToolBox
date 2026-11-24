@@ -51,7 +51,7 @@ namespace WpfApp1
             return File.Exists(adbPath) ? adbPath : "adb";
         }
 
-        private void BackupAssistantButton_Click(object sender, RoutedEventArgs e)
+        private void BackupAssistantButton_Click(object sender, RoutedEventArgs? e)
         {
             HideAllViews();
             var backupAssistantView = this.FindName("BackupAssistantView") as WpfGrid;

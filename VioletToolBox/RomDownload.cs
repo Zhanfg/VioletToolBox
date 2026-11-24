@@ -746,15 +746,15 @@ namespace WpfApp1
 
         private sealed class C16ResolveRequestDto
         {
-            public string Url { get; set; }
-            public string DeviceCode { get; set; }
-            public string OtaVersion { get; set; }
+            public string? Url { get; set; }
+            public string? DeviceCode { get; set; }
+            public string? OtaVersion { get; set; }
             public bool SaveToStore { get; set; } = true;
         }
 
         private sealed class C16ResolveResponseDto
         {
-            public string url { get; set; }
+            public string? url { get; set; }
             public DateTime? expiresAt { get; set; }
         }
 
@@ -4207,7 +4207,7 @@ namespace WpfApp1
             }
         }
 
-        private async void RomDownloadButton_Click(object sender, RoutedEventArgs e)
+        private async void RomDownloadButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;

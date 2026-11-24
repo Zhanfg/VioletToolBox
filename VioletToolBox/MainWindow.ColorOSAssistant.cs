@@ -33,7 +33,7 @@ namespace WpfApp1
 {
     public partial class MainWindow
     {
-        private DowngradeTool _downgradeTool;
+        private DowngradeTool? _downgradeTool;
         private int? _selectedColorOSPackageIndex;
         private bool _colorOSQueryOnlyInProgress;
         private bool _suppressColorOSPackageSelectionParsing;
@@ -49,7 +49,7 @@ namespace WpfApp1
             _downgradeTool.OnDownloadProgress = OnDownloadProgress;
         }
 
-        private void ColorOSAssistantButton_Click(object sender, RoutedEventArgs e)
+        private void ColorOSAssistantButton_Click(object sender, RoutedEventArgs? e)
         {
             var homeView = this.FindName("HomeView") as Grid;
             var screenMirrorView = this.FindName("ScreenMirrorView") as Grid;
@@ -611,7 +611,8 @@ namespace WpfApp1
             {
                 try
                 {
-                    await _downgradeTool.RunAsync(options);
+                    // 进入助手页面时已初始化；此任务只由页面内的两个按钮启动。
+                    await _downgradeTool!.RunAsync(options);
                 }
                 catch (Exception ex)
                 {

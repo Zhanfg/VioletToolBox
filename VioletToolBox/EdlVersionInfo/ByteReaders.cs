@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Yu.Modular.Qualcomm.Firehose.Parsers;
 
 public interface IByteReader
@@ -125,7 +127,7 @@ public sealed class LogicalPartitionReader : IByteReader
         return result;
     }
 
-    private bool FindExtent(long logicalOffset, out LpExtentMapping? result, out long offsetInExtent)
+    private bool FindExtent(long logicalOffset, [NotNullWhen(true)] out LpExtentMapping? result, out long offsetInExtent)
     {
         long extentStart = 0;
         foreach (LpExtentMapping extent in _extents)
